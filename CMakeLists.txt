@@ -20,6 +20,13 @@ set(STDAFX_DIR "${CMAKE_SOURCE_DIR}/src")
 set(STDAFX_H "${STDAFX_DIR}/stdafx.h")
 include_directories(${STDAFX_DIR})
 
+#------ fix compiler settings ------
+if(MSVC)
+    foreach(flags CMAKE_CXX_FLAGS CMAKE_CXX_FLAGS_DEBUG CMAKE_CXX_FLAGS_RELEASE)
+        string(REPLACE "/MD" "-MT" ${flags} "${${flags}}")
+    endforeach()
+endif()
+
 #----------- subprojects -----------
 add_subdirectory(00)
 
