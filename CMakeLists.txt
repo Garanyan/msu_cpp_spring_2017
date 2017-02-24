@@ -28,6 +28,6 @@ if(MSVC)
 endif()
 
 #----------- subprojects -----------
-add_subdirectory(00)
+add_subdirectory(00_Grubov)
 
 enable_testing()
