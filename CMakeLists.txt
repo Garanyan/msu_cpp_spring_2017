@@ -30,5 +30,6 @@ endif()
 #----------- subprojects -----------
 add_subdirectory(00)
 add_subdirectory(Anferov)
+add_subdirectory(Kupriakov)
 
 enable_testing()
