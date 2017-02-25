@@ -12,9 +12,12 @@ find_library( SOURCE_LIB
     PATHS ../
 )
 
-add_executable(${PROJECT_NAME} ${SOURCES})
-target_link_libraries(${PROJECT_NAME} ${SOURCE_LIB})
+if (SOURCE_LIB)
+    add_executable(${PROJECT_NAME} ${SOURCES})
+    target_link_libraries(${PROJECT_NAME} ${SOURCE_LIB})
 
-target_link_libraries(${PROJECT_NAME} gtest)
+    target_link_libraries(${PROJECT_NAME} grutest)
 
-target_compile_features(${PROJECT_NAME} PRIVATE cxx_range_for)
+    target_compile_features(${PROJECT_NAME} PRIVATE cxx_range_for)
+endif(SOURCE_LIB)
+

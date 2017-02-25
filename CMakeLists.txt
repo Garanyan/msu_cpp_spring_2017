@@ -42,6 +42,6 @@ add_subdirectory(konyukhov)
 add_subdirectory(islentyev)
 add_subdirectory(valinurov)
 add_subdirectory(Pronin)
-add_subdirectory(00_Grubov)
+add_subdirectory(Grubov)
 
 enable_testing()
