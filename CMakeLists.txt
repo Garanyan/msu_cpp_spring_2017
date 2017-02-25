@@ -40,5 +40,6 @@ add_subdirectory(Zuev)
 add_subdirectory(sheviakov)
 add_subdirectory(konyukhov)
 add_subdirectory(islentyev)
+add_subdirectory(valinurov)
 
 enable_testing()
