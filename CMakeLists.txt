@@ -29,5 +29,6 @@ endif()
 
 #----------- subprojects -----------
 add_subdirectory(00)
+add_subdirectory(valinurov)
 
 enable_testing()
