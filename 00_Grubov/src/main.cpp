@@ -4,7 +4,7 @@
 int main(int argc, char* argv[])
 {
     std::vector<std::string> input;
-    uint num; std::cin >> num;
+    int num; std::cin >> num;
     for (std::string line; (std::cin >> line) && num; --num) {
         input.push_back(line);
     }

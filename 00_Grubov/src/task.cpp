@@ -5,37 +5,33 @@
 
 std::vector<std::string> solve(std::vector<std::string> & data) {
     std::vector<std::string> result;
+    std::vector<char> dict = { 'a', 'd', 'g', 'j', 'm', 'p', 't', 'w' };
     for (auto word : data) {
         std::string res = "";
+        char prev_ch = 0;
         for (auto ch : word) {
-            if (res.length() != 0) {
+            if (ch == ' ') {
+                if (prev_ch == '0') {
+                    res += " ";
+                }
+                res += '0';
+                prev_ch = '0';
+                continue;
+            }
+
+            auto find_num = std::lower_bound(dict.begin(), dict.end(), ch);
+            if (find_num == dict.end() or ch < *find_num) {
+                --find_num;
+            }
+
+            char num = char('0' + 2 + std::distance(dict.begin(), find_num));
+            std::string mult(uint(ch - *find_num) + 1, num);
+            if (prev_ch == num) { // if previous is the same as current -> we need space
                 res += " ";
             }
-            if (ch <= 'c') {
-                std::string mult("2", uint('c' - ch));
-                res += mult;
-            } else if (ch <= 'f') {
-                std::string mult("3", uint('f' - ch));
-                res += mult;
-            } else if (ch <= 'i') {
-                std::string mult("4", uint('i' - ch));
-                res += mult;
-            } else if (ch <= 'l') {
-                std::string mult("5", uint('l' - ch));
-                res += mult;
-            } else if (ch <= 'o') {
-                std::string mult("6", uint('o' - ch));
-                res += mult;
-            } else if (ch <= 's') {
-                std::string mult("7", uint('s' - ch));
-                res += mult;
-            } else if (ch <= 'v') {
-                std::string mult("8", uint('v' - ch));
-                res += mult;
-            } else if (ch <= 'z') {
-                std::string mult("9", uint('z' - ch));
-                res += mult;
-            }
+
+            prev_ch = num;
+            res += mult;
         }
         result.push_back(res);
     }
