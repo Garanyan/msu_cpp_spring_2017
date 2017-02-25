@@ -1,15 +1,20 @@
 #include "stdafx.h"
+#include "Task.h"
 
 TEST(Test, test1) {
-    std::ofstream in; std::ifstream out;
-    in << 1 << "\n";
-    in << "a" << std::endl;
-    solve(in, out);
+    std::vector<std::string> input;
+    input.push_back("a");
 
-    std::string data;
-    ASSERT_EQ(out.eof(), false);
-    out >> data;
-    ASSERT_EQ(data, "Case #1: 2");
+    auto answ = solve(input);
+    ASSERT_STREQ(answ[0].c_str(), "2");
+}
+
+TEST(Test, test2) {
+    std::vector<std::string> input;
+    input.push_back("abc");
+
+    auto answ = solve(input);
+    ASSERT_STREQ(answ[0].c_str(), "2 22 222");
 }
 
 int main(int argc, char* argv[])
