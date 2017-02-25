@@ -41,5 +41,6 @@ add_subdirectory(sheviakov)
 add_subdirectory(konyukhov)
 add_subdirectory(islentyev)
 add_subdirectory(valinurov)
+add_subdirectory(Pronin)
 
 enable_testing()
