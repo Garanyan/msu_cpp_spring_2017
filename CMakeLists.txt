@@ -30,6 +30,8 @@ endif()
 #----------- subprojects -----------
 add_subdirectory(00_Grubov)
 add_subdirectory(00)
+
+add_subdirectory(valinurov)
 add_subdirectory(Anferov)
 add_subdirectory(Kupriakov)
 add_subdirectory(Popkova)
