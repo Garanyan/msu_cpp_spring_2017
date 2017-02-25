@@ -38,5 +38,6 @@ add_subdirectory(Popkova)
 add_subdirectory(Zuev)
 add_subdirectory(sheviakov)
 #add_subdirectory(konyukhov)
+add_subdirectory(islentyev)
 
 enable_testing()
