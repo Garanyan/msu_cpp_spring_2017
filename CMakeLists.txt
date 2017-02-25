@@ -33,5 +33,6 @@ add_subdirectory(Anferov)
 add_subdirectory(Kupriakov)
 add_subdirectory(Popkova)
 add_subdirectory(Davydov)
+add_subdirectory(Zuev)
 
 enable_testing()
