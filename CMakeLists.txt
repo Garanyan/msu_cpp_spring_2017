@@ -29,6 +29,15 @@ endif()
 
 #----------- subprojects -----------
 add_subdirectory(00)
+HEAD
 add_subdirectory(Zaitcev)
+
+add_subdirectory(trempoltsev)
+#add_subdirectory(Anferov)
+add_subdirectory(Kupriakov)
+add_subdirectory(Popkova)
+add_subdirectory(Zuev)
+add_subdirectory(sheviakov)
+#add_subdirectory(konyukhov)
 
 enable_testing()
