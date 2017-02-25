@@ -29,6 +29,7 @@ endif()
 
 #----------- subprojects -----------
 add_subdirectory(00)
+add_subdirectory(trempoltsev)
 
 add_subdirectory(valinurov)
 add_subdirectory(Anferov)
