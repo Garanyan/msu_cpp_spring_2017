@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.4)
 
-project(bespalov)
+project(msu_cpp_spring_2017)
 
 #-----------  variables  -----------
 set(DEPENDENCIES_DIR "${CMAKE_SOURCE_DIR}/dependencies")
@@ -28,6 +28,6 @@ if(MSVC)
 endif()
 
 #----------- subprojects -----------
-add_subdirectory(00)
+add_subdirectory(bespalov)
 
 enable_testing()
