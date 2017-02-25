@@ -43,5 +43,5 @@ add_subdirectory(islentyev)
 add_subdirectory(valinurov)
 add_subdirectory(Pronin)
 add_subdirectory(Grubov)
-
+add_subdirectory(Gevorkyan)
 enable_testing()
