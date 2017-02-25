@@ -1,6 +1,6 @@
 #include "stdafx.h"
+#include "convert.h"
 
-int main(int argc, char* argv[])
+int main()
 {
-    return 0;
 }

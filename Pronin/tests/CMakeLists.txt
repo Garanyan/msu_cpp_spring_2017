@@ -4,7 +4,7 @@ project(${TEST_PROJECT})
 
 set(SOURCES
     main.cpp
-    mytest.cpp)
+    tests.cpp)
 
 add_executable(${PROJECT_NAME} ${SOURCES})
 
