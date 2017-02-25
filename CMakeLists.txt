@@ -31,12 +31,15 @@ endif()
 
 add_subdirectory(bespalov)
 add_subdirectory(00)
+add_subdirectory(Zaitcev)
+
 add_subdirectory(trempoltsev)
-#add_subdirectory(Anferov)
+add_subdirectory(Anferov)
 add_subdirectory(Kupriakov)
 add_subdirectory(Popkova)
 add_subdirectory(Zuev)
 add_subdirectory(sheviakov)
 #add_subdirectory(konyukhov)
+add_subdirectory(islentyev)
 
 enable_testing()
