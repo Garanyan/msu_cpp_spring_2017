@@ -5,12 +5,15 @@ project(Kupriakov)
 set(SRC_ROOT "${PROJECT_SOURCE_DIR}/src")
 
 set(HEADERS
+    ${SRC_ROOT}/convert.h
     )
 
 set(SOURCES
     ${SRC_ROOT}/main.cpp)
 
 add_executable(${PROJECT_NAME} ${HEADERS} ${SOURCES})
+
+add_library(ConvertCPP src/convert.cpp)
 
 target_compile_features(${PROJECT_NAME} PRIVATE cxx_range_for)
 
