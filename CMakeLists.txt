@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.4)
 
-project(msu_cpp_spring_2017)
+project(bespalov)
 
 #-----------  variables  -----------
 set(DEPENDENCIES_DIR "${CMAKE_SOURCE_DIR}/dependencies")
