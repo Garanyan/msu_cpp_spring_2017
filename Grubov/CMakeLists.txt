@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.4)
 
-project(00_Grubov)
+project(Grubov)
 
 set(SRC_ROOT "${PROJECT_SOURCE_DIR}/src")
 include_directories(include)
