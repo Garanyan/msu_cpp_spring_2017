@@ -31,5 +31,7 @@ endif()
 add_subdirectory(00)
 add_subdirectory(Anferov)
 add_subdirectory(Kupriakov)
+add_subdirectory(Popkova)
+add_subdirectory(Davydov)
 
 enable_testing()
