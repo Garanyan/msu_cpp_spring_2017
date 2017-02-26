@@ -8,7 +8,7 @@
 #define BUFFER_LENGTH 128
 
 class TextOnNineTranslater {
-    char last_number { -1 };
+    char last_number { '\0' };
     char ibuffer[BUFFER_LENGTH];
     char obuffer[5 * BUFFER_LENGTH];
 

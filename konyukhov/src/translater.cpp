@@ -17,6 +17,7 @@ std::map< char, pair<char, int> > TextOnNineTranslater::keypad;
 
 TextOnNineTranslater::TextOnNineTranslater() {
     if (is_init) return;
+    is_init = true;
 
     char number;
     string letters;
@@ -27,7 +28,7 @@ TextOnNineTranslater::TextOnNineTranslater() {
     };
 
     for (auto & key_pair : tmp_keypad) {
-        std::tie(letters, number);
+        std::tie(letters, number) = key_pair;
 
         int counter = 1;
         for (char ch : letters)
@@ -52,6 +53,7 @@ void TextOnNineTranslater::translateString(string & dst, const string & src) {
 void TextOnNineTranslater::translateStream(std::istream & in = std::cin, std::ostream & out = std::cout) {
     while (!in.eof() && in.peek() != '\n') {
         in.get(ibuffer, BUFFER_LENGTH);
+        translateBuffer();
         out << obuffer;
     }
     if (!in.eof()) in.get();
@@ -68,12 +70,12 @@ void TextOnNineTranslater::translateBuffer() {
 }
 
 char * TextOnNineTranslater::translateChar(char * dst, char target) {
-    char letter; int count;
-    tie(letter, count) = keypad[target];
+    char number; int count;
+    tie(number, count) = keypad[target];
 
-    if (letter == last_number) *(dst++) = ' ';
-    last_number = letter;
+    if (number == last_number) *(dst++) = ' ';
+    last_number = number;
 
-    memset(dst, letter, count);
+    memset(dst, number, count);
     return dst + count;
 }
