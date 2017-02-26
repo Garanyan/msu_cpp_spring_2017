@@ -3,12 +3,15 @@ cmake_minimum_required(VERSION 3.4)
 project(konyukhov)
 
 set(SRC_ROOT "${PROJECT_SOURCE_DIR}/src")
+set(HDR_ROOT "${PROJECT_SOURCE_DIR}/include")
+include_directories(include)
 
 set(HEADERS
-    )
+    ${HDR_ROOT}/translater.hpp)
 
 set(SOURCES
-    ${SRC_ROOT}/main.cpp)
+    ${SRC_ROOT}/main.cpp
+    ${SRC_ROOT}/translater.cpp)
 
 add_executable(${PROJECT_NAME} ${HEADERS} ${SOURCES})
 
