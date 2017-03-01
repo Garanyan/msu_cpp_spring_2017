@@ -2,14 +2,14 @@
 
 #include "../src/t9.h"
 
-class T9_test
+class T9_tests
 	: public ::testing::Test
 {
 protected:
 	T9 t9;
 };
 
-TEST(T9_tests, test1)
+TEST_F(T9_tests, test1)
 {
 	EXPECT_STREQ("2", t9.spell("a").c_str());
 	EXPECT_STREQ("22", t9.spell("b").c_str());
@@ -37,10 +37,9 @@ TEST(T9_tests, test1)
 	EXPECT_STREQ("99", t9.spell("x").c_str());
 	EXPECT_STREQ("999", t9.spell("y").c_str());
 	EXPECT_STREQ("9999", t9.spell("z").c_str());
-	EXPECT_STREQ("0", t9.spell(" ").c_str());
 }
 
-TEST_F(T9_test, spell_words)
+TEST_F(T9_tests, spell_words)
 {
     EXPECT_STREQ("44 444",
         t9.spell("hi").c_str());
@@ -55,7 +54,7 @@ TEST_F(T9_test, spell_words)
         t9.spell("hello world").c_str());
 }
 
-TEST_F(T9_test, errors)
+TEST_F(T9_tests, errors)
 {
     EXPECT_THROW(t9.spell(""), std::invalid_argument);
     EXPECT_THROW(t9.spell("1"), std::invalid_argument);

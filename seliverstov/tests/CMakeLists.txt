@@ -6,7 +6,7 @@ set(TEST_SOURCES
     main.cpp
 	t9_test.cpp)
 
-add_executable(${PROJECT_NAME} ${SOURCES} ${SHARED_SOURCES})
+add_executable(${PROJECT_NAME} ${TEST_SOURCES} ${SHARED_SOURCES})
 
 target_link_libraries(${PROJECT_NAME} gtest)
 

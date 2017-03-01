@@ -49,5 +49,7 @@ std::string T9::spell(std::string data)
 		}
 		i++;
 	}
+	if (result.empty())
+		throw std::invalid_argument("Wrong T9 usage: empty string");
 	return result;
 }
