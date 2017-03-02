@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Project ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="C:\Users\Ivanova\Source\Repos\msu_cpp_spring_2017\Ivanova\build\$(Configuration)\cotire\Ivanova_CXX_unity.cxx">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\Ivanova\Source\Repos\msu_cpp_spring_2017\Ivanova\CMakeLists.txt" />
+    <CustomBuild Include="C:\Users\Ivanova\Source\Repos\msu_cpp_spring_2017\Ivanova\build\CMakeFiles\a07a995da1235ca0cec12ce2886a5cf3\Ivanova_CXX_unity.cxx.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{24958ED8-F750-3E1B-BD7B-4DB2F6550FCE}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="CMake Rules">
+      <UniqueIdentifier>{92D64D6A-3CD8-31FD-AA94-C41DA2DC4987}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

@@ -14,6 +14,8 @@ add_executable(${PROJECT_NAME} ${HEADERS} ${SOURCES})
 
 target_compile_features(${PROJECT_NAME} PRIVATE cxx_range_for)
 
+include ("${CMAKE_SOURCE_DIR}/../dependencies/cotire-1.7.9/Cmake/cotire.cmake")
+
 #----------- precompiled -----------
 set_target_properties(${PROJECT_NAME} PROPERTIES COTIRE_CXX_PREFIX_HEADER_INIT "${STDAFX_H}")
 cotire(${PROJECT_NAME})

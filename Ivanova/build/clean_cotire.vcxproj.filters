@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Project ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\Ivanova\Source\Repos\msu_cpp_spring_2017\Ivanova\CMakeLists.txt" />
+    <CustomBuild Include="C:\Users\Ivanova\Source\Repos\msu_cpp_spring_2017\Ivanova\build\CMakeFiles\4eeecf62897e5d3f17885d0346bd5e88\clean_cotire.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="C:\Users\Ivanova\Source\Repos\msu_cpp_spring_2017\Ivanova\build\CMakeFiles\clean_cotire" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="CMake Rules">
+      <UniqueIdentifier>{92D64D6A-3CD8-31FD-AA94-C41DA2DC4987}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>
