@@ -19,15 +19,11 @@ list(APPEND CMAKE_MODULE_PATH "cotire/CMake")
 include(cotire)
 
 set_target_properties(${PROJECT_NAME} PROPERTIES 	COTIRE_CXX_PREFIX_HEADER_INIT "stdafx.h")
-cotire(${PROJECT_NAME})
-set_target_properties(${PROJECT_NAME} PROPERTIES COTIRE_CXX_PREFIX_HEADER_INIT "${STDAFX_H}")
-cotire(${PROJECT_NAME})
+cotire(${PROJECT_NAME})	
 
 #-------------- tests --------------
 set(TEST_PROJECT test_${PROJECT_NAME})
 add_test(NAME ${TEST_PROJECT} COMMAND ${TEST_PROJECT})
 
-add_subdirectory(00)
 add_subdirectory(tests)
-#add_subdirectory(dependencies)
 enable_testing()
