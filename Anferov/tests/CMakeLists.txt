@@ -5,7 +5,7 @@ project(${TEST_PROJECT})
 set(SOURCES
     main.cpp)
 
-add_executable(${PROJECT_NAME} ${SOURCES})
+add_executable(${PROJECT_NAME} ${HEADERS} ${SOURCES} ${SHARED_SOURCES})
 
 target_link_libraries(${PROJECT_NAME} gtest)
 
