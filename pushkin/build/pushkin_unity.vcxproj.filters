@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Project ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="C:\msu_cpp_spring_2017\pushkin\build\$(Configuration)\cotire\pushkin_CXX_unity.cxx">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\msu_cpp_spring_2017\pushkin\CMakeLists.txt" />
+    <CustomBuild Include="C:\msu_cpp_spring_2017\pushkin\build\CMakeFiles\1256dedecc98fdf075e7be6f36373bc6\pushkin_CXX_unity.cxx.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{E2A16D63-961F-3AEA-BE81-F1A87B5D8A5D}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="CMake Rules">
+      <UniqueIdentifier>{1C50B294-77F2-3432-81EA-6AF6CB13F390}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

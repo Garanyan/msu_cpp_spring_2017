@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.4)
 
-project(Zuev)
+project(Davydov)
 
 set(SRC_ROOT "${PROJECT_SOURCE_DIR}/src")
 
@@ -15,6 +15,7 @@ add_executable(${PROJECT_NAME} ${HEADERS} ${SOURCES})
 target_compile_features(${PROJECT_NAME} PRIVATE cxx_range_for)
 
 #----------- precompiled -----------
+list(APPEND CMAKE_MODULE_PATH "${DEPENDENCIES_DIR} Ñ++/cotire-1.7.9/CMake")
 set_target_properties(${PROJECT_NAME} PROPERTIES COTIRE_CXX_PREFIX_HEADER_INIT "${STDAFX_H}")
 cotire(${PROJECT_NAME})
 

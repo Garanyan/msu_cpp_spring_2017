@@ -24,4 +24,6 @@ add_test(NAME ${TEST_PROJECT} COMMAND ${TEST_PROJECT})
 
 add_subdirectory(tests)
 
+add_subdirectory(sheviakov_type_two)
+
 enable_testing()

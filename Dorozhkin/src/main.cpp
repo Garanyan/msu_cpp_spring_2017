@@ -1,40 +1,20 @@
 #include "stdafx.h"
-#include "main.h"
-
-string dile(string word) {
-    std::string res{}, add{};
-    char let; char num;
-    for (auto w : word) {
-        if (w >= 'a' && w <= 'c') {
-            let = 'a'; num = '2';
-        } else if (w >= 'd' && w <= 'f') {
-            let = 'd'; num = '3';
-        } else if (w >= 'g' && w <= 'i') {
-            let = 'g'; num = '4';
-        } else if (w >= 'j' && w <= 'l') {
-            let = 'j'; num = '5';
-        } else if (w >= 'm' && w <= 'o') {
-            let = 'm'; num = '6';
-        } else if (w >= 'p' && w <= 's') {
-            let = 'p'; num = '7';
-        } else if (w >= 't' && w <= 'v') {
-            let = 't'; num = '8';
-        } else if (w >= 'w' && w <= 'z') {
-            let = 'w'; num = '9';
-        }
-        for (auto i = 0; i < (w - let + 1); i++) {
-            add += num;
-        }
-        if (*(--res.end()) == *(add.begin())) {
-            res = res + " " + add;
-        } else {
-            res += add;
-        }
-    }
-    return res;
-}
+#include "diler.h"
 
 int main(int argc, char const *argv[]) {
+    int n; // count of tests
+    std::string s;
+    std::vector<std::string> out;
     
+    std::cin >> n;
+    std::getline(std::cin, s);
+    for (auto i = 0; i < n; i++) {
+        std::getline(std::cin, s);
+        out.push_back("Case #" + std::to_string(i + 1) + dile(s));
+    }
+    
+    for (auto o : out) {
+        std::cout << o << std::endl;
+    }
     return 0;
 }

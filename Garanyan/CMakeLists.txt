@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.4)
 
-project(bespalov)
+project(Garanyan)
 
 set(SRC_ROOT "${PROJECT_SOURCE_DIR}/src")
 

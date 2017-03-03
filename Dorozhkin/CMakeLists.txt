@@ -3,7 +3,6 @@ cmake_minimum_required(VERSION 3.4)
 project(Dorozhkin)
 
 set(SRC_ROOT "${PROJECT_SOURCE_DIR}/src")
-
 set(HEADER_ROOT "${PROJECT_SOURCE_DIR}/include")
 
 include_directories(include)
@@ -11,10 +10,13 @@ include_directories(include)
 set(SOURCES
 ${SRC_ROOT}/main.cpp)
 
-set(HEADERS
-    ${HEADER_ROOT}/main.h)
+set(SHARED_SOURCES
+${SRC_ROOT}/diler.cpp)
 
-add_executable(${PROJECT_NAME} ${HEADERS} ${SOURCES})
+set(HEADERS
+${HEADER_ROOT}/diler.h)
+
+add_executable(${PROJECT_NAME} ${HEADERS} ${SOURCES} ${SHARED_SOURCES})
 
 target_compile_features(${PROJECT_NAME} PRIVATE cxx_range_for)
 
