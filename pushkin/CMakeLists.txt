@@ -1,6 +1,8 @@
 cmake_minimum_required(VERSION 3.4)
 
-project(Ivanova)
+include ("${CMAKE_SOURCE_DIR}/../dependencies/cotire-1.7.9/Cmake/cotire.cmake")
+
+project(pushkin)
 
 set(SRC_ROOT "${PROJECT_SOURCE_DIR}/src")
 

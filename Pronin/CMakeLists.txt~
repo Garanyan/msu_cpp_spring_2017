@@ -14,7 +14,9 @@ set(SOURCES
 
 set(SHARED_SOURCES
     ${SRC_ROOT}/T9Speller.cpp)
-
+#----------- precompiled -----------
+list(APPEND CMAKE_MODULE_PATH "/home/marina/msu_cpp_spring_2017/cotire-1.7.9/CMake")
+include(cotire)
 add_executable(${PROJECT_NAME} ${HEADERS} ${SOURCES} ${SHARED_SOURCES})
 
 target_compile_features(${PROJECT_NAME} PRIVATE cxx_range_for)
