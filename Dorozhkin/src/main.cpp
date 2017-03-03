@@ -6,15 +6,26 @@ int main(int argc, char const *argv[]) {
     std::string s;
     std::vector<std::string> out;
     
-    std::cin >> n;
     std::getline(std::cin, s);
-    for (auto i = 0; i < n; i++) {
-        std::getline(std::cin, s);
-        out.push_back("Case #" + std::to_string(i + 1) + dile(s));
+    try {
+        n = stoi(s);
+    } catch (...) {
+        std::cout << "BAD FIRST ARGUMENT" << std::endl;
+        return EXIT_FAILURE;
+    }
+    
+    try {
+        for (auto i = 0; i < n; i++) {
+            std::getline(std::cin, s);
+            out.push_back("Case #" + std::to_string(i + 1) + ":" + dile(s));
+        }
+    } catch (...) {
+        std::cout << "ERROR" << std::endl;
+        return EXIT_FAILURE;
     }
     
     for (auto o : out) {
         std::cout << o << std::endl;
     }
-    return 0;
+    return EXIT_SUCCESS;
 }
