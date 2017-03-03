@@ -15,11 +15,7 @@ add_executable(${PROJECT_NAME} ${HEADERS} ${SOURCES})
 target_compile_features(${PROJECT_NAME} PRIVATE cxx_range_for)
 
 #----------- precompiled -----------
-list(APPEND CMAKE_MODULE_PATH "cotire/CMake")
-include(cotire)
-
-set_target_properties(${PROJECT_NAME} PROPERTIES 	COTIRE_CXX_PREFIX_HEADER_INIT "stdafx.h")
-cotire(${PROJECT_NAME})
+list(APPEND CMAKE_MODULE_PATH "${DEPENDENCIES_DIR} Ñ++/cotire-1.7.9/CMake")
 set_target_properties(${PROJECT_NAME} PROPERTIES COTIRE_CXX_PREFIX_HEADER_INIT "${STDAFX_H}")
 cotire(${PROJECT_NAME})
 
@@ -27,7 +23,6 @@ cotire(${PROJECT_NAME})
 set(TEST_PROJECT test_${PROJECT_NAME})
 add_test(NAME ${TEST_PROJECT} COMMAND ${TEST_PROJECT})
 
-add_subdirectory(00)
 add_subdirectory(tests)
-#add_subdirectory(dependencies)
+
 enable_testing()
