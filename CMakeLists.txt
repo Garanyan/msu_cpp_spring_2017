@@ -51,6 +51,4 @@ add_subdirectory(Ivanova)
 add_subdirectory(Ermolaev)
 add_subdirectory(Spiridonova)
 add_subdirectory(Petukhov)
-#add_subdirectory(pushkin)
-
 enable_testing()
