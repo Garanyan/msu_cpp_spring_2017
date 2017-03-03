@@ -3,14 +3,18 @@ cmake_minimum_required(VERSION 3.4)
 project(Spiridonova)
 
 set(SRC_ROOT "${PROJECT_SOURCE_DIR}/src")
+set(HDR_ROOT "${PROJECT_SOURCE_DIR}/include")
 
 set(HEADERS
-    )
+    ${HDR_ROOT}/T9Translater.h)
 
 set(SOURCES
     ${SRC_ROOT}/main.cpp)
 
-add_executable(${PROJECT_NAME} ${HEADERS} ${SOURCES})
+set(SHARED_SOURCES
+    ${SRC_ROOT}/T9Translater.cpp)
+
+add_executable(${PROJECT_NAME} ${HEADERS} ${SOURCES} ${SHARED_SOURCES})
 
 target_compile_features(${PROJECT_NAME} PRIVATE cxx_range_for)
 
