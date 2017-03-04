@@ -44,6 +44,12 @@ TEST_F(T9_tests, spell_words)
     EXPECT_STREQ("44 444",
         t9.spell("hi").c_str());
 
+    EXPECT_STREQ("44 444",
+        t9.spell("hi").c_str());
+
+    EXPECT_STREQ("44 444",
+        t9.spell("hi").c_str());
+
     EXPECT_STREQ("999337777",
         t9.spell("yes").c_str());
 
