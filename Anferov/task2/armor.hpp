@@ -1,0 +1,27 @@
+//
+//  armor.hpp
+//  C++ project
+//
+//  Created by Игорь Анфёров on 04.03.2017.
+//  Copyright © 2017 Игорь Анфёров. All rights reserved.
+//
+
+#ifndef armor_hpp
+#define armor_hpp
+
+#include "protective_properties.hpp"
+
+class armor {
+    protective_properties protection;
+    double speed_fine;
+};
+
+class chain_armour: public armor
+{
+};
+
+class lat: public armor
+{
+};
+
+#endif /* armor_hpp */
