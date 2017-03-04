@@ -1,4 +1,4 @@
-#include "../include/T9Tanslater.h"
+#include "../include/T9Translater.h"
 
 T9Translater::T9Translater(const string& initial_str){
     if (initial_str.size() < 1)
