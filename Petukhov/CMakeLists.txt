@@ -5,7 +5,7 @@ project(Petukhov)
 set(SRC_ROOT "${PROJECT_SOURCE_DIR}/src")
 
 set(HEADERS
-    )
+    ${SRC_ROOT}/t9translator.h)
 
 set(SOURCES
     ${SRC_ROOT}/main.cpp)
