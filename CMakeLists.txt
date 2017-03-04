@@ -29,7 +29,7 @@ endif()
 
 #----------- subprojects -----------
 
-#add_subdirectory(tkachenko) todo: fix
+add_subdirectory(tkachenko)
 add_subdirectory(Bespalov)
 add_subdirectory(00)
 add_subdirectory(Zaitcev)

@@ -14,7 +14,7 @@ TEST_F(T9_Spelling_Test, spell_letters)
 {
     ASSERT_EQ("2", t9_spelling.getCodeForLetter('a').c_str());
     ASSERT_EQ("22", t9_spelling.getCodeForLetter('b').c_str());
-    ASSERT_EQ("222", t9_spelling.getCodeForLetter("c").c_str());
+    ASSERT_EQ("222", t9_spelling.getCodeForLetter('c').c_str());
 
     ASSERT_EQ("3", t9_spelling.getCodeForLetter('d').c_str());
     ASSERT_EQ("33", t9_spelling.getCodeForLetter('e').c_str());
@@ -44,7 +44,7 @@ TEST_F(T9_Spelling_Test, spell_letters)
     ASSERT_EQ("9", t9_spelling.getCodeForLetter('w').c_str());
     ASSERT_EQ("99", t9_spelling.getCodeForLetter('x').c_str());
     ASSERT_EQ("999", t9_spelling.getCodeForLetter('y').c_str());
-    ASSERT_EQ("9999", t9_spelling.getCodeForLetters('z').c_str());
+    ASSERT_EQ("9999", t9_spelling.getCodeForLetter('z').c_str());
 
     ASSERT_EQ("0", t9_spelling.getCodeForLetter(' ').c_str());
 
@@ -89,12 +89,15 @@ TEST_F(T9_Spelling_Test, spell_words)
 
 TEST_F(T9_Spelling_Test, errors)
 {
-    EXPECT_THROW(t9.spell(""), std::invalid_argument);
-    EXPECT_THROW(t9.spell("1"), std::invalid_argument);
-    EXPECT_THROW(t9.spell("a1"), std::invalid_argument);
-    EXPECT_THROW(t9.spell("1a"), std::invalid_argument);
-    EXPECT_THROW(t9.spell("a1 a"), std::invalid_argument);
-    EXPECT_THROW(t9.spell("a 1a"), std::invalid_argument);
+    	EXPECT_THROW(t9_spelling.spell(""), std::invalid_argument);
+    	EXPECT_THROW(t9_spelling.spell("1"), std::invalid_argument);
+    	EXPECT_THROW(t9_spelling.spell("a1"), std::invalid_argument);
+    	EXPECT_THROW(t9_spelling.spell("1a"), std::invalid_argument);
+    	EXPECT_THROW(t9_spelling.spell("a1 a"), std::invalid_argument);
+    	EXPECT_THROW(t9_spelling.spell("a 1a"), std::invalid_argument);
+	EXPECT_THROW(t9_spelling.getCodeForLetter('1'), std::invalid_argument);
+	EXPECT_THROW(t9_spelling.getCodeForLetter('A'), std::invalid_argument);
+	EXPECT_THROW(t9_spelling.getCodeForLetter('/'), std::invalid_argument);
 }
 
 

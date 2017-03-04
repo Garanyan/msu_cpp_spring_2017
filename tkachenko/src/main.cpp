@@ -2,7 +2,7 @@
 
 #include "t9_spelling.h"
 
-int main(int /*argc*/, char** /*argv*/)
+int main(int argc, char** argv)
 {
     int n = 0;
 
@@ -23,7 +23,7 @@ int main(int /*argc*/, char** /*argv*/)
         return EXIT_FAILURE;
     }
 
-    T9_spelling t9_spelling;
+    T9_Spelling t9_spelling;
 
     for (int i = 0; i < n; ++i)
     {

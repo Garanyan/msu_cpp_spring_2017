@@ -1,13 +1,11 @@
 #include "stdafx.h"
 
 #include "t9_spelling.h"
-#include <cctype>
+
 
 std::string T9_Spelling::spell(const std::string& text)
 {
     std::string result = "";
-
-
 
 	for(int i = 0; i < text.size(); i++)
 	{
@@ -20,7 +18,7 @@ std::string T9_Spelling::spell(const std::string& text)
     return result;
 }
 
-std::string getCodeForLetter(char ch)
+std::string T9_Spelling::getCodeForLetter(char ch)
 {
 	switch(ch)
 	{
@@ -51,6 +49,7 @@ std::string getCodeForLetter(char ch)
 		case 'y': return "999";
 		case 'z': return "9999";
 		case ' ': return "0";
+		default: throw std::invalid_argument("The function espected a letter from a to z or the space symbol!");
 			
 	}
 }

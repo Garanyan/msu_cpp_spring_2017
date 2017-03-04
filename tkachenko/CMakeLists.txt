@@ -10,11 +10,11 @@ set(HEADERS
 set(SOURCES
     ${SRC_ROOT}/main.cpp)
 
-set(SOURCES
+set(SHARED_SOURCES
     ${SRC_ROOT}/t9_spelling.cpp)
 
 
-add_executable(${PROJECT_NAME} ${HEADERS} ${SOURCES})
+add_executable(${PROJECT_NAME} ${HEADERS} ${SOURCES} ${SHARED_SOURCES})
 
 target_compile_features(${PROJECT_NAME} PRIVATE cxx_range_for)
 
