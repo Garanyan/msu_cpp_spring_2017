@@ -6,12 +6,15 @@
 std::string T9_Spelling::spell(const std::string& text)
 {
     std::string result = "";
+	std::string decoded_letter = "";
 
+	if(!text.size()) throw std::invalid_argument("The word shoul consist letters from a to z or the space symbol!");
 	for(int i = 0; i < text.size(); i++)
 	{
 		if((text[i] < 'a' || text[i] > 'z') && text[i] != ' ') throw std::invalid_argument("The word shoul consist letters from a to z or the space symbol!");
-		result += getCodeForLetter(text[i]);
-		if((i != text.size() - 1) && text[i+1] == text[i]) result += ' ';	
+		decoded_letter = getCodeForLetter(text[i]);
+		if(result.size() > 0 && result[result.size()-1]==decoded_letter[0]) result += " ";
+		result+=decoded_letter;	
 	}
 
 
