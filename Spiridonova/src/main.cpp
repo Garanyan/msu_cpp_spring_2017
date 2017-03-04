@@ -16,8 +16,8 @@ int main(){
       string input;
       cout << "Enter text:" << endl;
       getline(cin, input);
-      auto elem = T9Translater(input);
-      cout << "CASE #"<< i << empty_symbol << elem.get_result() << endl;
+      T9Translater elem;
+      cout << "CASE #"<< i << empty_symbol << elem.spell(input) << endl;
    }
    catch (std::invalid_argument const & err)
    {

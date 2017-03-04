@@ -4,6 +4,8 @@
 #include <map>
 #include <sstream>
 
+using namespace std;
+
 class T9Spell{
 	map<int, string> keyboard;
 public:

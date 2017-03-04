@@ -51,7 +51,7 @@ TEST_F(T9Translater_test, spell_words)
     EXPECT_STREQ("44 444",
         t9.spell(" hi").c_str());
 
-    EXPECT_STREQ("44 444",
+    EXPECT_STREQ("44 4440",
         t9.spell("hi ").c_str());
 
     EXPECT_STREQ("44 444",

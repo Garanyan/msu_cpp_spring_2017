@@ -26,9 +26,7 @@ private:
 
 public:
 
-    T9Translater(const string&);
+    void translate(const std::string& );
 
-    void translate(const string&);
-
-    string get_result();
+    std::string spell(const std::string& );
 };
