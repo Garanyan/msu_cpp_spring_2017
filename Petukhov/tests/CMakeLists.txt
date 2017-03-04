@@ -2,10 +2,9 @@ cmake_minimum_required(VERSION 3.4)
 
 project(${TEST_PROJECT})
 
-set(HEADERS
-    ${HDR_ROOT}/t9translator.h)
 set(SOURCES
-    ${SRC_ROOT}/main.cpp)
+    main.cpp
+    tests.cpp)
 
 add_executable(${PROJECT_NAME} ${SOURCES})
 

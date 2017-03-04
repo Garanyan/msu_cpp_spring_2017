@@ -6,7 +6,7 @@
 #include <sstream>
 
 using namespace std;
-
+/*
 string toString(int i)
 {
     ostringstream oss;
@@ -50,20 +50,19 @@ string T9Spell::translate(string c){
 	}
 	return res;
 }
-
+*/
 int main(int argc, char* argv[])
 {
 	T9Spell translator;
 	int N;
 	string input;
-	bool move_on = false;
-	while(!move_on){
+	while(1){
 		cout << "Type in the number of cases please:\n";
 		cin >> N;
 		if (N > 100 || N < 1){
 			cout << "Sorry, the number of cases should be bigger than 1 and less than 100. Try again!\n";
 		} else{
-			move_on = true;
+			break;
 		}
 	}
 	getchar();

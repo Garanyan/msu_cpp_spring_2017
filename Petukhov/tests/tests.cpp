@@ -13,11 +13,11 @@ TEST_F(T9_test, spell_chars)
 {
     EXPECT_STREQ("2", t9.translate("a").c_str());
     EXPECT_STREQ("22", t9.translate("b").c_str());
-    EXPECT_STREQ("22", t9.translate("c").c_str());
+    EXPECT_STREQ("222", t9.translate("c").c_str());
 
     EXPECT_STREQ("3", t9.translate("d").c_str());
     EXPECT_STREQ("33", t9.translate("e").c_str());
-    EXPECT_STREQ("33", t9.translate("f").c_str());
+    EXPECT_STREQ("333", t9.translate("f").c_str());
 
     EXPECT_STREQ("4", t9.translate("g").c_str());
     EXPECT_STREQ("44", t9.translate("h").c_str());
@@ -48,10 +48,10 @@ TEST_F(T9_test, spell_chars)
 
 TEST_F(T9_test, spell_words)
 {
-    EXPECT_STREQ("44 444",
+    EXPECT_STREQ("044 444",
         t9.translate(" hi").c_str());
 
-    EXPECT_STREQ("44 444",
+    EXPECT_STREQ("44 4440",
         t9.translate("hi ").c_str());
 
     EXPECT_STREQ("44 444",
