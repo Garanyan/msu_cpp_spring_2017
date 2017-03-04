@@ -5,10 +5,14 @@ project(tkachenko)
 set(SRC_ROOT "${PROJECT_SOURCE_DIR}/src")
 
 set(HEADERS
-    )
+    ${SRC_ROOT}/t9_spelling.h)
 
 set(SOURCES
     ${SRC_ROOT}/main.cpp)
+
+set(SOURCES
+    ${SRC_ROOT}/t9_spelling.cpp)
+
 
 add_executable(${PROJECT_NAME} ${HEADERS} ${SOURCES})
 

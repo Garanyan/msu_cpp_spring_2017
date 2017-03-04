@@ -3,7 +3,8 @@ cmake_minimum_required(VERSION 3.4)
 project(${TEST_PROJECT})
 
 set(SOURCES
-    main.cpp)
+    main.cpp
+t9_spelling_test.cpp)
 
 add_executable(${PROJECT_NAME} ${SOURCES})
 
