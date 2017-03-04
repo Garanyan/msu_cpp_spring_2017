@@ -49,7 +49,8 @@ add_subdirectory(Gevorkyan)
 add_subdirectory(Odzhaev)
 add_subdirectory(Ivanova)
 add_subdirectory(Ermolaev)
-#add_subdirectory(Petukhov) todo: fix
+add_subdirectory(Petukhov) #todo: fix
+add_subdirectory(Spiridonova)
 add_subdirectory(pushkin)
 add_subdirectory(Dorozhkin)
 add_subdirectory(seliverstov)
