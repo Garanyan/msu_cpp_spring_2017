@@ -9,7 +9,8 @@ set(HEADERS
     )
 
 set(SOURCES
-    ${SRC_ROOT}/main.cpp)
+    ${SRC_ROOT}/main.cpp
+    ${SRC_ROOT}/convert.cpp)
 
 add_executable(${PROJECT_NAME} ${HEADERS} ${SOURCES})
 

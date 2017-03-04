@@ -1,9 +1,43 @@
 #include "stdafx.h"
 #include "../src/convert.h"
+#include <string>
 
-TEST(ConversionTest, GoogleTest)
+TEST(ConversionTest, GoogleTest1)
 {
-    std::string input = "4\nhi\nyes\nfoo  bar\nhello world\n";
-    std::string output = "Case #1: 44 444\nCase #2: 999337777\nCase #3: 333666 6660 022 2777\nCase #4: 4433555 555666096667775553\n";
-    ASSERT_EQ(output, convert(input));
+    std::string in = "hi";
+    std::string out = "44 444";
+    Converter c(in);
+    std::string res;
+    c.convertNextLine(res);
+    ASSERT_STREQ(res.c_str(), out.c_str());
+}
+
+TEST(ConversionTest, GoogleTest2)
+{
+    std::string in = "yes";
+    std::string out = "999337777";
+    Converter c(in);
+std::string res;
+c.convertNextLine(res);
+ASSERT_STREQ(res.c_str(), out.c_str());
+}
+
+TEST(ConversionTest, GoogleTest3)
+{
+    std::string in = "foo  bar";
+    std::string out = "333666 6660 022 2777";
+    Converter c(in);
+std::string res;
+c.convertNextLine(res);
+ASSERT_STREQ(res.c_str(), out.c_str());
+}
+
+TEST(ConversionTest, GoogleTest4)
+{
+    std::string in = "hello world";
+    std::string out = "4433555 555666096667775553";
+    Converter c(in);
+std::string res;
+c.convertNextLine(res);
+ASSERT_STREQ(res.c_str(), out.c_str());
 }
