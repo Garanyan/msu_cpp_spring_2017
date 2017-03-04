@@ -1,6 +1,6 @@
 #include "stdafx.h"
 
-#include "../src/T9Translater.h"
+#include "../include/T9Translater.h"
 
 class T9Translater_test
     : public ::testing::Test
