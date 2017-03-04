@@ -53,5 +53,6 @@ add_subdirectory(Spiridonova)
 add_subdirectory(Petukhov)
 add_subdirectory(pushkin)
 add_subdirectory(Dorozhkin)
+add_subdirectory(seliverstov)
 
 enable_testing()
