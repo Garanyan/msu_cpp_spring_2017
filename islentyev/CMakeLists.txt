@@ -2,10 +2,14 @@ cmake_minimum_required(VERSION 3.4)
 
 project(islentyev)
 
+set(INCLUDE_ROOT "${PROJECT_SOURCE_DIR}/include")
+
 set(SRC_ROOT "${PROJECT_SOURCE_DIR}/src")
 
+include_directories(${INCLUDE_ROOT})
+
 set(HEADERS
-        ${SRC_ROOT}/t9.h)
+        ${INCLUDE_ROOT}/t9.h)
 
 set(SOURCES
         ${SRC_ROOT}/main.cpp)
