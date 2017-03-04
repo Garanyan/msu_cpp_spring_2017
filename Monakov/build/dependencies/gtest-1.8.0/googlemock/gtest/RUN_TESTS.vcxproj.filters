@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Project ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <CustomBuild Include="C:\Program Files (x86)\SmartGit\bin\msu_cpp_spring_2017\Monakov\build\CMakeFiles\83e968166f41ded4ed0da33de7c4d265\RUN_TESTS_force.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="CMake Rules">
+      <UniqueIdentifier>{081F8E31-847F-3E94-91BB-25BD3C001A30}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

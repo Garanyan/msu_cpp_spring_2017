@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Project ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="C:\Program Files (x86)\SmartGit\bin\msu_cpp_spring_2017\Monakov\tests\main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Program Files (x86)\SmartGit\bin\msu_cpp_spring_2017\Monakov\tests\t9_test.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Program Files (x86)\SmartGit\bin\msu_cpp_spring_2017\Monakov\src\t9.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\Program Files (x86)\SmartGit\bin\msu_cpp_spring_2017\Monakov\tests\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4565AC3B-7D76-3F7A-89B4-7C8788200C8C}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

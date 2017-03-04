@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Project ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="C:\Program Files (x86)\SmartGit\bin\msu_cpp_spring_2017\Monakov\build\$(Configuration)\cotire\monakov_CXX_unity_0_0.cxx">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Program Files (x86)\SmartGit\bin\msu_cpp_spring_2017\Monakov\build\$(Configuration)\cotire\monakov_CXX_unity_1_1.cxx">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="C:\Program Files (x86)\SmartGit\bin\msu_cpp_spring_2017\Monakov\src\t9.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\Program Files (x86)\SmartGit\bin\msu_cpp_spring_2017\Monakov\CMakeLists.txt" />
+    <CustomBuild Include="C:\Program Files (x86)\SmartGit\bin\msu_cpp_spring_2017\Monakov\build\CMakeFiles\88ab09a9c536b2e6532831ac4a6b5e40\monakov_CXX_unity_0_0.cxx.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Program Files (x86)\SmartGit\bin\msu_cpp_spring_2017\Monakov\build\CMakeFiles\88ab09a9c536b2e6532831ac4a6b5e40\monakov_CXX_unity_1_1.cxx.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4565AC3B-7D76-3F7A-89B4-7C8788200C8C}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{816F186B-7053-3153-99BA-D271202E716C}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="CMake Rules">
+      <UniqueIdentifier>{081F8E31-847F-3E94-91BB-25BD3C001A30}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>
