@@ -1,5 +1,5 @@
 #include "stdafx.h"
-#include "../include/T9Tanslater.h"
+#include "../include/T9Translater.h"
 
 using namespace std;
 using std::string;
