@@ -19,6 +19,7 @@ public:
      * @throw std::invalid_argument If source text is contain invalid characters
      */
     std::string spell(const std::string& text);
+	std::string getCodeForLetter(char ch);
 };
 
 #endif
