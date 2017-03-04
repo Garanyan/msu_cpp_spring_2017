@@ -42,10 +42,10 @@ TEST_F(T9_tests, test1)
 TEST_F(T9_tests, spell_words)
 {
     EXPECT_STREQ("44 444",
-        t9.spell("hi").c_str());
+        t9.spell("   hi").c_str());
 
     EXPECT_STREQ("44 444",
-        t9.spell("hi").c_str());
+        t9.spell("hi   ").c_str());
 
     EXPECT_STREQ("44 444",
         t9.spell("hi").c_str());
