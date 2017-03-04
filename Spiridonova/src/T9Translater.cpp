@@ -1,13 +1,9 @@
 #include "../include/T9Translater.h"
 
-T9Translater::T9Translater(const string& initial_str){
+
+std::string T9Translater::spell(const std::string&  initial_str){
     if (initial_str.size() < 1)
-           throw::invalid_argument("Empty input!\n");
-    T9Translater::translate(initial_str);
-}
-
-void T9Translater::translate(const string& initial_str){
-
+       throw::invalid_argument("Empty input!\n");
     char key_number;
     string result = "";
     uint repeat_count;
@@ -38,8 +34,6 @@ void T9Translater::translate(const string& initial_str){
 
 
       };
-    T9Translater::translate_string = result;
+    return result;
 }
-string T9Translater::get_result(){
-    return T9Translater::translate_string;
-}
+
