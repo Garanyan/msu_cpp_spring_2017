@@ -29,14 +29,14 @@ endif()
 
 #----------- subprojects -----------
 
-add_subdirectory(tkachenko)
+#add_subdirectory(tkachenko) todo: fix
 add_subdirectory(Bespalov)
 add_subdirectory(00)
 add_subdirectory(Zaitcev)
 add_subdirectory(Garanyan)
 add_subdirectory(trempoltsev)
 add_subdirectory(Anferov)
-add_subdirectory(Kupriakov)
+#add_subdirectory(Kupriakov) todo: fix
 add_subdirectory(Popkova)
 add_subdirectory(zuev)
 add_subdirectory(sheviakov)
@@ -49,7 +49,7 @@ add_subdirectory(Gevorkyan)
 add_subdirectory(Odzhaev)
 add_subdirectory(Ivanova)
 add_subdirectory(Ermolaev)
-add_subdirectory(Petukhov)
+#add_subdirectory(Petukhov) todo: fix
 add_subdirectory(pushkin)
 add_subdirectory(Dorozhkin)
 add_subdirectory(seliverstov)
