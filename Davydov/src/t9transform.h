@@ -56,10 +56,11 @@ string transform(string str)
 	for (int i = 1; i < str.size(); i++) {
 		if (chartonum(str[i]) == "104") {
 			result = "ERROR";
-			break;
+			goto error;
 		}
 		if (chartonum(str[i])[0] == chartonum(str[i - 1])[0]) result += " ";
 		result += chartonum(str[i]);
 	}
+error:
 	return result;
 }
