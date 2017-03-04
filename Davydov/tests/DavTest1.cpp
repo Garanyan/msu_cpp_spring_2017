@@ -1,17 +1,20 @@
 #include "stdafx.h"
 
 TEST(transform, Test0) {
-	ASSERT_EQ("55544433333 444777 2 7244466", t9solve("life is a pain"));
+	EXPECT_STREQ("55544433333 444777 2 7244466", transform("life is a pain").c_str());
 }
 TEST(transform, Test1) {
-	ASSERT_EQ("44 444", t9solve("hi"));
+	EXPECT_STREQ("44 444", transform("hi").c_str());
 }
 TEST(transform, Test2) {
-	ASSERT_EQ("999337777", t9solve("yes"));
+	EXPECT_STREQ("999337777", transform("yes").c_str());
 }
 TEST(transform, Test3) {
-	ASSERT_EQ("333666 6660 022 2777", t9solve("foo  bar"));
+	EXPECT_STREQ("333666 6660 022 2777", transform("foo  bar").c_str());
 }
 TEST(transform, Test4) {
-	ASSERT_EQ("4433555 555666096667775553", t9solve("hello world"));
+	EXPECT_STREQ("4433555 555666096667775553", transform("hello world").c_str());
+}
+TEST(transform, Test5) {
+	EXPECT_STREQ("abyr01abyr", transform("ERROR").c_str());
 }
