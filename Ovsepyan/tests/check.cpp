@@ -51,6 +51,7 @@ public:
         { "foo  bar", "333666 6660 022 2777" },
         { "hello world", "4433555 555666096667775553" },
     };
+
 };
 
 TEST_F(Nokia_test, chars)
@@ -63,4 +64,14 @@ TEST_F(Nokia_test, words)
 {
     for(map<string,string>::iterator iter = word_cases.begin(); iter != word_cases.end();++iter)
         EXPECT_STREQ(iter->second.c_str(),nokia.n(iter->first).c_str());
+}
+
+TEST_F(Nokia_test, bad_args)
+{
+    EXPECT_THROW(nokia.n(""), std::invalid_argument);
+    EXPECT_THROW(nokia.n("1"), std::invalid_argument);
+    EXPECT_THROW(nokia.n("a1"), std::invalid_argument);
+    EXPECT_THROW(nokia.n("1a"), std::invalid_argument);
+    EXPECT_THROW(nokia.n("a1 a"), std::invalid_argument);
+    EXPECT_THROW(nokia.n("a 1a"), std::invalid_argument);
 }

@@ -12,6 +12,7 @@ using namespace std;
 
 std::string Nokia::convert(string text) {
     char previous = 0;
+    if (text.length() == 0) throw std::invalid_argument("");
     string result = "";
     char last = text[text.length() - 1];
     while(isspace(last)){

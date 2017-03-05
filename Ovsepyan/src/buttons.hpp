@@ -10,6 +10,7 @@ class Nokia {
     public:
     std::string convert(std::string);
     std::string n(std::string text) {
+        if (text.length() == 0) throw std::invalid_argument("");
         char previous = 0;
         std::string result = "";
         char last = text[text.length() - 1];
