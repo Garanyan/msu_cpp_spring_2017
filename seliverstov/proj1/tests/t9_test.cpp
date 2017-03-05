@@ -1,6 +1,6 @@
 #include <stdafx.h>
 
-#include "../include/t9.h"
+#include "t9.h"
 
 class T9_tests
 	: public ::testing::Test

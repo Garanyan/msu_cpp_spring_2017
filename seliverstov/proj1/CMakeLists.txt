@@ -5,9 +5,11 @@ project(seliverstov_proj1)
 set(SRC_ROOT "${PROJECT_SOURCE_DIR}/src")
 set(INCLUDE_ROOT "${PROJECT_SOURCE_DIR}/include")
 
-set(HEADERS
-	${INCLUDE_ROOT}/t9.h
-    )
+include_directories(${INCLUDE_ROOT})
+
+#set(HEADERS
+#	${INCLUDE_ROOT}/t9.h
+#    )
 
 set(SOURCES
     ${SRC_ROOT}/main.cpp

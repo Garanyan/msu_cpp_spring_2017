@@ -2,6 +2,8 @@ cmake_minimum_required(VERSION 3.4)
 
 project(${TEST_PROJECT})
 
+include_directories(${INCLUDE_ROOT})
+
 set(TEST_SOURCES
     main.cpp
 	t9_test.cpp)
