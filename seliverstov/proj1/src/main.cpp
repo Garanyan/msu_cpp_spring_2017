@@ -1,6 +1,6 @@
 #include "stdafx.h"
 
-#include "t9.h"
+#include "../include/t9.h"
 
 #include <iostream>
 #include <stdexcept>

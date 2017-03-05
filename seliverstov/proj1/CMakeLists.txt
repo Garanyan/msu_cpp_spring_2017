@@ -3,9 +3,10 @@ cmake_minimum_required(VERSION 3.4)
 project(seliverstov_proj1)
 
 set(SRC_ROOT "${PROJECT_SOURCE_DIR}/src")
+set(INCLUDE_ROOT "${PROJECT_SOURCE_DIR}/include")
 
 set(HEADERS
-	${SRC_ROOT}/t9.h
+	${INCLUDE_ROOT}/t9.h
     )
 
 set(SOURCES
