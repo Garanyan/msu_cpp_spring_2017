@@ -5,12 +5,18 @@ project(Garanyan)
 set(SRC_ROOT "${PROJECT_SOURCE_DIR}/src")
 
 set(HEADERS
+    ${SRC_ROOT}/header.h
     )
 
 set(SOURCES
-    ${SRC_ROOT}/main.cpp)
+    ${SRC_ROOT}/main.cpp
+    )
 
-add_executable(${PROJECT_NAME} ${HEADERS} ${SOURCES})
+set(SHARED_SOURCES
+    ${SRC_ROOT}/header.cpp
+    )
+
+add_executable(${PROJECT_NAME} ${HEADERS} ${SOURCES} ${SHARED_SOURCES})
 
 target_compile_features(${PROJECT_NAME} PRIVATE cxx_range_for)
 
