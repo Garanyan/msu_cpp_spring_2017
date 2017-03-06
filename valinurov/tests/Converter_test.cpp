@@ -9,7 +9,7 @@ protected:
 	Converter converter;
 };
 
-TEST_F(Converter_test, spell_chars)
+TEST_F(Converter_test, check_chars)
 {
 	EXPECT_STREQ("2", converter.solve("a").c_str());
 	EXPECT_STREQ("22", converter.solve("b").c_str());
@@ -46,7 +46,7 @@ TEST_F(Converter_test, spell_chars)
 	EXPECT_STREQ("9999", converter.solve("z").c_str());
 }
 
-TEST_F(Converter_test, spell_words)
+TEST_F(Converter_test, check_words)
 {
 	EXPECT_STREQ("44 444",
 		converter.solve("hi").c_str());
@@ -61,7 +61,7 @@ TEST_F(Converter_test, spell_words)
 		converter.solve("hello world").c_str());
 }
 
-TEST_F(Converter_test, errors)
+TEST_F(Converter_test, check_errors)
 {
 	EXPECT_THROW(converter.solve(""), std::invalid_argument);
 	EXPECT_THROW(converter.solve("1"), std::invalid_argument);
