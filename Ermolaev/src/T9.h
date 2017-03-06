@@ -1,3 +1,4 @@
+#include "stdafx.h"
 using namespace std;
 
 class T9{
@@ -31,11 +32,16 @@ private:
 			case 'y': return "999";
 			case 'z': return "9999";
 			case ' ': return "0";
-			default : return "_unknown_";
+			default :
+                      std::cerr << "invalid character " << c;
+                      std::cerr << ": replacing it with '_'" << std::endl;
+                      return "_";
 		}
 	}
 public:
     string translate(string s){
+		if (s.empty())
+			throw invalid_argument(string("empty string"));
         string res = "", tmp;
         for(auto c: s){
             tmp = convert(c);
