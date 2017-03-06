@@ -1,15 +1,14 @@
 #include "stdafx.h"
+#include "../src/t9Spell.h"
 
-
-#include "../src/header.h"
-class T9_test
+class T9_spell_test
 	: public ::testing::Test
 {
 protected:
 	T9 t9;
 };
 
-TEST_F(T9_test, spell_chars)
+TEST_F(T9_spell_test, characters)
 {
 	EXPECT_STREQ("2", t9.spell("a").c_str());
 	EXPECT_STREQ("22", t9.spell("b").c_str());
@@ -46,7 +45,7 @@ TEST_F(T9_test, spell_chars)
 	EXPECT_STREQ("9999", t9.spell("z").c_str());
 }
 
-TEST_F(T9_test, spell_words)
+TEST_F(T9_spell_test, words)
 {
 	EXPECT_STREQ("44 444",
 		t9.spell("hi").c_str());
@@ -67,7 +66,7 @@ TEST_F(T9_test, spell_words)
 		t9.spell("hello world").c_str());
 }
 
-TEST_F(T9_test, errors)
+TEST_F(T9_spell_test, errors)
 {
 	EXPECT_THROW(t9.spell(""), std::invalid_argument);
 	EXPECT_THROW(t9.spell("1"), std::invalid_argument);
@@ -75,4 +74,10 @@ TEST_F(T9_test, errors)
 	EXPECT_THROW(t9.spell("1a"), std::invalid_argument);
 	EXPECT_THROW(t9.spell("a1 a"), std::invalid_argument);
 	EXPECT_THROW(t9.spell("a 1a"), std::invalid_argument);
+}
+
+TEST_F(T9_spell_test, texts)
+{
+	EXPECT_STREQ("4433555 5556660966677755530699906626330226662202 22 2223 33 3334 440",
+		t9.spell("hello world my name bob abcdefgh ").c_str());
 }

@@ -1,6 +1,6 @@
 #include "stdafx.h"
 #include <map>
-#include "header.h"
+#include "../src/t9Spell.h"
 
 std::string T9::spell(const std::string& text)
 {

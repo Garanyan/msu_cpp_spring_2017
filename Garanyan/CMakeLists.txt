@@ -5,7 +5,7 @@ project(Garanyan)
 set(SRC_ROOT "${PROJECT_SOURCE_DIR}/src")
 
 set(HEADERS
-    ${SRC_ROOT}/header.h
+    ${SRC_ROOT}/t9Spell.h
     )
 
 set(SOURCES
@@ -13,7 +13,7 @@ set(SOURCES
     )
 
 set(SHARED_SOURCES
-    ${SRC_ROOT}/header.cpp
+    ${SRC_ROOT}/t9Spell.cpp
     )
 
 add_executable(${PROJECT_NAME} ${HEADERS} ${SOURCES} ${SHARED_SOURCES})

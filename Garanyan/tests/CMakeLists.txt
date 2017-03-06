@@ -4,7 +4,7 @@ project(${TEST_PROJECT})
 
 set(TEST_SOURCES
     main.cpp
-	header_test.cpp)
+	t9SpellTest.cpp)
 
 add_executable(${PROJECT_NAME} ${TEST_SOURCES} ${SHARED_SOURCES})
 

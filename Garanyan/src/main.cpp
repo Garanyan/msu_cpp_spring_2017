@@ -1,5 +1,5 @@
 #include "stdafx.h"
-#include "header.h"
+#include "t9Spell.h"
 
 
 int main(int /*argc*/, char** /*argv*/)
