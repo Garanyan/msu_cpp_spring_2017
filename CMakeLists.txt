@@ -55,6 +55,6 @@ add_subdirectory(Spiridonova)
 add_subdirectory(pushkin)
 add_subdirectory(Dorozhkin)
 add_subdirectory(seliverstov)
-add_subdirectory(Porfireva)
+#add_subdirectory(Porfireva)
 
 enable_testing()
