@@ -4,15 +4,15 @@
 class T9
 {
 private:
-    struct CharSequence
+    struct SymbolSequence
     {
         char Symbol;
-        int Times;
+        unsigned Times;
     };
-    std::map<char, CharSequence> dict;
+    std::map<char, SymbolSequence> dictionary;
 public:
     T9();
-    std::string spell(const std::string& text);
+    std::string spell(const std::string &text);
 };
 
 #endif //ISLENTYEV_T9_H
