@@ -57,21 +57,21 @@ public:
 TEST_F(Nokia_test, chars)
 {
     for(std::map<string,string>::iterator iter = cases.begin(); iter != cases.end(); ++iter)
-        EXPECT_STREQ(iter->second.c_str(),nokia.n(iter->first).c_str());
+        EXPECT_STREQ(iter->second.c_str(),nokia.convert(iter->first).c_str());
 }
 
 TEST_F(Nokia_test, words)
 {
     for(map<string,string>::iterator iter = word_cases.begin(); iter != word_cases.end();++iter)
-        EXPECT_STREQ(iter->second.c_str(),nokia.n(iter->first).c_str());
+        EXPECT_STREQ(iter->second.c_str(),nokia.convert(iter->first).c_str());
 }
 
 TEST_F(Nokia_test, bad_args)
 {
-    EXPECT_THROW(nokia.n(""), std::invalid_argument);
-    EXPECT_THROW(nokia.n("1"), std::invalid_argument);
-    EXPECT_THROW(nokia.n("a1"), std::invalid_argument);
-    EXPECT_THROW(nokia.n("1a"), std::invalid_argument);
-    EXPECT_THROW(nokia.n("a1 a"), std::invalid_argument);
-    EXPECT_THROW(nokia.n("a 1a"), std::invalid_argument);
+    EXPECT_THROW(nokia.convert(""), std::invalid_argument);
+    EXPECT_THROW(nokia.convert("1"), std::invalid_argument);
+    EXPECT_THROW(nokia.convert("a1"), std::invalid_argument);
+    EXPECT_THROW(nokia.convert("1a"), std::invalid_argument);
+    EXPECT_THROW(nokia.convert("a1 a"), std::invalid_argument);
+    EXPECT_THROW(nokia.convert("a 1a"), std::invalid_argument);
 }

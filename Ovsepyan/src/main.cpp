@@ -24,7 +24,7 @@ int main(int argc, char* argv[])
             try {
                 getline(cin,input);
                 cout << "case #" << i + 1 << ": ";
-                cout <<  n.n(input) << endl;
+                cout <<  n.convert(input) << endl;
                 break;
             }
             catch (std::invalid_argument){
