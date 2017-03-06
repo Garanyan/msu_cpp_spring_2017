@@ -65,3 +65,13 @@ TEST(T9_test, spell_words)
     EXPECT_STREQ("4433555 555666096667775553",
         t9_translate("hello world").c_str());
 }
+
+T_F(T9_test, errors)
+{
+        EXPECT_THROW(t9_translate(""), std::invalid_argument);
+        EXPECT_THROW(t9_translate("1"), std::invalid_argument);
+        EXPECT_THROW(t9_translate("a1"), std::invalid_argument);
+        EXPECT_THROW(t9_translate("1a"), std::invalid_argument);
+        EXPECT_THROW(t9_translate("a1 a"), std::invalid_argument);
+        EXPECT_THROW(t9_translate("a 1a"), std::invalid_argument);
+}
