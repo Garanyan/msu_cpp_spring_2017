@@ -4,6 +4,9 @@
 
 std::string Translator::translate(const std::string& str)
 {
+	if (str.empty())
+	        return "String is empty";
+
 	typedef	std::vector <Data> DATAES;
 	DATAES t_nine;
 	t_nine.push_back(Data(' ',"0"));
@@ -34,31 +37,25 @@ std::string Translator::translate(const std::string& str)
 	t_nine.push_back(Data('y',"999"));
 	t_nine.push_back(Data('z',"9999"));
 
-/*	sort(t_nine.begin(),t_nine.end(),DataCompare());
-	for(DATAES::iterator i=t_nine.begin();i!=t_nine.end();++i)
-	{std::cout<<(*i).first<<" "<<(*i).second<<std::endl;
-}
-*/
 	std::string res="";
 	std::string tmp="",curr="";
-	for (char c : str)
+	for (char symbol : str)
 	{
-		std::pair<DATAES::iterator, DATAES::iterator> range = equal_range(t_nine.begin(),t_nine.end(),c,DataCompare());	
-		if(range.first!=range.second)
+		std::pair<DATAES::iterator, DATAES::iterator> range = equal_range(t_nine.begin(),t_nine.end(), symbol, DataCompare());	
+		if(range.first != range.second)
 		{
 			curr=(*range.first).second;
-			if (!res.empty() && tmp[0] == curr[0])
+			if (tmp[0] == curr[0])
             			res += " ";
 		}
         	else
             	{ 
-			res=c + std::string(" is not symbol a-z or space"); 
+			res=symbol + std::string(" is not symbol a-z or space"); 
 			return res;
 		}
 		tmp=curr;
         	res += curr;
     	}
-	if (str.empty())
-	        return "String is empty";
+
 	return res;
 }

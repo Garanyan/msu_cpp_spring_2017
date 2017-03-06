@@ -45,6 +45,10 @@ TEST_F(test, test_strings)
         EXPECT_STREQ("999", mutko.translate("y").c_str());
         EXPECT_STREQ("9999", mutko.translate("z").c_str());
 
+        EXPECT_STREQ("0 0 0", mutko.translate("   ").c_str());
+        EXPECT_STREQ("2 2 2", mutko.translate("aaa").c_str());
+
+
         EXPECT_STREQ("44 444", mutko.translate("hi").c_str());
 
         EXPECT_STREQ("999337777", mutko.translate("yes").c_str());
