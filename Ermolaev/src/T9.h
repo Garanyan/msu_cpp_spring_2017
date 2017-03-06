@@ -33,15 +33,15 @@ private:
 			case 'z': return "9999";
 			case ' ': return "0";
 			default :
-                      std::cerr << "invalid character " << c;
-                      std::cerr << ": replacing it with '_'" << std::endl;
-                      return "_";
+                        std::cerr << "invalid character " << c;
+                        std::cerr << ": replacing it with '_'" << std::endl;
+                        return "_";
 		}
 	}
 public:
     string translate(string s){
-		if (s.empty())
-			throw invalid_argument(string("empty string"));
+        if (s.empty())
+            throw invalid_argument(string("empty string"));
         string res = "", tmp;
         for(auto c: s){
             tmp = convert(c);

@@ -60,7 +60,7 @@ TEST_F(T9TestingUnit, words_and_phrases)
     EXPECT_STREQ("04433555 5556660 0 0966677755530", t.translate(" hello   world ").c_str());
 
     EXPECT_STREQ("44_",    t.translate("h1").c_str());
-	EXPECT_STREQ("999_7777", t.translate("y8s").c_str());
+    EXPECT_STREQ("999_7777", t.translate("y8s").c_str());
     EXPECT_STREQ("999_0", t.translate("y1 ").c_str());
 }
 
