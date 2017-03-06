@@ -1,7 +1,7 @@
 #include "stdafx.h"
 #include "../src/translator.h"
 
-class MyTest : public ::testing::Test
+class T9_Translator_Test : public ::testing::Test
 {
 	public:
 	Translator t;
@@ -15,7 +15,7 @@ class MyTest : public ::testing::Test
 	}
 };
 
-TEST_F (MyTest, letters)
+TEST_F (T9_Translator_Test, letters)
 {
 	EXPECT_STREQ("2", t.translate("a").c_str());
 	EXPECT_STREQ("22", t.translate("b").c_str());
@@ -52,7 +52,7 @@ TEST_F (MyTest, letters)
 	EXPECT_STREQ("9999", t.translate("z").c_str());
 }
 
-TEST_F (MyTest, sample)
+TEST_F (T9_Translator_Test, sample)
 {
 	EXPECT_STREQ("44 444", t.translate("hi").c_str());
 	EXPECT_STREQ("999337777", t.translate("yes").c_str());
@@ -60,7 +60,7 @@ TEST_F (MyTest, sample)
 	EXPECT_STREQ("4433555 555666096667775553", t.translate("hello world").c_str());
 }
 
-TEST_F (MyTest, strings)
+TEST_F (T9_Translator_Test, strings)
 {
 	EXPECT_STREQ("55444777444555 555", t.translate("kirill").c_str());
 	EXPECT_STREQ("2 2 22 22 222 222", t.translate("aabbcc").c_str());
