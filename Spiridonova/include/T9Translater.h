@@ -21,12 +21,7 @@ static const char empty_symbol = ' ';
 
 class T9Translater {
 
-private:
-    string translate_string;
-
 public:
-
-    void translate(const std::string& );
 
     std::string spell(const std::string& );
 };
