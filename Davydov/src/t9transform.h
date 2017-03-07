@@ -1,8 +1,7 @@
 #pragma once
 
-using namespace std;
 
-string chartonum(char r) {
+std::string chartonum(char r) {
 
 	// 
 	switch (r)
@@ -49,9 +48,9 @@ string chartonum(char r) {
 
 }
 
-string transform(string str)
+std::string transform(std::string str)
 {
-	string(result);
+	std::string(result);
 	result += chartonum(str[0]);
 	for (int i = 1; i < str.size(); i++) {
 		if (chartonum(str[i]) == "104") {
