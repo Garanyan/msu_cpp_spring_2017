@@ -1,17 +1,17 @@
 #include "stdafx.h"
-#include "../src/translator.h"
+#include "../src/T9_translator.h"
 
 class T9_Translator_Test : public ::testing::Test
 {
 	public:
-	Translator t;
+	T9_translator t;
 	static void SetUpTestCase()
 	{
 		cout << "Start" << endl;
 	}
 	static void TearDownTestCase()
 	{
-		cout <<  "Finish" << endl;
+		cout << "Finish" << endl;
 	}
 };
 
@@ -50,6 +50,8 @@ TEST_F (T9_Translator_Test, letters)
 	EXPECT_STREQ("99", t.translate("x").c_str());
 	EXPECT_STREQ("999", t.translate("y").c_str());
 	EXPECT_STREQ("9999", t.translate("z").c_str());
+
+	EXPECT_STREQ("", t.translate("").c_str());
 }
 
 TEST_F (T9_Translator_Test, sample)
@@ -66,4 +68,12 @@ TEST_F (T9_Translator_Test, strings)
 	EXPECT_STREQ("2 2 22 22 222 222", t.translate("aabbcc").c_str());
 	EXPECT_STREQ("222 22 2 2 22 222", t.translate("cbaabc").c_str());
 	EXPECT_STREQ("77 7706999033377744433663", t.translate("qq my friend").c_str());
+}
+
+TEST_F (T9_Translator_Test, wrong_input)
+{	
+	EXPECT_STREQ("_", t.translate("0").c_str());
+	EXPECT_STREQ("2_2__2", t.translate("a2a_/a").c_str());
+	EXPECT_STREQ("4433___09_777_3", t.translate("he110 w0r1d").c_str());
+	EXPECT_STREQ("2 2_2 2", t.translate("aa0aa").c_str());
 }

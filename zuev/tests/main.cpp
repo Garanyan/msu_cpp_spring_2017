@@ -1,5 +1,5 @@
 #include "stdafx.h"
-#include "../src/translator.h"
+#include "../src/T9_translator.h"
 
 int main(int argc, char* argv[])
 {
