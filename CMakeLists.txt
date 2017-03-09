@@ -36,7 +36,7 @@ add_subdirectory(Zaitcev)
 add_subdirectory(Garanyan)
 add_subdirectory(trempoltsev)
 add_subdirectory(Anferov)
-#add_subdirectory(Kupriakov) todo: fix
+add_subdirectory(Kupriakov)
 add_subdirectory(Popkova)
 add_subdirectory(zuev)
 add_subdirectory(sheviakov)
