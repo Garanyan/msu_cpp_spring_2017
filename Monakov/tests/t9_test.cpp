@@ -65,7 +65,18 @@ TEST_F(T9_test, spell_words)
 
     EXPECT_STREQ("4433555 555666096667775553",
         t9.spell("hello world").c_str());
+
+    EXPECT_STREQ("6 6 65556",
+        t9.spell("ooolo").c_str());
+
+    EXPECT_STREQ("4433555 55566696667775553",
+        t9.spell("helloworld").c_str());
+
+    EXPECT_STREQ("04433555 55566696667775553",
+        t9.spell(" helloworld").c_str());
+
 }
+
 
 TEST_F(T9_test, errors)
 {
@@ -74,5 +85,5 @@ TEST_F(T9_test, errors)
     EXPECT_THROW(t9.spell("a1"), std::invalid_argument);
     EXPECT_THROW(t9.spell("1a"), std::invalid_argument);
     EXPECT_THROW(t9.spell("a1 a"), std::invalid_argument);
-    EXPECT_THROW(t9.spell("a 1a"), std::invalid_argument);
+
 }
