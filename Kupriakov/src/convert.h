@@ -1,4 +1,4 @@
-#ifndef CONVERTER__H
+#ifndef CONVERTER_H
 #define CONVERTER_H
 
 //#include <stdafx.h>
