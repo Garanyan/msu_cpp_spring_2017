@@ -66,7 +66,7 @@ TEST_F(T9_test, spell_words)
     EXPECT_STREQ("4433555 555666096667775553",
         t9.spell("hello world").c_str());
 
-    EXPECT_STREQ("6 6 65556",
+    EXPECT_STREQ("666 666 666555666",
         t9.spell("ooolo").c_str());
 
     EXPECT_STREQ("4433555 55566696667775553",
