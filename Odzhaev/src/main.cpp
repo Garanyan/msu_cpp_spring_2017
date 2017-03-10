@@ -1,6 +1,6 @@
 #include "stdafx.h"
 
-#include "translator.h"
+#include "t9.h"
 
 int main(int argc, char** argv)
 {
@@ -16,22 +16,27 @@ int main(int argc, char** argv)
 		std::cerr << "Incorrect input number of strings"<<std::endl;
 		return EXIT_FAILURE;
 	}
-	Translator mutko;
+	T9 mutko;
+	mutko.set();
 	for (int i = 0; i < n; ++i)
 	{
 		std::string str;
 		std::getline(std::cin, str);
-		std::cout << "case #" << i + 1 << ": ";
+		std::cout << "Case #" << i + 1 << ": ";
 		try
 		{
-			std::cout << mutko.translate(str);
+			std::cout << mutko.translate(str)<<std::endl;
 		}
+		catch(std::invalid_argument& e)  
+		{  
+			std::cerr << e.what() << std::endl;  
+			return EXIT_FAILURE;  
+		} 
 		catch(...)
 		{
 			std::cerr << "Incorrect input string"<<std::endl;
 			return EXIT_FAILURE;
 		}
-		std::cout<<std::endl;
 	}
 	return EXIT_SUCCESS;
 }

@@ -1,14 +1,10 @@
 #include "stdafx.h"
 
-#include "translator.h"
+#include "t9.h"
 
-std::string Translator::translate(const std::string& str)
+
+void T9::set()
 {
-	if (str.empty())
-	        return "String is empty";
-
-	typedef	std::vector <Data> DATAES;
-	DATAES t_nine;
 	t_nine.push_back(Data(' ',"0"));
 	t_nine.push_back(Data('a',"2"));
 	t_nine.push_back(Data('b',"22"));
@@ -36,22 +32,27 @@ std::string Translator::translate(const std::string& str)
 	t_nine.push_back(Data('x',"99"));
 	t_nine.push_back(Data('y',"999"));
 	t_nine.push_back(Data('z',"9999"));
+}
 
+std::string T9::translate(const std::string& str)
+{
+	
+	if (str.empty()) {
+	        throw std::invalid_argument("String is empty");
+	}
 	std::string res="";
 	std::string tmp="",curr="";
-	for (char symbol : str)
+	for (char symbol : str) 
 	{
 		std::pair<DATAES::iterator, DATAES::iterator> range = equal_range(t_nine.begin(),t_nine.end(), symbol, DataCompare());	
-		if(range.first != range.second)
-		{
+		if(range.first!=range.second) {
 			curr=(*range.first).second;
-			if (tmp[0] == curr[0])
+			if (tmp[0] == curr[0]) {
             			res += " ";
-		}
-        	else
-            	{ 
-			res=symbol + std::string(" is not symbol a-z or space"); 
-			return res;
+			}
+		} else { 
+			res = symbol + std::string(" is not symbol a-z or space"); 
+			throw std::invalid_argument(res);
 		}
 		tmp=curr;
         	res += curr;

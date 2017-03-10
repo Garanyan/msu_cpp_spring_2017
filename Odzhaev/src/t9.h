@@ -1,10 +1,16 @@
-class Translator final
+typedef std::pair<char, std::string> Data;
+typedef	std::vector <Data> DATAES;
+
+class T9 final
 {
 public:
+	void set();
 	std::string translate(const std::string& str);
+private:
+	DATAES t_nine;
 };
 
-typedef std::pair<char, std::string> Data;
+
 class DataCompare{
 public:
 	bool operator()(const Data& lhs, const Data& rhs) const
