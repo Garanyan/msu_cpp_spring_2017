@@ -7,8 +7,8 @@ public:
     int speed;
     int endurance;
     int ability;
-    weapon *per_weapon;
-    armor *per_armor;
+    weapon *current_weapon;
+    armor *current_armor;
 };
 
 class villager : public person
