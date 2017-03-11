@@ -8,6 +8,7 @@ public:
 	int baseRange();
 	virtual ~Weapon() = 0;
 protected:
+	Weapon(const Weapon&) = delete;
 	int baseDmg_;
 	int baseSpd_;
 	int baseRange_;
