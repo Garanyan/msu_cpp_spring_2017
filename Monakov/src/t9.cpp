@@ -1,6 +1,6 @@
 #include "stdafx.h"
 #include "t9.h"
-#include <stdexcept>
+
 
 std::string T9::spell(std::string text)
 {

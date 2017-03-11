@@ -5,12 +5,18 @@ project(zuev)
 set(SRC_ROOT "${PROJECT_SOURCE_DIR}/src")
 
 set(HEADERS
-    ${SRC_ROOT}/translator.h)
+    ${SRC_ROOT}/T9_translator.h
+	)
 
 set(SOURCES
-    ${SRC_ROOT}/main.cpp)
+    ${SRC_ROOT}/main.cpp
+	)
+	
+set(SHARED_SOURCES
+	${SRC_ROOT}/T9_translator.cpp
+	)
 
-add_executable(${PROJECT_NAME} ${HEADERS} ${SOURCES})
+add_executable(${PROJECT_NAME} ${HEADERS} ${SOURCES} ${SHARED_SOURCES})
 
 target_compile_features(${PROJECT_NAME} PRIVATE cxx_range_for)
 

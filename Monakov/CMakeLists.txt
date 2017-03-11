@@ -15,15 +15,8 @@ set(SOURCES
 set(SHARED_SOURCES
     ${SRC_ROOT}/t9.cpp
     )
-set (CMAKE_MODULE_PATH "${CMAKE_SOURCE_DIR}/CMake")
+
 add_executable(${PROJECT_NAME} ${HEADERS} ${SOURCES} ${SHARED_SOURCES})
-include(cotire)
-################################
-# GTest
-################################
-ADD_SUBDIRECTORY (dependencies/gtest-1.8.0)
-enable_testing()
-include_directories(${gtest_SOURCE_DIR}/include ${gtest_SOURCE_DIR})
 
 
 #----------- precompiled -----------

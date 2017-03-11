@@ -3,22 +3,36 @@
 
 using namespace std;
 
-
 int main(int argc, char* argv[])
 {
-    T9 t;
-    int n;
-    string s;
+    try
+    {
+        T9 t;
+        int n;
+        string s;
 
-    getline(cin, s);
-	n = stoi(s);
-    
-    vector<string> v(n);
-    for(int i = 0; i < n; ++i){
-        getline(cin, v[i]);
+        getline(cin, s);
+        n = stoi(s);
+        if(n <= 0)
+            throw std::invalid_argument(string("invalid value N"));
+        
+        vector<string> text(n);
+        for(int i = 0; i < n; ++i)
+            getline(cin, text[i]);
+        
+        for(int i = 0; i < n; ++i)
+            cout << "Case #" << i+1 << ": " << t.translate(text[i]) << endl;
+        
+        return 0;
     }
-    for(int i = 0; i < n; ++i){
-        cout << "Case #" << i+1 << ": " << t.translate(v[i]) << endl;
+    catch (const invalid_argument& error)
+    {
+        cerr << error.what() << endl;
+        return -1;
     }
-    return 0;
+    catch(...)
+    {
+        cerr << "Unexpected error" << endl;
+        return -1;
+    }
 }

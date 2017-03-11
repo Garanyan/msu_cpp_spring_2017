@@ -9,27 +9,29 @@ std::string Converter::solve(const std::string& in)
 		throw std::invalid_argument("Empty string");
 
 	std::string result;
-	int mas[8] = {2, 5, 8, 11, 14, 18, 21, 26};
-	std::map<char, std::string> m;
+	std::string alphabet = "abc#def#ghi#jkl#mno#pqrs#tuv#wxyz";
+	std::map<char, std::string> encoded_chars;
 	int cur = 0;
 	std::string s = "";
-	for (char i = 'a'; i <= 'z'; i++) {
-		if (i - 'a' > mas[cur]) {
+	for (int i = 0; i < alphabet.length(); i++) {
+		if (alphabet[i] == '#') {
 			cur++;
 			s = "";
 		}
-		s += ('2' + cur);
-		m[i] = s;
+		else {
+			s += ('2' + cur);
+			encoded_chars[alphabet[i]] = s;
+		}
 	}
-	m[' '] = '0';
+	encoded_chars[' '] = '0';
 
-	char last = '#';
+	char last_symbol = '#';
 	for (long i = 0; i < in.length(); i++) {
 		if ( (in[i] <= 'z') && (in[i] >= 'a') || (in[i] == ' ') ) {
-			if (last == m[in[i]][0])
+			if (last_symbol == encoded_chars[in[i]][0])
 				result += ' ';
-			result += m[in[i]];
-			last = m[in[i]][0];
+			result += encoded_chars[in[i]];
+			last_symbol = encoded_chars[in[i]][0];
 		}
 		else {
 			throw std::invalid_argument("Invalid symbol");

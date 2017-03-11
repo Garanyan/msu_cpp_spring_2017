@@ -5,10 +5,12 @@ project(Ermolaev)
 set(SRC_ROOT "${PROJECT_SOURCE_DIR}/src")
 
 set(HEADERS
+    ${SRC_ROOT}/T9.h
     )
 
 set(SOURCES
     ${SRC_ROOT}/main.cpp)
+    
 
 add_executable(${PROJECT_NAME} ${HEADERS} ${SOURCES})
 

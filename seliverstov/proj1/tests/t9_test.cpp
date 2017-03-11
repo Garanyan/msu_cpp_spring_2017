@@ -9,7 +9,7 @@ protected:
 	T9 t9;
 };
 
-TEST_F(T9_tests, test1)
+TEST_F(T9_tests, spell_letters)
 {
 	EXPECT_STREQ("2", t9.spell("a").c_str());
 	EXPECT_STREQ("22", t9.spell("b").c_str());

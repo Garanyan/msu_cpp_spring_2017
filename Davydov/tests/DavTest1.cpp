@@ -15,6 +15,6 @@ TEST(transform, Test3) {
 TEST(transform, Test4) {
 	EXPECT_STREQ("4433555 555666096667775553", transform("hello world").c_str());
 }
-TEST(transform, Test5) {
+TEST(transform, TestError0) {
 	EXPECT_STREQ("abyr01abyr", transform("ERROR").c_str());
 }

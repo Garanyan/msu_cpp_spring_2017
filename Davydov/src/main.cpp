@@ -1,12 +1,12 @@
 #include "stdafx.h"
 #include <string>
 #include <iostream>
+#include "t9transform.h"
 
-using namespase std;
 int main(int argc, char* argv[])
 {
-	string str;
-	getline(cin, str);
-	cout << transform(str) << endl;
+	std::string str;
+	std::getline(std::cin, str);
+	std::cout << transform(str) << std::endl;
 	return 0;
 }

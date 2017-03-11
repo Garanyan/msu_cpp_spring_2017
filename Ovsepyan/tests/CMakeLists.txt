@@ -3,7 +3,8 @@ cmake_minimum_required(VERSION 3.4)
 project(${TEST_PROJECT})
 
 set(SOURCES
-	check.cpp
+    ../src/buttons.cpp
+    check.cpp
     main.cpp)
 
 add_executable(${PROJECT_NAME} ${SOURCES})
