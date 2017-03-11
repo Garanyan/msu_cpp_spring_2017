@@ -55,8 +55,8 @@ add_subdirectory(Spiridonova)
 add_subdirectory(pushkin)
 add_subdirectory(Dorozhkin)
 add_subdirectory(seliverstov)
-add_subdirectory(Porfireva)
-add_subdirectory(Davydov)
+#add_subdirectory(Porfireva) todo: fix the code
+#add_subdirectory(Davydov) todo: fix the code
 add_subdirectory(Bezsudnova)
 
 enable_testing()
