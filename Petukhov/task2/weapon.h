@@ -1,12 +1,13 @@
+#pragma once
 #include "armor.h"
 
 class Weapon{
+    const double penetrationCorslet;
+    const double penetrationChains;
+    const double velocity;
+    const double range;
 public:
-	double penetration_corslet;
-	double penetration_chains;
-	double velocity;
-	double range;
-	double count_penetration(Armor armor);
+    const double count_penetration(const Armor& armor);
 };
 
 class Shovel : public Weapon{

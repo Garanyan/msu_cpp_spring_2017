@@ -1,11 +1,12 @@
+#pragma once
 #include "weapon.h"
 
 class Armor{
+    const double protection;
+    const double velocityPenalty;
 public:
-	double protection;
-	double v_penalty;
-	double count_protection(Weapon weapon);
-	double subtract_velocity();
+    const double countProtection(const Weapon& weapon);
+    const double subtractVelocity();
 };
 
 class Corslet : public Armor{
