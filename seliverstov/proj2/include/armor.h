@@ -7,6 +7,7 @@ public:
 	double speedPenalty();
 	double getDefModifier(const Weapon&) = 0;
 protected:
+	Armor(const Armor&) = delete;
 	double baseProt_;
 	double speedPenalty_;
 };

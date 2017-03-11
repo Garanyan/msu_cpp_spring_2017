@@ -9,7 +9,7 @@
 #ifndef character_hpp
 #define character_hpp
 
-#include "weapon_skills.hpp"
+#include <map>
 #include "weapon.hpp"
 #include "armor.hpp"
 
@@ -18,7 +18,7 @@ class character
     double strength;
     double endurance;
     double speed;
-    weapon_skills skills;
+    std::map<weapon *, double> skills;
     weapon *curr_weapon;
     armor *curr_armor;
 };

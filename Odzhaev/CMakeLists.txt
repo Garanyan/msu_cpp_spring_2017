@@ -5,13 +5,13 @@ project(Odzhaev)
 set(SRC_ROOT "${PROJECT_SOURCE_DIR}/src")
 
 set(HEADERS
-    ${SRC_ROOT}/translator.h)
+    ${SRC_ROOT}/t9.h)
 
 set(SOURCES
     ${SRC_ROOT}/main.cpp)
 
 set(SHARED_SOURCES
-    ${SRC_ROOT}/translator.cpp
+    ${SRC_ROOT}/t9.cpp
     )
 
 add_executable(${PROJECT_NAME} ${HEADERS} ${SOURCES} ${SHARED_SOURCES})

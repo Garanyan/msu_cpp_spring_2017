@@ -16,9 +16,22 @@ class weapon
      * @throw
      * @throw
      */
+
      int penetration;
      int speed;
      int range;
+
+     weapon(const std::string& name, int Range, int Speed, int Penetration);
+
+     void setRange(int);
+     void setSpeed(int);
+     void setPenetration(int);
+
+     int getRange(void);
+     int getSpeed(void);
+     int getPenetration(void);
+    private:
+        std::string name;
 };
 
 class sword final: public weapon

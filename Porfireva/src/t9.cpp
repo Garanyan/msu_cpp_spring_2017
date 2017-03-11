@@ -34,6 +34,7 @@ std::string t9_translate(const std::string& text)
                     }
                 }
                 if(ok==0) throw std::invalid_argument(std::string("invalid car"));
+                ok =0;
    //         }
     }
   /*  catch(int i)

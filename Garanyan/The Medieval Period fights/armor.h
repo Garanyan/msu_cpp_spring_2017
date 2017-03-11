@@ -18,6 +18,17 @@ class armor
      */
      int resistance;
      int exhaust;
+
+     armor(const std::string& name, int resistance, int exhaust);
+
+     void setExhaust(int);
+     void setResistance(int);
+
+     int getExhaust(void);
+     int getResistance(void);
+
+    private:
+        std:string name;
 };
 
 class fullPlateArmour final: public armor

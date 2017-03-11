@@ -22,6 +22,13 @@ class person
      int weaponMastery;
      int agility;
      int luck;
+
+     void setWeapon(weapon*);
+	 void setArmor(armor*);
+    private:
+        weapon* charWeapon;
+		armor* charArmor;
+        std::string name;
 };
 
 class knight final: public person

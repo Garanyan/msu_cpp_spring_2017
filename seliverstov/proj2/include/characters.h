@@ -4,8 +4,8 @@ class Person
 {
 public:
 	Person(Weapon*, Armor*);
-	virtual void takeWeapon(Weapon*);
-	virtual void takeArmor(Armor*);
+	virtual void takeWeapon(Weapon&&);
+	virtual void takeArmor(Armor&&);
 	virtual void attack(Person&);
 	virtual void recvAttack(Person&);
 protected:
@@ -24,11 +24,7 @@ class Peasant
 	:public Person
 {
 public:
-	Peasant(Weapon*, Armor*);
-	void takeWeapon(Weapon*);
-	void takeArmor(Armor*);
-	void attack(Person&);
-	void recvAttack(Person&);
+	Peasant(Weapon&&, Armor&&);
 private:
 	int getWeaponMastery();
 };
@@ -37,11 +33,7 @@ class Archer
 	:public Person
 {
 public:
-	Archer(Weapon*, Armor*);
-	void takeWeapon(Weapon*);
-	void takeArmor(Armor*);
-	void attack(Person&);
-	void recvAttack(Person&);
+	Archer(Weapon&&, Armor&&);
 private:
 	int getWeaponMastery();
 };
@@ -50,11 +42,7 @@ class Knight
 	:public Person
 {
 public:
-	Knight(Weapon*, Armor*);
-	void takeWeapon(Weapon*);
-	void takeArmor(Armor*);
-	void attack(Person&);
-	void recvAttack(Person&);
+	Knight(Weapon&&, Armor&&);
 private:
 	int getWeaponMastery();
 };
