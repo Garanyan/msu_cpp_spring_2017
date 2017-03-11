@@ -1,5 +1,5 @@
 #include "stdafx.h"
-#include "t9transform.h"
+#include "../Davydov/src/t9transform.h"
 
 TEST(transform, Test0) {
 	EXPECT_STREQ("55544433333 444777 2 7244466", transform("life is a pain").c_str());
