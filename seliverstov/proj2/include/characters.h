@@ -8,8 +8,14 @@ enum class PersonType
 {
 	PEASANT,
 	ARCHER,
-	KNIGHT
+	KNIGHT,
+	NINJA
 };
+
+namespace CharactersStats
+{
+	
+}
 
 class Person
 {
@@ -59,4 +65,13 @@ public:
 private:
 	int getWeaponMastery();
 };
+
+class Ninja
+	:public Person
+{
+public:
+	Ninja(Weapon&&, Armor&&);
+private:
+	int getWeaponMastery();
+}
 #endif
