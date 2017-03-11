@@ -57,5 +57,6 @@ add_subdirectory(Dorozhkin)
 add_subdirectory(seliverstov)
 add_subdirectory(Porfireva)
 add_subdirectory(Davydov)
+add_subdirectory(Bezsudnova)
 
 enable_testing()
