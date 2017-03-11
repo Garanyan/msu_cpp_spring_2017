@@ -66,7 +66,7 @@ TEST(T9_test, spell_words)
         t9_translate("hello world").c_str());
 }
 
-TEST_F(T9_test, errors)
+TEST(T9_test, errors)
 {
         EXPECT_THROW(t9_translate(""), std::invalid_argument);
         EXPECT_THROW(t9_translate("1"), std::invalid_argument);
