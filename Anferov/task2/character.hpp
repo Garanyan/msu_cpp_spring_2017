@@ -10,17 +10,26 @@
 #define character_hpp
 
 #include <map>
+#include <string>
 #include "weapon.hpp"
 #include "armor.hpp"
+#include "weapon_enum.h"
 
 class character
 {
+    std::string name;
     double strength;
     double endurance;
     double speed;
-    std::map<weapon *, double> skills;
-    weapon *curr_weapon;
-    armor *curr_armor;
+    std::map<weapon_type, double> skills;
+    weapon curr_weapon;
+    armor curr_armor;
+    
+    character(character const &) = delete;
+    character & operator= (character const &) = delete;
+    
+public:
+    character & operator= (character &&) = default;
 };
 
 class peasant: public character

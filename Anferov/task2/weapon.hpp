@@ -10,15 +10,22 @@
 #define weapon_hpp
 
 #include <map>
-
-class armor;
+#include "weapon_enum.h"
+#include "armor_enum.h"
 
 class weapon
 {
-public:
-    std::map<armor *, double> punching_ability;
+    weapon_type type;
+    std::map<armor_type, double> punching_ability;
     double speed;
     double distance;
+    
+    weapon(weapon const &) = delete;
+    weapon & operator= (weapon const &) = delete;
+};
+
+class fist: public weapon
+{
 };
 
 class shovel: public weapon

@@ -10,12 +10,16 @@
 #define armor_hpp
 
 #include <map>
-
-class weapon;
+#include "weapon_enum.h"
+#include "armor_enum.h"
 
 class armor {
-    std::map<weapon *, double>  protection;
+    armor_type type;
+    std::map<weapon_type, double>  protection;
     double speed_fine;
+    
+    armor(armor const &) = delete;
+    armor & operator= (armor const &) = delete;
 };
 
 class chain_armour: public armor
