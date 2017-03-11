@@ -1,4 +1,4 @@
-//
+//Система информации об автобусных рейсах и билетах
 //  armor.hpp
 //  C++ project
 //
@@ -9,10 +9,12 @@
 #ifndef armor_hpp
 #define armor_hpp
 
-#include "protective_properties.hpp"
+#include <map>
+
+class weapon;
 
 class armor {
-    protective_properties protection;
+    std::map<weapon *, double>  protection;
     double speed_fine;
 };
 

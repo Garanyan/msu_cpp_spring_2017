@@ -9,12 +9,14 @@
 #ifndef weapon_hpp
 #define weapon_hpp
 
-#include "punching_properties.hpp"
+#include <map>
+
+class armor;
 
 class weapon
 {
 public:
-    punching_properties punching_ability;
+    std::map<armor *, double> punching_ability;
     double speed;
     double distance;
 };
