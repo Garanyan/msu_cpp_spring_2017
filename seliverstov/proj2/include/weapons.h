@@ -1,5 +1,15 @@
 #ifndef weapons_protector
 #define weapons_protector
+
+enum class WpnType
+{
+	FIST,
+	SHOVEL,
+	BOW,
+	HAMMER,
+	SWORD
+};
+
 class Weapon
 {
 public:

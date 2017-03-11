@@ -1,5 +1,13 @@
 #ifndef armor_protector
 #define armor_protector
+#include "weapons.h"
+enum class ArmorType
+{
+	SKIN,
+	MAIL,
+	PLATE
+};
+
 class Armor
 {
 public:

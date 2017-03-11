@@ -1,14 +1,26 @@
 #ifndef characters_protector
 #define characters_protector
+
+#include "weapons.h"
+#include "armor.h"
+
+enum class PersonType
+{
+	PEASANT,
+	ARCHER,
+	KNIGHT
+};
+
 class Person
 {
 public:
 	Person(Weapon*, Armor*);
-	virtual void takeWeapon(Weapon&&);
-	virtual void takeArmor(Armor&&);
-	virtual void attack(Person&);
-	virtual void recvAttack(Person&);
+	void takeWeapon(Weapon&&);
+	void takeArmor(Armor&&);
+	void attack(Person&);
+	void recvAttack(Person&);
 protected:
+	std::string nickname_;
 	Weapon* weapon_;
 	Armor* armor_;
 	bool dead_;
@@ -18,6 +30,7 @@ protected:
 	int mvSpeed_;
 	int baseWeaponMastery_;
 	virtual int getWeaponMastery();//for current weapon
+	bool operator==(std::string);//needed for adding this in an unordered set
 };
 
 class Peasant
