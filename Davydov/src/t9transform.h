@@ -8,8 +8,7 @@ std::string chartonum(char r) {
 	{
 		// for error&space
 	default: return "104"; break;
-
-		break;
+	case ' ': return " "; break;
 		// for abc
 	case 'a': return "2"; break;
 	case 'b': return "22"; break;
@@ -57,8 +56,6 @@ std::string transform(std::string str)
 			result = "ERROR";
 			goto error;
 		}
-		if (chartonum(str[i])[0] == chartonum(str[i - 1])[0])
-			result += " ";
 		result += chartonum(str[i]);
 	}
 error:
