@@ -16,90 +16,100 @@ Weapon::baseRange()
 }
 
 Shovel::Shovel():
-	baseDmg_(WeaponStats::ShovelDmg),
-	baseSpd_(WeaponStats::ShovelSpd),
-	baseRng_(WeaponStats::ShovelRng)
+	type_(WpnType::SHOVEL),
+	baseDmg_(WeaponStats::shovelDmg),
+	baseSpd_(WeaponStats::shovelSpd),
+	baseRng_(WeaponStats::shovelRng)
 	{}
 
 Shovel::~Shovel()
 	{}
 
 ButcherKnife::ButcherKnife():
-	baseDmg_(WeaponStats::BKnifeDmg),
-	baseSpd_(WeaponStats::BKnifeSpd),
-	baseRng_(WeaponStats::BKnifeRng)
+	type_(WpnType::BKNIFE),
+	baseDmg_(WeaponStats::bKnifeDmg),
+	baseSpd_(WeaponStats::bKnifeSpd),
+	baseRng_(WeaponStats::bKnifeRng)
 	{}
 
 ButcherKnife::~ButcherKnife()
 	{}
 
 Dagger::Dagger():
-	baseDmg_(WeaponStats::DaggerDmg),
-	baseSpd_(WeaponStats::DaggerSpd),
-	baseRng_(WeaponStats::DaggerRng)
+	type_(WpnType::DAGGER),
+	baseDmg_(WeaponStats::daggerDmg),
+	baseSpd_(WeaponStats::daggerSpd),
+	baseRng_(WeaponStats::daggerRng)
 	{}
 
 Dagger::~Dagger()
 	{}
 
 Glaive::Glaive():
-	baseDmg_(WeaponStats::GlaiveDmg),
-	baseSpd_(WeaponStats::GlaiveSpd),
-	baseRng_(WeaponStats::GlaiveRng)
+	type_(WpnType::GLAIVE),
+	baseDmg_(WeaponStats::glaiveDmg),
+	baseSpd_(WeaponStats::glaiveSpd),
+	baseRng_(WeaponStats::glaiveRng)
 	{}
 
 Glaive::~Glaive()
 	{}
 
 Bow::Bow():
-	baseDmg_(WeaponStats::BowDmg),
-	baseSpd_(WeaponStats::BowSpd),
-	baseRng_(WeaponStats::BowRng)
+	type_(WpnType::BOW),
+	baseDmg_(WeaponStats::bowDmg),
+	baseSpd_(WeaponStats::bowSpd),
+	baseRng_(WeaponStats::bowRng)
 	{}
 
 Bow::~Bow()
 	{}
 
 Crossbow::Crossbow():
-	baseDmg_(WeaponStats::XbowDmg),
-	baseSpd_(WeaponStats::XbowSpd),
-	baseRng_(WeaponStats::XbowRng)
+	type_(WpnType::XBOW),
+	baseDmg_(WeaponStats::xbowDmg),
+	baseSpd_(WeaponStats::xbowSpd),
+	baseRng_(WeaponStats::xbowRng)
 	{}
 
 Crossbow::~Crossbow()
 	{}
 
 Hammer::Hammer():
-	baseDmg_(WeaponStats::HammerDmg),
-	baseSpd_(WeaponStats::HammerSpd),
-	baseRng_(WeaponStats::HammerRng)
+	type_(WpnType::HAMMER),
+	baseDmg_(WeaponStats::hammerDmg),
+	baseSpd_(WeaponStats::hammerSpd),
+	baseRng_(WeaponStats::hammerRng)
 	{}
 
 Hammer::~Hammer()
 	{}
 
 Sword::Sword():
-	baseDmg_(WeaponStats::SwordDmg),
-	baseSpd_(WeaponStats::SwordSpd),
-	baseRng_(WeaponStats::SwordRng)
+	type_(WpnType::SWORD),
+	baseDmg_(WeaponStats::swordDmg),
+	baseSpd_(WeaponStats::swordSpd),
+	baseRng_(WeaponStats::swordRng)
 	{}
 
 Sword::~Sword()
 	{}
 
 Longsword::Longsword():
-	baseDmg_(WeaponStats::LswordDmg),
-	baseSpd_(WeaponStats::LswordSpd),
-	baseRng_(WeaponStats::LswordRng)
+	type_(WpnType::LSWORD),
+	baseDmg_(WeaponStats::lswordDmg),
+	baseSpd_(WeaponStats::lswordSpd),
+	baseRng_(WeaponStats::lswordRng)
 	{}
 
 Longsword::~Longsword()
 	{}
 
 Fist::Fist():
-	baseDmg_(WeaponStats::FistDmg),
-	baseSpd_(WeaponStats::FistSpd),
-	baseRng_(WeaponStats::FistRng)
+	type_(WpnType::FIST),
+	baseDmg_(WeaponStats::fistDmg),
+	baseSpd_(WeaponStats::fistSpd),
+	baseRng_(WeaponStats::fistRng)
 	{}
 
 Fist::~Fist()
