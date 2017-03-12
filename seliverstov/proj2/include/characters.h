@@ -39,14 +39,14 @@ class Person
 {
 public:
 	virtual Person(std::string) = 0;
-	void takeWeapon(Weapon&&);
-	void takeArmor(Armor&&);
+	Weapon&& swapWeapon(Weapon&&);
+	Armor&& swapArmor(Armor&&);
 	void attack(Person&);
 	void recvAttack(Person&);
 protected:
+	std::unique_ptr<Weapon> weapon_;
+	std::unique_ptr<Armor> armor_;
 	std::string nickname_;
-	Weapon* weapon_;
-	Armor* armor_;
 	bool dead_;
 	int hitPoints_;
 	int strength_;//reduses armor speed penalty

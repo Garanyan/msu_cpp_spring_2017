@@ -7,6 +7,6 @@ public:
 	void enter(Person&&);
 	Person&& leave(std::string);
 private:
-	std::unordered_map <std::string, Person&> people;
+	std::unordered_map <std::string, Person&&> people;
 };
 #endif
