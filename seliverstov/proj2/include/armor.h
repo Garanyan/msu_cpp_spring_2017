@@ -7,7 +7,8 @@ enum class ArmorType
 	MAIL,
 	PLATE,
 	LEATHER,
-	SCALE
+	SCALE,
+	SIZE
 };
 
 namespace ArmorStats

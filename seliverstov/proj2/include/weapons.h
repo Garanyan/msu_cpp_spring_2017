@@ -12,7 +12,8 @@ enum class WpnType
 	XBOW,
 	BKNIFE,
 	LSWORD,
-	DAGGER
+	DAGGER,
+	SIZE
 };
 
 namespace WeaponStats

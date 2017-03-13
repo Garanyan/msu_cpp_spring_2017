@@ -10,14 +10,19 @@ bool Person::operator==(std::string nickname)
 	return nickname_ == nickname;
 }
 
-Weapon&& swapWeapon(Weapon&& moved)
+std::string Person::nickname()
+{
+	return nickname_;
+}
+
+Weapon&& Person::swapWeapon(Weapon&& moved)
 {
 	Weapon&& result = std::move(weapon_);
 	weapon_ = std::move(moved);
 	return result;
 }
 
-Armor&& swapArmor(Armor&& moved)
+Armor&& Person::swapArmor(Armor&& moved)
 {
 	Armor&& result = std::move(armor_);
 	armor_ = std::move(moved);

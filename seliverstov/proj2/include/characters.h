@@ -9,7 +9,8 @@ enum class PersonType
 	PEASANT,
 	ARCHER,
 	KNIGHT,
-	NINJA
+	NINJA,
+	SIZE
 };
 
 namespace CharactersStats
@@ -43,6 +44,7 @@ public:
 	Armor&& swapArmor(Armor&&);
 	void attack(Person&);
 	void recvAttack(Person&);
+	std::string nickname();
 protected:
 	std::unique_ptr<Weapon> weapon_;
 	std::unique_ptr<Armor> armor_;

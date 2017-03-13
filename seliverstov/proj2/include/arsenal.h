@@ -12,7 +12,7 @@ public:
 	Armor&& giveArmor(std::string, Armor&&, int);
 private:
 	std::unordered_map <std::string, Person&> people;
-	std::stack <Weapon&> weaponStore;
-	std::stack <Armor&> armorStore;
+	std::stack <Weapon&> weaponStore[WpnType::SIZE];
+	std::stack <Armor&> armorStore[ArmorType::SIZE];
 };
 #endif
