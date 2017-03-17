@@ -1,28 +1,35 @@
-class weapon
+#ifndef WEAPON_H
+#define WEAPON_H
+class Weapon
 {
-public:
-    int piercing[2];
-    int speedw;
+private:
+    int piercing_chain;
+    int piercing_shell;
+    int speed_weapon;
     int range;
+public:
+    Weapon(const Weapon& copied)=delete;
+    Weapon& operator=(const Weapon& copied)=delete;
 };
 
-class sword : public weapon
+class Sword : public Weapon
 {
 
 };
 
-class bow : public weapon
+class Bow : public Weapon
 {
 
 };
 
-class shovel : public weapon
+class Shovel : public Weapon
 {
 
 };
 
-class hammer : public weapon
+class Hammer : public Weapon
 {
 
 };
 
+#endif// WEAPON_H

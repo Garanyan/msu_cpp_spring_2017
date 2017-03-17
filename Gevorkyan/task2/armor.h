@@ -1,17 +1,26 @@
-class armor
+#ifndef ARMOR_H
+#define ARMOR_H
+class Armor
 {
-public:
-    int protection[4];
+private:
+    int protection_sword;
+    int protection_bow;
+    int protection_shovel;
+    int protection_hammew;
     int speed_;
+public:
+    Armor(const Armor& copied)=delete;
+    Armor& operator=(const Armor& copied)=delete;
 };
 
-class chain : public armor
+class Chain : public Armor
 {
 
 };
 
-class shell : public armor
+class Shell : public Armor
 {
 
 };
 
+#endif // ARMOR_H
