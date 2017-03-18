@@ -3,13 +3,10 @@
 
 std::string chartonum(char r) {
 
-	// 
 	switch (r)
-	{
-		// for error&space
+	{	// for error&space
 	default: return "104"; break;
-
-		break;
+	case ' ': return " "; break;
 		// for abc
 	case 'a': return "2"; break;
 	case 'b': return "22"; break;
@@ -30,7 +27,7 @@ std::string chartonum(char r) {
 	case 'm': return "6"; break;
 	case 'n': return "66"; break;
 	case 'o': return "666"; break; // kumamon is glad
-								   // for pqrs
+		 // for pqrs
 	case 'p': return "7"; break;
 	case 'q': return "77"; break;
 	case 'r': return "777"; break;
@@ -45,7 +42,6 @@ std::string chartonum(char r) {
 	case 'y': return "999"; break;
 	case 'z': return "9999"; break;
 	}
-
 }
 
 std::string transform(std::string str)
@@ -57,7 +53,6 @@ std::string transform(std::string str)
 			result = "ERROR";
 			goto error;
 		}
-		if (chartonum(str[i])[0] == chartonum(str[i - 1])[0]) result += " ";
 		result += chartonum(str[i]);
 	}
 error:
