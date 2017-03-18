@@ -12,6 +12,10 @@ set(BUILD_GMOCK OFF CACHE BOOL "Builds the googlemock subproject")
 add_subdirectory(${GTEST_ROOT} gtest)
 include_directories(${GTEST_ROOT}/googletest/include)
 
+#---------- CMake Modules ----------
+list(APPEND CMAKE_MODULE_PATH "${DEPENDENCIES_DIR}/CMake")
+include(GroupSources)
+
 #----------- precompiled -----------
 list(APPEND CMAKE_MODULE_PATH "${DEPENDENCIES_DIR}/cotire-1.7.9/CMake")
 include(cotire)

@@ -4,6 +4,11 @@ project(${TEST_PROJECT})
 
 set(TEST_SOURCES
     main.cpp
+
+    armors_test.cpp
+    units_test.cpp
+    weapons_test.cpp
+
     t9_test.cpp)
 
 add_executable(${PROJECT_NAME} ${TEST_SOURCES} ${SHARED_SOURCES})
@@ -11,3 +16,5 @@ add_executable(${PROJECT_NAME} ${TEST_SOURCES} ${SHARED_SOURCES})
 target_link_libraries(${PROJECT_NAME} gtest)
 
 target_compile_features(${PROJECT_NAME} PRIVATE cxx_range_for)
+
+GroupSourcesWithBase(${PROJECT_NAME} ${CMAKE_CURRENT_SOURCE_DIR}/..)
