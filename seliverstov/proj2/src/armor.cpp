@@ -29,7 +29,7 @@ Mail::Mail():
 	speedPenalty(ArmorStats::mailSpdMod)
 	{}
 
-double Skin::getDef(int wpnType)
+double Skin::getDef(WpnType wpnType)
 {
 	if (wpnType < (sizeof(modifiers) / sizeof(double)))
 		return (1 - baseProt_) * (1 - modifiers[wpnType]) + baseProt_;
@@ -39,7 +39,7 @@ double Skin::getDef(int wpnType)
 			+ to_string(wpnType) + ")\n");
 }
 
-double Mail::getDef(int wpnType)
+double Mail::getDef(WpnType wpnType)
 {
 	if (wpnType < (sizeof(modifiers) / sizeof(double)))
 		return (1 - baseProt_) * (1 - modifiers[wpnType]) + baseProt_;
@@ -49,7 +49,7 @@ double Mail::getDef(int wpnType)
 			+ to_string(wpnType) + ")\n");
 }
 
-double Plate::getDef(int wpnType)
+double Plate::getDef(WpnType wpnType)
 {
 	if (wpnType < (sizeof(modifiers) / sizeof(double)))
 		return (1 - baseProt_) * (1 - modifiers[wpnType]) + baseProt_;
@@ -59,7 +59,7 @@ double Plate::getDef(int wpnType)
 			+ to_string(wpnType) + ")\n");
 }
 
-double Leather::getDef(int wpnType)
+double Leather::getDef(WpnType wpnType)
 {
 	if (wpnType < (sizeof(modifiers) / sizeof(double)))
 		return (1 - baseProt_) * (1 - modifiers[wpnType]) + baseProt_;
@@ -69,7 +69,7 @@ double Leather::getDef(int wpnType)
 			+ to_string(wpnType) + ")\n");
 }
 
-double Scale::getDef(int wpnType)
+double Scale::getDef(WpnType wpnType)
 {
 	if (wpnType < (sizeof(modifiers) / sizeof(double)))
 		return (1 - baseProt_) * (1 - modifiers[wpnType]) + baseProt_;

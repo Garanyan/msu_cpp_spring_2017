@@ -18,7 +18,7 @@ set(SOURCES
 set(SHARED_SOURCES
 	)
 
-add_executable(${PROJECT_NAME} ${HEADERS} ${SOURCES} ${SHARED_SOURCES})
+add_executable(${PROJECT_NAME} ${SOURCES} ${SHARED_SOURCES})
 
 target_compile_features(${PROJECT_NAME} PRIVATE cxx_range_for)
 
