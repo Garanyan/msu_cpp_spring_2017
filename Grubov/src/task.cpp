@@ -20,12 +20,12 @@ std::vector<std::string> solve(std::vector<std::string> & data) {
             }
 
             auto find_num = std::lower_bound(dict.begin(), dict.end(), ch);
-            if (find_num == dict.end() or ch < *find_num) {
+            if (find_num == dict.end() || ch < *find_num) {
                 --find_num;
             }
 
             char num = char('0' + 2 + std::distance(dict.begin(), find_num));
-            std::string mult(uint(ch - *find_num) + 1, num);
+            std::string mult(unsigned(ch - *find_num) + 1, num);
             if (prev_ch == num) { // if previous is the same as current -> we need space
                 res += " ";
             }

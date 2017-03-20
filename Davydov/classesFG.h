@@ -67,16 +67,16 @@ public:
 		Weapon(int w_t)
 	{
 		switch(w_t)
-		case 1:
+		case 0:
 			penetration = 5;
 			break;
-		case 2:
+		case 1:
 			penetration = 15;
 			break;
-		case 3:
+		case 2:
 			penetration = 80;
 			break;
-		case 4:
+		case 3:
 			penetration = 30;
 	}
 };

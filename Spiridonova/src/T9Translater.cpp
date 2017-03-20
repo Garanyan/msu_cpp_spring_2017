@@ -6,9 +6,9 @@ std::string T9Translater::spell(const std::string&  initial_str){
        throw::invalid_argument("Empty input!\n");
     char key_number;
     string result = "";
-    uint repeat_count;
+    unsigned repeat_count;
     for (size_t i = 0 ;  i <= initial_str.size() - 1; i++) {
-        if (((initial_str[i] < 'a') or (initial_str[i] > 'z'))and (initial_str[i] != ' ')){
+        if (((initial_str[i] < 'a') || (initial_str[i] > 'z')) && (initial_str[i] != ' ')){
             throw::invalid_argument("You can use only Latin letters in lower case!\n");}
 
         if (initial_str[i]== empty_symbol){

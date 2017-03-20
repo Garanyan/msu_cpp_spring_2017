@@ -34,9 +34,10 @@ class Armor
 public:
 	double baseProt();
 	double speedModifier();
-	virtual double getDef(int) = 0;
+	virtual double getDef(WpnType) = 0;
 protected:
 	Armor(const Armor&) = delete;
+	Armor& operator= (const Armor&) = delete;
 	double baseProt_;
 	double speedModifier_;
 };

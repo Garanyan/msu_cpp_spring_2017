@@ -3,10 +3,8 @@
 
 std::string chartonum(char r) {
 
-	// 
 	switch (r)
-	{
-		// for error&space
+	{	// for error&space
 	default: return "104"; break;
 	case ' ': return " "; break;
 		// for abc
@@ -44,7 +42,6 @@ std::string chartonum(char r) {
 	case 'y': return "999"; break;
 	case 'z': return "9999"; break;
 	}
-
 }
 
 std::string transform(std::string str)

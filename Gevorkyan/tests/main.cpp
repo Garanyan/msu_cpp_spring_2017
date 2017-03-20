@@ -1,9 +1,6 @@
 #include "stdafx.h"
 
-TEST(NotImplemented, Dummy)
-{
-    ASSERT_TRUE(false);
-}
+
 
 int main(int argc, char* argv[])
 {

@@ -5,6 +5,7 @@ project(Gevorkyan)
 set(SRC_ROOT "${PROJECT_SOURCE_DIR}/src")
 
 set(HEADERS
+    ${SRC_ROOT}/T9.h
     )
 
 set(SOURCES
