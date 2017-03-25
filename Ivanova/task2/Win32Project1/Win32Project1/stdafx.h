@@ -15,7 +15,7 @@
 #include "weapon.h"
 #include "armor.h"
 #include "character.h"
-
+#include "kazarma.h"
 
 
 // TODO: Установите здесь ссылки на дополнительные заголовки, требующиеся для программы

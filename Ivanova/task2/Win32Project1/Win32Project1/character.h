@@ -5,7 +5,7 @@ using namespace std;
 class character {
 public:
 
-	character() {}
+	character(int char_type) : charType(char_type) {}
 	virtual ~character() {}
 
 	int charType;
@@ -19,7 +19,6 @@ public:
 	character(int charType, int strength, int stamina, int speed)
 		: charType(charType), strength(strength), stamina(stamina), speed(speed) {}
 
-
 	void takeWeapon(weapon&& someWeapon) {
 		cout << "took weapon" << someWeapon.weaponType << "\n";
 		weaponType = someWeapon.weaponType;
@@ -31,10 +30,6 @@ public:
 		armorType = someArmor.armorType;
 		speed = int(speed * someArmor.speedPenalty);
 	}
-
-
-	//character(character&& movied) = default;
-
 
 	int CharWeaponTable(int charType, int weaponType) {
 		int i = charType;
@@ -53,30 +48,18 @@ public:
 class farmer : public character {
 public:
 
-	farmer() {}
+	//farmer(): character(0) {}
+	farmer(int strength, int stamina, int speed)
+		: character(0)
+		, speed(speed), strength(strength), stamina(stamina) {}
 	virtual ~farmer() {}
 
 	farmer(const farmer& copied) = delete;
 	farmer& operator = (const farmer& copied) = delete;
 
-	farmer(farmer&& x) : character(move(x)),
-		charType(move(x.charType)), 
-		strength(move(x.strength)),
-		stamina(move(x.stamina)),
-		speed(move(x.speed)) {};
+	farmer(farmer&& x) = default;
+	farmer& operator = (farmer&& x) = default;
 
-	farmer& operator = (farmer&& x) 
-	{
-		character::operator=(move(x));
-		charType = (move(x.charType));
-		strength = (move(x.strength));
-		stamina = (move(x.stamina));
-		speed = (move(x.speed));
-
-		return *this;
-	};
-
-	int charType = 0;
 	int strength = 50; 
 	int stamina = 80;
 	int speed = 80;
@@ -86,30 +69,18 @@ public:
 class knight : public character {
 public:
 
-	knight() {}
+	//knight(): character(1) {}
+	knight(int strength, int stamina, int speed)
+		: character(1)
+		, speed(speed), strength(strength), stamina(stamina) {}
 	virtual ~knight() {}
 
 	knight(const knight& copied) = delete;
 	knight& operator = (const knight& copied) = delete;
 
-	knight(knight&& x) : character(move(x)),
-		charType(move(x.charType)),
-		strength(move(x.strength)),
-		stamina(move(x.stamina)),
-		speed(move(x.speed)) {};
+	knight(knight&& x) = default;
+	knight& operator = (knight&& x) = default;
 
-	knight& operator = (knight&& x)
-	{
-		character::operator=(move(x));
-		charType = (move(x.charType));
-		strength = (move(x.strength));
-		stamina = (move(x.stamina));
-		speed = (move(x.speed));
-
-		return *this;
-	};
-
-	int charType = 1;
 	int strength = 100;
 	int stamina = 80; 
 	int speed = 50;
@@ -119,30 +90,18 @@ public:
 class archer : public character {
 public:
 
-	archer() {}
+	//archer(): character(2) {}
+	archer(int strength, int stamina, int speed)
+		: character(2)
+		, speed(speed), strength(strength), stamina(stamina) {}
 	virtual ~archer() {}
 
 	archer(const archer& copied) = delete;
 	archer& operator = (const archer& copied) = delete;
 
-	archer(archer&& x) : character(move(x)),
-		charType(move(x.charType)),
-		strength(move(x.strength)),
-		stamina(move(x.stamina)),
-		speed(move(x.speed)) {};
-
-	archer& operator = (archer&& x)
-	{
-		character::operator=(move(x));
-		charType = (move(x.charType));
-		strength = (move(x.strength));
-		stamina = (move(x.stamina));
-		speed = (move(x.speed));
-
-		return *this;
-	};
-
-	int charType = 2; 
+	archer(archer&& x) = default;
+	archer& operator = (archer&& x) = default;
+ 
 	int strength = 50; 
 	int stamina = 100; 
 	int speed = 80;
