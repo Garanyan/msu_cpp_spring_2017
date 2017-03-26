@@ -5,9 +5,10 @@ class Weapon;
 
 class Armor 
 {
-    int speedpenalty;
 public:
-    virtual int countbonus(Weapon &w);
+    int speedpenalty;
+    int countbonus(Weapon &weapon);
+    Armor(int speedpenalty = 0);
     Armor(const Armor & copied) = delete;
     Armor & operator= (const Armor & copied) = delete;
     Armor(Armor && moved);
@@ -17,8 +18,8 @@ public:
 class Torso : public Armor
 {
 public:
-    int countbonus(Weapon &w);
-    Torso(int speedpenalty);
+    static constexpr const char * name = "Torso";
+    Torso(int torsospeedpenalty = 0);
     Torso(const Torso & copied) = delete;
     Torso & operator= (const Torso & copied) = delete;
     Torso(Torso && moved);
@@ -28,8 +29,8 @@ public:
 class Chain : public Armor
 {
 public:
-    int countbonus(Weapon &w);    
-    Chain(int speedpenalty);
+    static constexpr const char * name = "Chain";
+    Chain(int chainspeedpenalty = 0);
     Chain(const Chain & copied) = delete;
     Chain & operator= (const Chain & copied) = delete;
     Chain(Chain && moved);
@@ -39,8 +40,8 @@ public:
 class Corslet : public Armor
 {
 public:
-    int countbonus(Weapon &w);
-    Corslet(int speedpenalty);
+    static constexpr const char * name = "Corslet";
+    Corslet(int corsletspeedpenalty = 0);
     Corslet(const Corslet & copied) = delete;
     Corslet & operator= (const Corslet & copied) = delete;
     Corslet(Corslet && moved);

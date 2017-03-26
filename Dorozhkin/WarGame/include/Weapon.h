@@ -4,17 +4,23 @@
 class Armor;
 
 class Weapon {
+public:
     int radius;
     int speed;
-public:
+    Weapon(int radius = 0, int speed = 0);
+    Weapon(const Weapon & copied) = delete;
+    Weapon & operator= (const Weapon & copied) = delete;
+    Weapon(Weapon && moved);
+    Weapon & operator= (Weapon && moved); 
     virtual int countbonus(Armor &a);
 };
 
 class Nothing : public Weapon
 {
 public:
-    int countbonus(Armor &a);
-    Nothing(int radius, int speed);
+    static constexpr const char * name = "Nothing";
+    int countbonus(Armor &armor);
+    Nothing(int nothingradius = 0, int nothingspeed = 0);
     Nothing(const Nothing & copied) = delete;
     Nothing & operator= (const Nothing & copied) = delete;
     Nothing(Nothing && moved);
@@ -24,8 +30,8 @@ public:
 class Sword : public Weapon
 {
 public:
-    int countbonus(Armor &a);
-    Sword(int radius, int speed);
+    static constexpr const char * name = "Sword";
+    Sword(int swordradius = 0, int swordspeed = 0);
     Sword(const Sword & copied) = delete;
     Sword & operator= (const Sword & copied) = delete;
     Sword(Sword && moved);
@@ -35,8 +41,8 @@ public:
 class Shovel : public Weapon
 {
 public:
-    int countbonus(Armor &a);
-    Shovel(int radius, int speed);
+    static constexpr const char * name = "Shovel";
+    Shovel(int shovelradius = 0, int shovelspeed = 0);
     Shovel(const Shovel & copied) = delete;
     Shovel & operator= (const Shovel & copied) = delete;
     Shovel(Shovel && moved);
@@ -46,8 +52,8 @@ public:
 class Bow : public Weapon
 {
 public:
-    int countbonus(Armor &a);    
-    Bow(int radius, int speed);
+    static constexpr const char * name = "Bow";
+    Bow(int bowradius = 0, int bowspeed = 0);
     Bow(const Bow & copied) = delete;
     Bow & operator= (const Bow & copied) = delete;
     Bow(Bow && moved);
@@ -57,8 +63,8 @@ public:
 class Hammer : public Weapon
 {
 public:
-    int countbonus(Armor &a);    
-    Hammer(int radius, int speed);
+    static constexpr const char * name = "Hammer";
+    Hammer(int hammerradius = 0, int hammerspeed = 0);
     Hammer(const Hammer & copied) = delete;
     Hammer & operator= (const Hammer & copied) = delete;
     Hammer(Hammer && moved);
