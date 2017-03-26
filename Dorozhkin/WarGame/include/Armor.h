@@ -30,7 +30,7 @@ class Chain : public Armor
 {
 public:
     static constexpr const char * name = "Chain";
-    Chain(int chainspeedpenalty = 0);
+    Chain(int chainspeedpenalty = 20);
     Chain(const Chain & copied) = delete;
     Chain & operator= (const Chain & copied) = delete;
     Chain(Chain && moved);
@@ -41,7 +41,7 @@ class Corslet : public Armor
 {
 public:
     static constexpr const char * name = "Corslet";
-    Corslet(int corsletspeedpenalty = 0);
+    Corslet(int corsletspeedpenalty = 30);
     Corslet(const Corslet & copied) = delete;
     Corslet & operator= (const Corslet & copied) = delete;
     Corslet(Corslet && moved);

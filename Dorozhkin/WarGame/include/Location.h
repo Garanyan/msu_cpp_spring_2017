@@ -7,11 +7,15 @@ class Armor;
 
 class Location
 {
-    std::map<std::string, Human> people;
 public:
+    std::map<std::string, Human> people;
     Location() = default;
-    void enter(Human &human);
-    Human&& leave(std::string name);
+    template <class profession>
+    void enter(profession &&human);
+    template <class profession>
+    profession&& leave(std::string name);
+    bool Isinside(std::string human_name);
+    void heal(std::string name);
     Location(const Location & copied) = delete;
     Location & operator= (const Location & copied) = delete;
     Location(Location && moved);
@@ -22,9 +26,8 @@ class Barrack : public Location
 {
 public:
     Barrack() = default;
-    Human& heal(Human &human);
     template <class profession>
-    profession& birth();
+    std::string birth();
     Barrack(const Barrack & copied) = delete;
     Barrack & operator= (const Barrack & copied) = delete;
     Barrack(Barrack && moved);
@@ -42,18 +45,18 @@ public:
     template <class weapontype>
     void addweapon();
     template <class armortype>
-    Armor&& takearmor();
+    void takearmor(std::string human_name);
     template <class weapontype>
-    Weapon&& takeweapon();
+    void takeweapon(std::string human_name);
     template <class armortype>
-    void putarmor(armortype &&armor);
+    void putarmor(std::string human_name);
     template <class weapontype>
-    void putweapon(weapontype &&weapon);
+    void putweapon(std::string human_name);
 };
 
 class Stadium : public Location
 {
 public:
     Stadium() = default;
-    Human& battle(Human &human, Human &opponent);
+    std::string battle(std::string human_name, std::string opponent_name);
 };

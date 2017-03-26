@@ -17,7 +17,8 @@ public:
     std::string generatename();
     int takedamage(Human &human);
     int dealdamage(Human &human);
-    int getpower();
+    int getoffensepower();
+    int getdefensepower();
     Human& takeweapon(Weapon &weapon);
     Human& takearmor(Armor &armor);
     Human(int forse = 0, int speed = 0, int skill = 0, int endurance = 0, int life = 100); 
@@ -30,7 +31,7 @@ public:
 class Peasant : public Human
 {
 public:
-    Peasant(int peasantforse = 0, int peasantspeed = 0, int peasantskill = 0, int peasantendurance = 0, int peasantlife = 100); 
+    Peasant(int peasantforse = 50, int peasantspeed = 20, int peasantskill = 10, int peasantendurance = 20, int peasantlife = 100); 
     Peasant(const Peasant & copied) = delete;
     Peasant & operator= (const Peasant & copied) = delete;
     Peasant(Peasant && moved);
@@ -40,7 +41,7 @@ public:
 class Archer : public Human
 {
 public:
-    Archer(int archerforse = 0, int archerspeed = 0, int archerskill = 0, int archerendurance = 0, int archerlife = 100); 
+    Archer(int archerforse = 30, int archerspeed = 40, int archerskill = 30, int archerendurance = 20, int archerlife = 100); 
     Archer(const Archer & copied) = delete;
     Archer & operator= (const Archer & copied) = delete;
     Archer(Archer && moved);
@@ -50,7 +51,7 @@ public:
 class Knight : public Human
 {
 public:
-    Knight(int knightforse = 0, int knightspeed = 0, int knightskill = 0, int knightendurance = 0, int knightlife = 100); 
+    Knight(int knightforse = 70, int knightspeed = 10, int knightskill = 40, int knightendurance = 50, int knightlife = 140); 
     Knight(const Knight & copied) = delete;
     Knight & operator= (const Knight & copied) = delete;
     Knight(Knight && moved);

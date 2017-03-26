@@ -56,12 +56,12 @@ Human& Human::takearmor(Armor &armor)
 
 int Human::takedamage(Human &enemy)
 {
-    return enemy.getpower() - this->getpower() + this->armor.countbonus(enemy.weapon) - enemy.weapon.countbonus(this->armor);
+    return enemy.getoffensepower() - this->getdefensepower() + this->armor.countbonus(enemy.weapon) - enemy.weapon.countbonus(this->armor);
 }
 
 int Human::dealdamage(Human &enemy)
 {
-    return this->getpower() - enemy.getpower() + this->weapon.countbonus(enemy.armor) - enemy.armor.countbonus(this->weapon);
+    return this->getoffensepower() - enemy.getdefensepower() + this->weapon.countbonus(enemy.armor) - enemy.armor.countbonus(this->weapon);
 }
 
 std::string Human::generatename()
@@ -69,9 +69,14 @@ std::string Human::generatename()
     return "Denis" + std::to_string(rand());
 }
 
-int Human::getpower()
+int Human::getoffensepower()
 {
-     return forse + speed + skill + endurance;
+     return forse + skill + this->weapon.radius + this->weapon.speed;
+}
+
+int Human::getdefensepower()
+{
+     return endurance + speed - this->armor.speedpenalty;
 }
 
 //Peasant
