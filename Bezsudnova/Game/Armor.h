@@ -16,6 +16,25 @@ public:
     Armor(const Armor& copied) = delete;
 	Armor& operator=(const Armor& copied) = delete;
 
+	Armor(const Armor&& movied )
+       : defence( movied.defence )
+       , fineForSpeed( movied.fineForSpeed )
+       {
+            defence = 0;
+            fineForSpeed = 0;
+       }
+
+    Armor& operator=(Armor&& movied)
+    {
+        if (this != &movied)
+        {
+            defence =  movied.defence;
+            fineForSpeed = movied.fineForSpeed;
+        }
+
+        return *this;
+    }
+
 };
 
 
