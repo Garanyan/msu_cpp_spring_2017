@@ -13,6 +13,9 @@ public:
         fineForSpeed=0;
     }
 
+    Armor(const Armor& copied) = delete;
+	Armor& operator=(const Armor& copied) = delete;
+
 };
 
 
@@ -28,10 +31,10 @@ public:
 
 };
 
-class Chain-mail: public Armor
+class ChainMail: public Armor
 {
 public:
-    Chain-mail()
+    ChainMail()
     {
         defence=0;
         fineForSpeed=0;
