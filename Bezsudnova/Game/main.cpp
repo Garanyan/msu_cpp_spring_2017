@@ -7,6 +7,12 @@ using namespace std;
 #include "Weapon.h"
 #include "Human.h"
 
+struct Cazarma
+{
+
+};
+
+
 int main()
 {
     string small;
