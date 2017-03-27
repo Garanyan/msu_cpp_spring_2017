@@ -8,11 +8,37 @@ public:
     int speedWeapon;
     int distanceWeapon;
 
+    Weapon(const Weapon& copied) = delete;
+	Weapon& operator=(const Weapon& copied) = delete;
+
     Weapon()
     {
         powerWeapon = 0;
         speedWeapon = 0;
         distanceWeapon = 0;
+    }
+
+
+	Weapon(const Weapon&& movied )
+       : powerWeapon( movied.powerWeapon )
+       , speedWeapon( movied.speedWeapon )
+       , distanceWeapon( movied.distanceWeapon )
+       {
+            powerWeapon = 0;
+            speedWeapon = 0;
+            distanceWeapon = 0;
+       }
+
+    Weapon& operator=(Weapon&& movied)
+    {
+        if (this != &movied)
+        {
+            powerWeapon =  movied.powerWeapon;
+            speedWeapon = movied.speedWeapon;
+            distanceWeapon = movied.distanceWeapon;
+        }
+
+        return *this;
     }
 
 };
