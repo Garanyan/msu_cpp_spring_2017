@@ -3,28 +3,33 @@
 #include "../include/Armor.h"
 
 //Weapon
+Weapon::~Weapon()
+{
+    
+}
+
 Weapon::Weapon(int radius, int speed)
 {
     this->radius = radius;
     this->speed = speed;
 }
 
-Weapon::Weapon(Weapon && moved)
-{
-    this->radius = std::move(moved.radius);
-    this->speed = std::move(moved.speed);
-}
+// Weapon::Weapon(Weapon && moved)
+// {
+//     this->radius = std::move(moved.radius);
+//     this->speed = std::move(moved.speed);
+// }
+// 
+// Weapon &Weapon::operator=(Weapon && moved)
+// {
+//     this->radius = std::move(moved.radius);
+//     this->speed = std::move(moved.speed);
+//     return *this;
+// }
 
-Weapon &Weapon::operator=(Weapon && moved)
+int Weapon::countbonus(std::unique_ptr<Armor>& armor) 
 {
-    this->radius = std::move(moved.radius);
-    this->speed = std::move(moved.speed);
-    return *this;
-}
-
-int Weapon::countbonus(Armor &armor) 
-{
-    return this->radius + this->speed - armor.speedpenalty; 
+    return this->radius + this->speed - armor->speedpenalty; 
 }
 
 //Nothing
@@ -34,18 +39,23 @@ Nothing::Nothing(int nothingradius, int nothingspeed) :
 {
 }
 
-Nothing::Nothing(Nothing && moved)
+WeaponName Nothing::getname() const 
 {
-    this->radius = std::move(moved.radius);
-    this->speed = std::move(moved.speed);
+    return WeaponName::Nothing;
 }
 
-Nothing &Nothing::operator=(Nothing && moved)
-{
-    this->radius = std::move(moved.radius);
-    this->speed = std::move(moved.speed);
-    return *this;
-}
+// Nothing::Nothing(Nothing && moved)
+// {
+//     this->radius = std::move(moved.radius);
+//     this->speed = std::move(moved.speed);
+// }
+// 
+// Nothing &Nothing::operator=(Nothing && moved)
+// {
+//     this->radius = std::move(moved.radius);
+//     this->speed = std::move(moved.speed);
+//     return *this;
+// }
 
 //Sword
 //default values for Sword
@@ -54,18 +64,23 @@ Sword::Sword(int swordradius, int swordspeed) :
 {
 }
 
-Sword::Sword(Sword && moved)
+WeaponName Sword::getname() const 
 {
-    this->radius = std::move(moved.radius);
-    this->speed = std::move(moved.speed);
+    return WeaponName::Sword;
 }
 
-Sword &Sword::operator=(Sword && moved)
-{
-    this->radius = std::move(moved.radius);
-    this->speed = std::move(moved.speed);
-    return *this;
-}
+// Sword::Sword(Sword && moved)
+// {
+//     this->radius = std::move(moved.radius);
+//     this->speed = std::move(moved.speed);
+// }
+// 
+// Sword &Sword::operator=(Sword && moved)
+// {
+//     this->radius = std::move(moved.radius);
+//     this->speed = std::move(moved.speed);
+//     return *this;
+// }
 
 //Shovel
 //default values for Shovel
@@ -74,18 +89,23 @@ Shovel::Shovel(int shovelradius, int shovelspeed) :
 {
 }
 
-Shovel::Shovel(Shovel && moved)
+WeaponName Shovel::getname() const
 {
-    this->radius = std::move(moved.radius);
-    this->speed = std::move(moved.speed);
+    return WeaponName::Shovel;
 }
 
-Shovel &Shovel::operator=(Shovel && moved)
-{
-    this->radius = std::move(moved.radius);
-    this->speed = std::move(moved.speed);
-    return *this;
-}
+// Shovel::Shovel(Shovel && moved)
+// {
+//     this->radius = std::move(moved.radius);
+//     this->speed = std::move(moved.speed);
+// }
+// 
+// Shovel &Shovel::operator=(Shovel && moved)
+// {
+//     this->radius = std::move(moved.radius);
+//     this->speed = std::move(moved.speed);
+//     return *this;
+// }
 
 //Bow
 //default values for Bow
@@ -94,18 +114,23 @@ Bow::Bow(int bowradius, int bowspeed) :
 {
 }
 
-Bow::Bow(Bow && moved)
+WeaponName Bow::getname() const 
 {
-    this->radius = std::move(moved.radius);
-    this->speed = std::move(moved.speed);
+    return WeaponName::Bow;
 }
 
-Bow &Bow::operator=(Bow && moved)
-{
-    this->radius = std::move(moved.radius);
-    this->speed = std::move(moved.speed);
-    return *this;
-}
+// Bow::Bow(Bow && moved)
+// {
+//     this->radius = std::move(moved.radius);
+//     this->speed = std::move(moved.speed);
+// }
+// 
+// Bow &Bow::operator=(Bow && moved)
+// {
+//     this->radius = std::move(moved.radius);
+//     this->speed = std::move(moved.speed);
+//     return *this;
+// }
 
 //Hammer
 //default values for Hammer
@@ -114,15 +139,20 @@ Hammer::Hammer(int hammerradius, int hammerspeed) :
 {
 }
 
-Hammer::Hammer(Hammer && moved)
+WeaponName Hammer::getname() const 
 {
-    this->radius = std::move(moved.radius);
-    this->speed = std::move(moved.speed);
+    return WeaponName::Hammer;
 }
 
-Hammer &Hammer::operator=(Hammer && moved)
-{
-    this->radius = std::move(moved.radius);
-    this->speed = std::move(moved.speed);
-    return *this;
-}
+// Hammer::Hammer(Hammer && moved)
+// {
+//     this->radius = std::move(moved.radius);
+//     this->speed = std::move(moved.speed);
+// }
+// 
+// Hammer &Hammer::operator=(Hammer && moved)
+// {
+//     this->radius = std::move(moved.radius);
+//     this->speed = std::move(moved.speed);
+//     return *this;
+// }

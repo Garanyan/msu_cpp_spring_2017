@@ -5,6 +5,11 @@
 
 
 //Human
+Human::~Human()
+{
+    
+}
+
 Human::Human(int forse, int speed, int skill, int endurance, int life)
 {
     this->forse = forse;
@@ -13,55 +18,55 @@ Human::Human(int forse, int speed, int skill, int endurance, int life)
     this->speed = speed;
     this->life = life;
     this->name = generatename();
-    this->weapon = Nothing();
-    this->armor = Torso();
+    this->weapon.reset(new Nothing());
+    this->armor.reset(new Torso());
 } 
 
-Human::Human(Human && moved)
+// Human::Human(Human && moved)
+// {
+//     this->name = std::move(moved.name);
+//     this->forse = std::move(moved.forse);
+//     this->skill = std::move(moved.skill);
+//     this->endurance = std::move(moved.endurance);
+//     this->speed = std::move(moved.speed);
+//     this->weapon = std::move(moved.weapon);
+//     this->armor = std::move(moved.armor);
+//     this->life = std::move(moved.life);
+// }
+
+// Human &Human::operator=(Human && moved)
+// {
+//     this->name = std::move(moved.name);
+//     this->forse = std::move(moved.forse);
+//     this->skill = std::move(moved.skill);
+//     this->endurance = std::move(moved.endurance);
+//     this->speed = std::move(moved.speed);
+//     this->weapon = std::move(moved.weapon);
+//     this->armor = std::move(moved.armor);
+//     this->life = std::move(moved.life);
+//     return *this;
+// }
+
+// Human& Human::takeweapon(Weapon &weapon)
+// {
+//     this->weapon = std::move(weapon);
+//     return *this;
+// }
+// 
+// Human& Human::takearmor(Armor &armor)
+// {
+//     this->armor = std::move(armor);
+//     return *this;
+// }
+
+int Human::takedamage(std::unique_ptr<Human>& enemy)
 {
-    this->name = std::move(moved.name);
-    this->forse = std::move(moved.forse);
-    this->skill = std::move(moved.skill);
-    this->endurance = std::move(moved.endurance);
-    this->speed = std::move(moved.speed);
-    this->weapon = std::move(moved.weapon);
-    this->armor = std::move(moved.armor);
-    this->life = std::move(moved.life);
+    return enemy->getoffensepower() - this->getdefensepower() + this->armor->countbonus(enemy->weapon) - enemy->weapon->countbonus(this->armor);
 }
 
-Human &Human::operator=(Human && moved)
+int Human::dealdamage(std::unique_ptr<Human>& enemy)
 {
-    this->name = std::move(moved.name);
-    this->forse = std::move(moved.forse);
-    this->skill = std::move(moved.skill);
-    this->endurance = std::move(moved.endurance);
-    this->speed = std::move(moved.speed);
-    this->weapon = std::move(moved.weapon);
-    this->armor = std::move(moved.armor);
-    this->life = std::move(moved.life);
-    return *this;
-}
-
-Human& Human::takeweapon(Weapon &weapon)
-{
-    this->weapon = std::move(weapon);
-    return *this;
-}
-
-Human& Human::takearmor(Armor &armor)
-{
-    this->armor = std::move(armor);
-    return *this;
-}
-
-int Human::takedamage(Human &enemy)
-{
-    return enemy.getoffensepower() - this->getdefensepower() + this->armor.countbonus(enemy.weapon) - enemy.weapon.countbonus(this->armor);
-}
-
-int Human::dealdamage(Human &enemy)
-{
-    return this->getoffensepower() - enemy.getdefensepower() + this->weapon.countbonus(enemy.armor) - enemy.armor.countbonus(this->weapon);
+    return this->getoffensepower() - enemy->getdefensepower() + this->weapon->countbonus(enemy->armor) - enemy->armor->countbonus(this->weapon);
 }
 
 std::string Human::generatename()
@@ -71,12 +76,12 @@ std::string Human::generatename()
 
 int Human::getoffensepower()
 {
-     return forse + skill + this->weapon.radius + this->weapon.speed;
+     return forse + skill + this->weapon->radius + this->weapon->speed;
 }
 
 int Human::getdefensepower()
 {
-     return endurance + speed - this->armor.speedpenalty;
+     return endurance + speed - this->armor->speedpenalty;
 }
 
 //Peasant
@@ -86,30 +91,35 @@ Peasant::Peasant(int peasantforse, int peasantspeed, int peasantskill, int peasa
 {
 }
 
-Peasant::Peasant(Peasant && moved)
+HumanProfession Peasant::getprofession() const 
 {
-    this->name = std::move(moved.name);
-    this->forse = std::move(moved.forse);
-    this->skill = std::move(moved.skill);
-    this->endurance = std::move(moved.endurance);
-    this->speed = std::move(moved.speed);
-    this->weapon = std::move(moved.weapon);
-    this->armor = std::move(moved.armor);
-    this->life = std::move(moved.life);
+    return HumanProfession::Peasant;
 }
 
-Peasant &Peasant::operator=(Peasant && moved)
-{
-    this->name = std::move(moved.name);
-    this->forse = std::move(moved.forse);
-    this->skill = std::move(moved.skill);
-    this->endurance = std::move(moved.endurance);
-    this->speed = std::move(moved.speed);
-    this->weapon = std::move(moved.weapon);
-    this->armor = std::move(moved.armor);
-    this->life = std::move(moved.life);
-    return *this;
-}
+// Peasant::Peasant(Peasant && moved)
+// {
+//     this->name = std::move(moved.name);
+//     this->forse = std::move(moved.forse);
+//     this->skill = std::move(moved.skill);
+//     this->endurance = std::move(moved.endurance);
+//     this->speed = std::move(moved.speed);
+//     this->weapon = std::move(moved.weapon);
+//     this->armor = std::move(moved.armor);
+//     this->life = std::move(moved.life);
+// }
+// 
+// Peasant &Peasant::operator=(Peasant && moved)
+// {
+//     this->name = std::move(moved.name);
+//     this->forse = std::move(moved.forse);
+//     this->skill = std::move(moved.skill);
+//     this->endurance = std::move(moved.endurance);
+//     this->speed = std::move(moved.speed);
+//     this->weapon = std::move(moved.weapon);
+//     this->armor = std::move(moved.armor);
+//     this->life = std::move(moved.life);
+//     return *this;
+// }
 
 //Archer
 // default values for Archer
@@ -118,30 +128,35 @@ Archer::Archer(int archerforse, int archerspeed, int archerskill, int archerendu
 {    
 }
 
-Archer::Archer(Archer && moved)
+HumanProfession Archer::getprofession() const 
 {
-    this->name = std::move(moved.name);
-    this->forse = std::move(moved.forse);
-    this->skill = std::move(moved.skill);
-    this->endurance = std::move(moved.endurance);
-    this->speed = std::move(moved.speed);
-    this->weapon = std::move(moved.weapon);
-    this->armor = std::move(moved.armor);
-    this->life = std::move(moved.life);
+    return HumanProfession::Archer;
 }
 
-Archer &Archer::operator=(Archer && moved)
-{
-    this->name = std::move(moved.name);
-    this->forse = std::move(moved.forse);
-    this->skill = std::move(moved.skill);
-    this->endurance = std::move(moved.endurance);
-    this->speed = std::move(moved.speed);
-    this->weapon = std::move(moved.weapon);
-    this->armor = std::move(moved.armor);
-    this->life = std::move(moved.life);
-    return *this;
-}
+// Archer::Archer(Archer && moved)
+// {
+//     this->name = std::move(moved.name);
+//     this->forse = std::move(moved.forse);
+//     this->skill = std::move(moved.skill);
+//     this->endurance = std::move(moved.endurance);
+//     this->speed = std::move(moved.speed);
+//     this->weapon = std::move(moved.weapon);
+//     this->armor = std::move(moved.armor);
+//     this->life = std::move(moved.life);
+// }
+// 
+// Archer &Archer::operator=(Archer && moved)
+// {
+//     this->name = std::move(moved.name);
+//     this->forse = std::move(moved.forse);
+//     this->skill = std::move(moved.skill);
+//     this->endurance = std::move(moved.endurance);
+//     this->speed = std::move(moved.speed);
+//     this->weapon = std::move(moved.weapon);
+//     this->armor = std::move(moved.armor);
+//     this->life = std::move(moved.life);
+//     return *this;
+// }
 
 //Knight
 // default values for Knight
@@ -150,27 +165,32 @@ Knight::Knight(int knightforse, int knightspeed, int knightskill, int knightendu
 {    
 }
 
-Knight::Knight(Knight && moved)
+HumanProfession Knight::getprofession() const 
 {
-    this->name = std::move(moved.name);
-    this->forse = std::move(moved.forse);
-    this->skill = std::move(moved.skill);
-    this->endurance = std::move(moved.endurance);
-    this->speed = std::move(moved.speed);
-    this->weapon = std::move(moved.weapon);
-    this->armor = std::move(moved.armor);
-    this->life = std::move(moved.life);
+    return HumanProfession::Knight;
 }
 
-Knight &Knight::operator=(Knight && moved)
-{
-    this->name = std::move(moved.name);
-    this->forse = std::move(moved.forse);
-    this->skill = std::move(moved.skill);
-    this->endurance = std::move(moved.endurance);
-    this->speed = std::move(moved.speed);
-    this->weapon = std::move(moved.weapon);
-    this->armor = std::move(moved.armor);
-    this->life = std::move(moved.life);
-    return *this;
-}
+// Knight::Knight(Knight && moved)
+// {
+//     this->name = std::move(moved.name);
+//     this->forse = std::move(moved.forse);
+//     this->skill = std::move(moved.skill);
+//     this->endurance = std::move(moved.endurance);
+//     this->speed = std::move(moved.speed);
+//     this->weapon = std::move(moved.weapon);
+//     this->armor = std::move(moved.armor);
+//     this->life = std::move(moved.life);
+// }
+// 
+// Knight &Knight::operator=(Knight && moved)
+// {
+//     this->name = std::move(moved.name);
+//     this->forse = std::move(moved.forse);
+//     this->skill = std::move(moved.skill);
+//     this->endurance = std::move(moved.endurance);
+//     this->speed = std::move(moved.speed);
+//     this->weapon = std::move(moved.weapon);
+//     this->armor = std::move(moved.armor);
+//     this->life = std::move(moved.life);
+//     return *this;
+// }

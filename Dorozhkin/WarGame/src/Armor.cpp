@@ -3,24 +3,30 @@
 #include "../include/Weapon.h"
 
 //Armor
+Armor::~Armor()
+{
+    
+}
+
 Armor::Armor(int speedpenalty)
 {
     this->speedpenalty = speedpenalty;
 }
-Armor::Armor(Armor && moved)
-{
-    this->speedpenalty = std::move(moved.speedpenalty);
-}
 
-Armor &Armor::operator=(Armor && moved)
-{
-    this->speedpenalty = std::move(moved.speedpenalty);
-    return *this;
-}
+// Armor::Armor(Armor && moved)
+// {
+//     this->speedpenalty = std::move(moved.speedpenalty);
+// }
+// 
+// Armor &Armor::operator=(Armor && moved)
+// {
+//     this->speedpenalty = std::move(moved.speedpenalty);
+//     return *this;
+// }
 
-int Armor::countbonus(Weapon &weapon) 
+int Armor::countbonus(std::unique_ptr<Weapon>& weapon) 
 {
-    return this->speedpenalty - weapon.radius - weapon.speed; 
+    return this->speedpenalty - weapon->radius - weapon->speed; 
 }
 
 //Torso
@@ -30,16 +36,21 @@ Torso::Torso(int torsospeedpenalty) :
 {
 }
 
-Torso::Torso(Torso && moved)
+ArmorName Torso::getname() const 
 {
-    this->speedpenalty = std::move(moved.speedpenalty);
+    return ArmorName::Torso;
 }
 
-Torso &Torso::operator=(Torso && moved)
-{
-    this->speedpenalty = std::move(moved.speedpenalty);
-    return *this;
-}
+// Torso::Torso(Torso && moved)
+// {
+//     this->speedpenalty = std::move(moved.speedpenalty);
+// }
+// 
+// Torso &Torso::operator=(Torso && moved)
+// {
+//     this->speedpenalty = std::move(moved.speedpenalty);
+//     return *this;
+// }
 
 //Chain
 //default values for Chain
@@ -48,16 +59,21 @@ Chain::Chain(int chainspeedpenalty) :
 {
 }
 
-Chain::Chain(Chain && moved)
+ArmorName Chain::getname() const
 {
-    this->speedpenalty = std::move(moved.speedpenalty);
+    return ArmorName::Chain;
 }
 
-Chain &Chain::operator=(Chain && moved)
-{
-    this->speedpenalty = std::move(moved.speedpenalty);
-    return *this;
-}
+// Chain::Chain(Chain && moved)
+// {
+//     this->speedpenalty = std::move(moved.speedpenalty);
+// }
+// 
+// Chain &Chain::operator=(Chain && moved)
+// {
+//     this->speedpenalty = std::move(moved.speedpenalty);
+//     return *this;
+// }
 
 //Corslet
 //default values for Corslet
@@ -66,13 +82,18 @@ Corslet::Corslet(int corsletspeedpenalty) :
 {
 }
 
-Corslet::Corslet(Corslet && moved)
+ArmorName Corslet::getname() const
 {
-    this->speedpenalty = std::move(moved.speedpenalty);
+    return ArmorName::Corslet;
 }
 
-Corslet &Corslet::operator=(Corslet && moved)
-{
-    this->speedpenalty = std::move(moved.speedpenalty);
-    return *this;
-}
+// Corslet::Corslet(Corslet && moved)
+// {
+//     this->speedpenalty = std::move(moved.speedpenalty);
+// }
+// 
+// Corslet &Corslet::operator=(Corslet && moved)
+// {
+//     this->speedpenalty = std::move(moved.speedpenalty);
+//     return *this;
+// }
