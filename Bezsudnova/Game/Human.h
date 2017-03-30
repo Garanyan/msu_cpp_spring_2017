@@ -1,5 +1,6 @@
 #ifndef HUMAN_H_INCLUDED
-#define HUMAN_H_INCLUDED
+#define HUMAN_H_INCLUDE D
+
 
 class Human
 {
@@ -10,8 +11,8 @@ public:
     int speed;
     int skill;
     int endurance;
-    int  *takenArmor;
-    int  *takenWeapon;
+    Armor  *takenArmor;
+    Weapon  *takenWeapon;
 
     Human()
     {
@@ -22,21 +23,24 @@ public:
         endurance = 0;
     }
 
+
+
     template<class T>
-    void takenArmor()
+    void abilityTakeArmor()
     {
         T newArmor;
         *takenArmor = &newArmor;
+        return ;
 
-    }
+    };
 
     template<class T>
-    void takenWeapon()
+    void abilityTakeWeapon()
     {
         T newWeapon;
         *takenWeapon = &newWeapon;
-
-    }
+        return ;
+    };
 
 };
 

@@ -3,69 +3,23 @@
 
 using namespace std;
 
+#include "Armor.h"
+#include "Weapon.h"
+#include "Human.h"
 
-
-
-
-class  Armor
+struct Cazarma
 {
-public:
-    int defence;
-    int fineForSpeed;
-
-    Armor()
-    {
-        defence=0;
-        fineForSpeed=0;
-    }
 
 };
-
-
-
-class Lats: public Armor
-{
-public:
-    Lats()
-    {
-        defence=0;
-        fineForSpeed=0;
-    }
-
-};
-
-class Chain-mail: public Armor
-{
-public:
-    Chain-mail()
-    {
-        defence=0;
-        fineForSpeed=0;
-    }
-
-};
-
-
-class Weapon
-{
-public:
-    int power;
-};
-
-
-
-
-
-
 
 
 int main()
 {
     string small;
     cin >> small;
-    Lyshic Bob(small);
-    Bob.takenArmor<Lats>();
-
+    Knight Bob(small);
+    //Bob.abilityTakeArmor<Lats>();
+    cout << Bob.skill;
 
     return 0;
 }
