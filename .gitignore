@@ -7,3 +7,4 @@ CMakeFiles
 *.cbp
 Testing/
 *~
+/CMakeLists.txt.user

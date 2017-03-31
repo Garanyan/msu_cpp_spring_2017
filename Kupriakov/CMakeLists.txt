@@ -14,9 +14,11 @@ set(SOURCES
 
 add_executable(${PROJECT_NAME} ${HEADERS} ${SOURCES})
 
+target_compile_features(${PROJECT_NAME} PRIVATE cxx_range_for)
+
 add_library(ConvertCPP src/convert.cpp)
 
-target_compile_features(${PROJECT_NAME} PRIVATE cxx_range_for)
+target_compile_features(ConvertCPP PRIVATE cxx_range_for)
 
 #----------- precompiled -----------
 set_target_properties(${PROJECT_NAME} PROPERTIES COTIRE_CXX_PREFIX_HEADER_INIT "${STDAFX_H}")

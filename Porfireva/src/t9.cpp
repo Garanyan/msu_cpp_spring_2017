@@ -11,7 +11,6 @@ std::string t9_translate(const std::string& text)
     int ok = 0;
     std::string res;
     std::vector<char>::iterator pos;
-    ptrdiff_t count;
     std::vector <std:: vector<char> > symbols = {{' '},{'a','b','c'},{'d','e','f'},{'g','h','i'},{'j','k','l'},{'m','n','o'},{'p','q','r','s'},{'t','u','v'},{'w','x','y','z'}};
     
     int n = text.length();
@@ -26,7 +25,7 @@ std::string t9_translate(const std::string& text)
                     {
                         ok = 1;
                         if (i>0 && j == prev) res+=" ";
-                        count  = pos - begin(symbols[j]);
+                        auto count  = pos - begin(symbols[j]);
                         prev = j;
                         for(int k=0; k <= count; ++k)
                             if(j == 0) res+= ('0' + j);
