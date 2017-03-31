@@ -12,6 +12,9 @@ namespace Arena
 
         Weapon(const Weapon& copied) = delete;
         Weapon& operator=(const Weapon& copied) = delete;
+
+        Weapon(Weapon&& movied) = default;
+        Weapon& operator=(Weapon&& movied) = default;
     };
 
     namespace Details

@@ -12,6 +12,9 @@ namespace Arena
 
         Armor(const Armor& copied) = delete;
         Armor& operator=(const Armor& copied) = delete;
+
+        Armor(Armor&& movied) = default;
+        Armor& operator=(Armor&& movied) = default;
     };
 
     namespace Details

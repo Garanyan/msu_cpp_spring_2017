@@ -4,14 +4,26 @@
 
 namespace Arena
 {
+    class Armor;
+    class Weapon;
+
     class Unit
     {
     public:
-        Unit() = default;
+        Unit();
         virtual ~Unit() = 0;
 
         Unit(const Unit& copied) = delete;
         Unit& operator=(const Unit& copied) = delete;
+
+        void wearArmor(Armor&& armor);
+        void takeWeapon(Weapon&& weapon);
+
+        virtual Points getDamageTo(const Unit& attacked) const;
+
+    private:
+        Armor&& armor_;
+        Weapon&& weapon_;
     };
 
     namespace Details
