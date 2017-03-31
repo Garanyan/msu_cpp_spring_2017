@@ -20,6 +20,11 @@ namespace Arena
         class WeaponImpl
             : public Weapon
         {
+        public:
+            WeaponImpl()
+            {
+                static_assert(std::is_base_of<Details::WeaponTraits, WeaponTraits>::value, "Invalid traits");
+            }
         };
     }
 }

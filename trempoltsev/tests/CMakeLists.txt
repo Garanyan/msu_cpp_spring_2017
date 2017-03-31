@@ -5,9 +5,9 @@ project(${TEST_PROJECT})
 set(TEST_SOURCES
     main.cpp
 
-    armors_test.cpp
-    units_test.cpp
-    weapons_test.cpp
+    armor/armors_test.cpp
+    unit/units_test.cpp
+    weapon/weapons_test.cpp
 
     t9_test.cpp)
 

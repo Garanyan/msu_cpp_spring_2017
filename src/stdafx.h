@@ -1,6 +1,7 @@
 #include <iostream>
+#include <map>
 #include <sstream>
 #include <string>
-#include <map>
+#include <type_traits>
 
 #include <gtest/gtest.h>

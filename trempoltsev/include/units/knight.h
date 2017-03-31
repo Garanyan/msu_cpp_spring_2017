@@ -8,5 +8,7 @@ namespace Arena
         : Details::UnitImpl<Details::KnightTraits>
     {
     public:
+        explicit Knight(const std::string& name);
+        ~Knight() override;
     };
 }

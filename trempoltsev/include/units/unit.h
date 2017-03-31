@@ -6,7 +6,12 @@ namespace Arena
 {
     class Unit
     {
-        virtual ~Unit() = default;
+    public:
+        Unit() = default;
+        virtual ~Unit() = 0;
+
+        Unit(const Unit& copied) = delete;
+        Unit& operator=(const Unit& copied) = delete;
     };
 
     namespace Details
@@ -17,12 +22,13 @@ namespace Arena
         {
         public:
             explicit UnitImpl(const std::string& name)
-                : this->name(name)
+                : name_(name)
             {
+                static_assert(std::is_base_of<Details::UnitTraits, UnitTraits>::value, "Invalid traits");
             }
 
         private:
-            const std::string name;
+            const std::string name_;
         };
     }
 }

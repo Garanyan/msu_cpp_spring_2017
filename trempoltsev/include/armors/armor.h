@@ -20,6 +20,11 @@ namespace Arena
         class ArmorImpl
             : public Armor
         {
+        public:
+            ArmorImpl()
+            {
+                static_assert(std::is_base_of<Details::ArmorTraits, ArmorTraits>::value, "Invalid traits");
+            }
         };
     }
 }

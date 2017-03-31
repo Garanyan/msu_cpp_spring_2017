@@ -10,11 +10,14 @@ set(HEADERS_ROOT "${PROJECT_SOURCE_DIR}/include")
 set(HEADERS
     ${HEADERS_ROOT}/arena_types.h
 
+    ${HEADERS_ROOT}/armors/armor_type.h
+
     ${HEADERS_ROOT}/armors/armor.h
     ${HEADERS_ROOT}/armors/traits.h
 
     ${HEADERS_ROOT}/armors/chain_armor.h
     ${HEADERS_ROOT}/armors/plate_armor.h
+    ${HEADERS_ROOT}/armors/without_armor.h
 
     ${HEADERS_ROOT}/units/unit.h
     ${HEADERS_ROOT}/units/traits.h
@@ -24,6 +27,7 @@ set(HEADERS
     ${HEADERS_ROOT}/units/knight.h
 
     ${HEADERS_ROOT}/weapons/damage_type.h
+    ${HEADERS_ROOT}/weapons/weapon_type.h
 
     ${HEADERS_ROOT}/weapons/weapon.h
     ${HEADERS_ROOT}/weapons/traits.h
@@ -43,6 +47,7 @@ set(SHARED_SOURCES
     ${SRC_ROOT}/armors/armor.cpp
     ${SRC_ROOT}/armors/chain_armor.cpp
     ${SRC_ROOT}/armors/plate_armor.cpp
+    ${SRC_ROOT}/armors/without_armor.cpp
 
     ${SRC_ROOT}/units/unit.cpp
     ${SRC_ROOT}/units/archer.cpp

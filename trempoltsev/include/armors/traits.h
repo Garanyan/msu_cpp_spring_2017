@@ -7,18 +7,11 @@ namespace Arena
 {
     namespace Details
     {
-        struct BodyTraits
+        struct ArmorTraits
         {
-            template <class DamageType> static constexpr Points protection();
-
-            template <> static constexpr Points protection<Piercing>()  { return 0; }
-            template <> static constexpr Points protection<Slashing>()  { return 0; }
-            template <> static constexpr Points protection<Blunt>()     { return 0; }
-
-            static constexpr Factor PenaltyToSpeed                      = 1.0;
         };
 
-        struct ChainArmorTraits
+        struct ChainArmorTraits : public ArmorTraits
         {
             template <class DamageType> static constexpr Points protection();
 
@@ -29,7 +22,7 @@ namespace Arena
             static constexpr Factor PenaltyToSpeed                      = 1.2;
         };
 
-        struct PlateArmorTraits
+        struct PlateArmorTraits : public ArmorTraits
         {
             template <class DamageType> static constexpr Points protection();
 
@@ -38,6 +31,17 @@ namespace Arena
             template <> static constexpr Points protection<Blunt>()     { return 40; }
 
             static constexpr Factor PenaltyToSpeed                      = 1.5;
+        };
+
+        struct WithoutArmorTraits : public ArmorTraits
+        {
+            template <class DamageType> static constexpr Points protection();
+
+            template <> static constexpr Points protection<Piercing>() { return 0; }
+            template <> static constexpr Points protection<Slashing>() { return 0; }
+            template <> static constexpr Points protection<Blunt>() { return 0; }
+
+            static constexpr Factor PenaltyToSpeed = 1.0;
         };
     }
 }
