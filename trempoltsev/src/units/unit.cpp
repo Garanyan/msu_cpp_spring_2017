@@ -6,8 +6,8 @@
 #include "../include/units/unit.h"
 
 Arena::Unit::Unit()
-    : armor_(WithoutArmor())
-    , weapon_(Fists())
+    : armor_(std::move(WithoutArmor()))
+    , weapon_(std::move(Fists()))
 {
 }
 
@@ -27,4 +27,5 @@ void Arena::Unit::takeWeapon(Weapon&& weapon)
 
 Arena::Points Arena::Unit::getDamageTo(const Unit& attacked) const
 {
+    return 0;
 }
