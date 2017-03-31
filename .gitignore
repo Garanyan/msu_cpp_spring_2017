@@ -1,6 +1,5 @@
 /build/*
 .DS_Store
-*.cmake
 Makefile
 .idea
 CMakeCache.txt
