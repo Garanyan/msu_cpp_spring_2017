@@ -2,6 +2,7 @@
 
 class weapon {
 public:
+
 	int weaponType;
 	int punch;	// пробивная способность
 	int	speed;	// скорость
@@ -13,23 +14,55 @@ public:
 };
 
 
-
-class spade : public weapon {
-public:
-	spade(int weaponType = 0, int punch = 50, int speed = 80, int distance = 80) :weapon(weaponType, punch, speed, distance) {};
-};
-
 class sword : public weapon {
 public:
-	sword(int weaponType = 1, int punch = 50, int speed = 80, int distance = 80) :weapon(weaponType, punch, speed, distance) {};
+	sword() : weapon(0, 5, 7, 90) {}
+	virtual ~sword() {}
+
+	sword(const sword& copied) = delete;
+	sword& operator = (const sword& copied) = delete;
+
+	sword(sword&& x) = default;
+	sword& operator = (sword&& x) = default;
+
+};
+
+class shovel : public weapon {
+public:
+	shovel() : weapon(1, 7, 10, 45) {}
+	virtual ~shovel() {}
+
+	shovel(const shovel& copied) = delete;
+	shovel& operator = (const shovel& copied) = delete;
+
+	shovel(shovel&& x) = default;
+	shovel& operator = (shovel&& x) = default;
+
 };
 
 class bow : public weapon {
 public:
-	bow(int weaponType = 2, int punch = 50, int speed = 80, int distance = 80) :weapon(weaponType, punch, speed, distance) {};
+	bow() : weapon(1, 7, 10, 45) {}
+	virtual ~bow() {}
+
+	bow(const bow& copied) = delete;
+	bow& operator = (const bow& copied) = delete;
+
+	bow(bow&& x) = default;
+	bow& operator = (bow&& x) = default;
+
 };
 
 class hammer : public weapon {
 public:
-	hammer(int weaponType1 = 3, int punch1 = 50, int speed1 = 80, int distance1 = 80) :weapon(weaponType1, punch1, speed1, distance1) {};
+	hammer() : weapon(3, 7, 10, 45) {}
+	virtual ~hammer() {}
+
+	hammer(const hammer& copied) = delete;
+	hammer& operator = (const hammer& copied) = delete;
+
+	hammer(hammer&& x) = default;
+	hammer& operator = (hammer&& x) = default;
+
 };
+

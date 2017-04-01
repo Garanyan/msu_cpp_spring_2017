@@ -5,7 +5,8 @@ using namespace std;
 class character {
 public:
 
-	character(int char_type) : charType(char_type) {}
+	character(int charType, int strength, int stamina, int speed) 
+		: charType(charType), strength(strength), stamina(stamina), speed(speed) {}
 	virtual ~character() {}
 
 	int charType;
@@ -15,9 +16,6 @@ public:
 	int weaponSkill = 1;	// умение владеть оружием
 	int weaponType;
 	int armorType;
-
-	character(int charType, int strength, int stamina, int speed)
-		: charType(charType), strength(strength), stamina(stamina), speed(speed) {}
 
 	void takeWeapon(weapon&& someWeapon) {
 		cout << "took weapon" << someWeapon.weaponType << "\n";
@@ -48,10 +46,8 @@ public:
 class farmer : public character {
 public:
 
-	//farmer(): character(0) {}
-	farmer(int strength, int stamina, int speed)
-		: character(0)
-		, speed(speed), strength(strength), stamina(stamina) {}
+	farmer(): character(0, 50, 70, 100) {}
+
 	virtual ~farmer() {}
 
 	farmer(const farmer& copied) = delete;
@@ -60,19 +56,13 @@ public:
 	farmer(farmer&& x) = default;
 	farmer& operator = (farmer&& x) = default;
 
-	int strength = 50; 
-	int stamina = 80;
-	int speed = 80;
-
 };
 
 class knight : public character {
 public:
 
-	//knight(): character(1) {}
-	knight(int strength, int stamina, int speed)
-		: character(1)
-		, speed(speed), strength(strength), stamina(stamina) {}
+	knight(): character(1, 30, 80, 60) {}
+
 	virtual ~knight() {}
 
 	knight(const knight& copied) = delete;
@@ -80,20 +70,13 @@ public:
 
 	knight(knight&& x) = default;
 	knight& operator = (knight&& x) = default;
-
-	int strength = 100;
-	int stamina = 80; 
-	int speed = 50;
 	
 };
 
 class archer : public character {
 public:
 
-	//archer(): character(2) {}
-	archer(int strength, int stamina, int speed)
-		: character(2)
-		, speed(speed), strength(strength), stamina(stamina) {}
+	archer(): character(2, 50, 40, 70) {}
 	virtual ~archer() {}
 
 	archer(const archer& copied) = delete;
@@ -101,9 +84,5 @@ public:
 
 	archer(archer&& x) = default;
 	archer& operator = (archer&& x) = default;
- 
-	int strength = 50; 
-	int stamina = 100; 
-	int speed = 80;
 
 };

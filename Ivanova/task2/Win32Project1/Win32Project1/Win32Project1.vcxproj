@@ -148,6 +148,7 @@
   <ItemGroup>
     <ClInclude Include="armor.h" />
     <ClInclude Include="character.h" />
+    <ClInclude Include="arsenal.h" />
     <ClInclude Include="kazarma.h" />
     <ClInclude Include="weapon.h" />
     <ClInclude Include="stdafx.h" />
