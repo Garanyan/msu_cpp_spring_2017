@@ -8,3 +8,4 @@ CMakeFiles
 *.cbp
 Testing/
 *~
+Dorozhkin/WarGame/include/*.gch

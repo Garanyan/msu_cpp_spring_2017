@@ -1,30 +1,38 @@
-#include "stdafx.h"
-#include "T9_translator.h"
+#include <iostream>
+#include <memory>
+#include "character.hpp"
+#include "storage.hpp"
+#include "arsenal.hpp"
 
-using namespace std;
-
-int main(int argc, char* argv[]) {
-    int n;
-    string text;
-    T9_translator t9;
+int main() {
+    arsenal a;
     
-    try {
-        cin >> n;
-        getline(cin, text);
-    } catch (...) {
-        cerr << "Incorrect number of cases!" << endl;
-        return -1;
-    }
+    barracks b;
+    stadium s;
     
-    try {
-        for (int i=1; i<=n; i++) {
-            getline(cin, text);
-            cout << "Case #" << i << ": " << t9.translate(text) << endl;
-        }
-    } catch (const char * msg) {
-        cout << "ERROR!!! " << msg << endl;
-        return -1;
-    }
+    a.put_weapon(std::unique_ptr<weapon>(new shovel));
+    a.put_weapon(std::unique_ptr<weapon>(new sword));
+    a.put_weapon(std::unique_ptr<weapon>(new hammer));
+    a.put_weapon(std::unique_ptr<weapon>(new bow));
+    
+    a.put_armor(std::unique_ptr<armor>(new chain_armour));
+    a.put_armor(std::unique_ptr<armor>(new lat));
+    
+    b.add_unit(std::unique_ptr<character>(new peasant("Bob")));
+    b.add_unit(std::unique_ptr<character>(new archer("Mike")));
+    b.add_unit(std::unique_ptr<character>(new knight("Jack")));
+    
+    s.add_unit(b.get_unit("Mike"));
+    s.add_unit(b.get_unit("Jack"));
+    
+    s["Mike"].attak(s["Jack"]);
+    std::cout << s["Jack"].get_health() << std::endl;
+    
+    s["Jack"].take_weapon(a.get_weapon(SWORD));
+    s["Mike"].put_on_armor(a.get_armor(CHAIN_ARMOUR));
+    
+    s["Jack"].attak(s["Mike"]);
+    std::cout << s["Mike"].get_health() << std::endl;
     
     return 0;
 }

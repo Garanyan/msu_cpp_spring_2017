@@ -3,46 +3,55 @@
 
 class Weapon;
 
+enum class ArmorName { Torso, Chain, Corslet, Armor };
+
 class Armor 
 {
-    int speedpenalty;
 public:
-    virtual int countbonus(Weapon &w);
+    int speedpenalty;
+    int countbonus(std::unique_ptr<Weapon>& weapon);
+    Armor(int speedpenalty = 0);
     Armor(const Armor & copied) = delete;
     Armor & operator= (const Armor & copied) = delete;
-    Armor(Armor && moved);
-    Armor & operator= (Armor && moved); 
+    // Armor(Armor && moved);
+    // Armor & operator= (Armor && moved);
+    virtual ~Armor();
+    virtual ArmorName getname() const = 0;
+    static constexpr ArmorName name = ArmorName::Armor;
 };
 
 class Torso : public Armor
 {
 public:
-    int countbonus(Weapon &w);
-    Torso(int speedpenalty);
+    Torso(int torsospeedpenalty = 0);
     Torso(const Torso & copied) = delete;
     Torso & operator= (const Torso & copied) = delete;
-    Torso(Torso && moved);
-    Torso & operator= (Torso && moved); 
+    // Torso(Torso && moved);
+    // Torso & operator= (Torso && moved); 
+    ArmorName getname() const;
+    static constexpr ArmorName name = ArmorName::Torso;
 };
 
 class Chain : public Armor
 {
 public:
-    int countbonus(Weapon &w);    
-    Chain(int speedpenalty);
+    Chain(int chainspeedpenalty = 20);
     Chain(const Chain & copied) = delete;
     Chain & operator= (const Chain & copied) = delete;
-    Chain(Chain && moved);
-    Chain & operator= (Chain && moved); 
+    // Chain(Chain && moved);
+    // Chain & operator= (Chain && moved); 
+    ArmorName getname() const;
+    static constexpr ArmorName name = ArmorName::Chain;
 };
 
 class Corslet : public Armor
 {
 public:
-    int countbonus(Weapon &w);
-    Corslet(int speedpenalty);
+    Corslet(int corsletspeedpenalty = 30);
     Corslet(const Corslet & copied) = delete;
     Corslet & operator= (const Corslet & copied) = delete;
-    Corslet(Corslet && moved);
-    Corslet & operator= (Corslet && moved); 
+    // Corslet(Corslet && moved);
+    // Corslet & operator= (Corslet && moved); 
+    ArmorName getname() const;
+    static constexpr ArmorName name = ArmorName::Corslet;
 };
