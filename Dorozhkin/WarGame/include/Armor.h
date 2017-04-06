@@ -13,8 +13,6 @@ public:
     Armor(int speedpenalty = 0);
     Armor(const Armor & copied) = delete;
     Armor & operator= (const Armor & copied) = delete;
-    // Armor(Armor && moved);
-    // Armor & operator= (Armor && moved);
     virtual ~Armor();
     virtual ArmorName getname() const = 0;
     static constexpr ArmorName name = ArmorName::Armor;
@@ -26,8 +24,6 @@ public:
     Torso(int torsospeedpenalty = 0);
     Torso(const Torso & copied) = delete;
     Torso & operator= (const Torso & copied) = delete;
-    // Torso(Torso && moved);
-    // Torso & operator= (Torso && moved); 
     ArmorName getname() const;
     static constexpr ArmorName name = ArmorName::Torso;
 };
@@ -38,8 +34,6 @@ public:
     Chain(int chainspeedpenalty = 20);
     Chain(const Chain & copied) = delete;
     Chain & operator= (const Chain & copied) = delete;
-    // Chain(Chain && moved);
-    // Chain & operator= (Chain && moved); 
     ArmorName getname() const;
     static constexpr ArmorName name = ArmorName::Chain;
 };
@@ -50,8 +44,6 @@ public:
     Corslet(int corsletspeedpenalty = 30);
     Corslet(const Corslet & copied) = delete;
     Corslet & operator= (const Corslet & copied) = delete;
-    // Corslet(Corslet && moved);
-    // Corslet & operator= (Corslet && moved); 
     ArmorName getname() const;
     static constexpr ArmorName name = ArmorName::Corslet;
 };
