@@ -25,13 +25,13 @@ int main() {
     s.add_unit(b.get_unit("Mike"));
     s.add_unit(b.get_unit("Jack"));
     
-    s["Mike"].attak(s["Jack"]);
+    s["Mike"].attack(s["Jack"]);
     std::cout << s["Jack"].get_health() << std::endl;
     
     s["Jack"].take_weapon(a.get_weapon(SWORD));
     s["Mike"].put_on_armor(a.get_armor(CHAIN_ARMOUR));
     
-    s["Jack"].attak(s["Mike"]);
+    s["Jack"].attack(s["Mike"]);
     std::cout << s["Mike"].get_health() << std::endl;
     
     return 0;

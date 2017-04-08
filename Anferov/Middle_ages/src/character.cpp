@@ -10,7 +10,7 @@
 
 /************************* PARENT *************************/
 
-character::character(const std::string s) : name(s),
+character::character(const std::string & s) : name(s),
                                             health(10),
                                             curr_weapon(new fist()),
                                             curr_armor(new hand()) {}
@@ -51,7 +51,7 @@ std::unique_ptr<weapon> character::give_weapon() {
     return ret;
 }
 
-void character::attak(character &c) {
+void character::attack(character &c) {
     c.health -= curr_weapon->punching_ability(*(c.curr_armor)) *
                 (skill(*curr_weapon)/10) * strength/10;
 }
@@ -62,7 +62,7 @@ double character::get_health() {
 
 /************************ CHILDREN ************************/
 
-peasant::peasant(std::string s): character(s) {
+peasant::peasant(const std::string & s): character(s) {
     strength = 5;
     endurance = 5;
     speed = 5;
@@ -77,7 +77,7 @@ double peasant::skill(weapon &a) {
     throw std::logic_error("Unrecognized weapon type");
 }
 
-archer::archer(std::string s): character(s) {
+archer::archer(const std::string & s): character(s) {
     strength = 7;
     endurance = 8;
     speed = 8;
@@ -92,7 +92,7 @@ double archer::skill(weapon &a) {
     throw std::logic_error("Unrecognized weapon type");
 }
 
-knight::knight(std::string s): character(s) {
+knight::knight(const std::string & s): character(s) {
     strength = 10;
     endurance = 10;
     speed = 10;

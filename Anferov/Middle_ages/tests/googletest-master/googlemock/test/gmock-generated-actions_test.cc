@@ -1058,7 +1058,7 @@ class TenArgConstructorClass {
 };
 
 // Tests using ReturnNew() with a 10-argument constructor.
-TEST(ReturnNewTest, ConstructorThatTakes10Arguments) {
+TEST(ReturnNewTest, ConstructorThattackes10Arguments) {
   Action<TenArgConstructorClass*()> a =
       ReturnNew<TenArgConstructorClass>(1000000000, 200000000, 30000000,
                                         4000000, 500000, 60000,

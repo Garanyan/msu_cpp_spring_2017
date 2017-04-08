@@ -14,6 +14,8 @@
 		78C2CC0C1E98CAEC00529B7C /* armor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 78D2C7BD1E98C6EC00AB52C4 /* armor.cpp */; };
 		78C2CC0E1E98CB0100529B7C /* gtest-all.cc in Sources */ = {isa = PBXBuildFile; fileRef = 78C2CC0D1E98CB0100529B7C /* gtest-all.cc */; };
 		78C2CC101E98CB3300529B7C /* test_main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 78C2CC0F1E98CB3300529B7C /* test_main.cpp */; };
+		78C2CC121E98D17000529B7C /* tests.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 78C2CC111E98D17000529B7C /* tests.cpp */; };
+		78C2CC141E98D2AD00529B7C /* GameTests.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 78C2CC131E98D2AD00529B7C /* GameTests.cpp */; };
 		78D2C7BE1E98C6EC00AB52C4 /* armor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 78D2C7BD1E98C6EC00AB52C4 /* armor.cpp */; };
 		78D2C7C01E98C6F300AB52C4 /* arsenal.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 78D2C7BF1E98C6F300AB52C4 /* arsenal.cpp */; };
 		78D2C7C21E98C6F700AB52C4 /* character.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 78D2C7C11E98C6F700AB52C4 /* character.cpp */; };
@@ -48,6 +50,8 @@
 		78C2CBFF1E98CA9A00529B7C /* Middle_ages_unit_tests */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Middle_ages_unit_tests; sourceTree = BUILT_PRODUCTS_DIR; };
 		78C2CC0D1E98CB0100529B7C /* gtest-all.cc */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = "gtest-all.cc"; path = "tests/googletest-master/googletest/src/gtest-all.cc"; sourceTree = "<group>"; };
 		78C2CC0F1E98CB3300529B7C /* test_main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = test_main.cpp; path = tests/test_main.cpp; sourceTree = "<group>"; };
+		78C2CC111E98D17000529B7C /* tests.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = tests.cpp; path = tests/tests.cpp; sourceTree = "<group>"; };
+		78C2CC131E98D2AD00529B7C /* GameTests.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = GameTests.cpp; path = tests/GameTests.cpp; sourceTree = "<group>"; };
 		78D2C7B11E98C62200AB52C4 /* Middle_ages */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Middle_ages; sourceTree = BUILT_PRODUCTS_DIR; };
 		78D2C7BB1E98C6C600AB52C4 /* include */ = {isa = PBXFileReference; lastKnownFileType = folder; path = include; sourceTree = "<group>"; };
 		78D2C7BC1E98C6C600AB52C4 /* src */ = {isa = PBXFileReference; lastKnownFileType = folder; path = src; sourceTree = "<group>"; };
@@ -80,6 +84,8 @@
 		78D2C7A81E98C62200AB52C4 = {
 			isa = PBXGroup;
 			children = (
+				78C2CC131E98D2AD00529B7C /* GameTests.cpp */,
+				78C2CC111E98D17000529B7C /* tests.cpp */,
 				78C2CC0F1E98CB3300529B7C /* test_main.cpp */,
 				78C2CC0D1E98CB0100529B7C /* gtest-all.cc */,
 				78D2C7C71E98C70500AB52C4 /* weapon.cpp */,
@@ -190,6 +196,8 @@
 				78C2CC0B1E98CAE900529B7C /* arsenal.cpp in Sources */,
 				78C2CC0E1E98CB0100529B7C /* gtest-all.cc in Sources */,
 				78C2CC101E98CB3300529B7C /* test_main.cpp in Sources */,
+				78C2CC121E98D17000529B7C /* tests.cpp in Sources */,
+				78C2CC141E98D2AD00529B7C /* GameTests.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -257,19 +257,19 @@ TEST(InvokeTest, Ternary) {
 }
 
 // Tests using Invoke() with a 4-argument function.
-TEST(InvokeTest, FunctionThatTakes4Arguments) {
+TEST(InvokeTest, FunctionThattackes4Arguments) {
   Action<int(int, int, int, int)> a = Invoke(SumOf4);  // NOLINT
   EXPECT_EQ(1234, a.Perform(make_tuple(1000, 200, 30, 4)));
 }
 
 // Tests using Invoke() with a 5-argument function.
-TEST(InvokeTest, FunctionThatTakes5Arguments) {
+TEST(InvokeTest, FunctionThattackes5Arguments) {
   Action<int(int, int, int, int, int)> a = Invoke(SumOf5);  // NOLINT
   EXPECT_EQ(12345, a.Perform(make_tuple(10000, 2000, 300, 40, 5)));
 }
 
 // Tests using Invoke() with a 6-argument function.
-TEST(InvokeTest, FunctionThatTakes6Arguments) {
+TEST(InvokeTest, FunctionThattackes6Arguments) {
   Action<int(int, int, int, int, int, int)> a = Invoke(SumOf6);  // NOLINT
   EXPECT_EQ(123456, a.Perform(make_tuple(100000, 20000, 3000, 400, 50, 6)));
 }
@@ -279,7 +279,7 @@ TEST(InvokeTest, FunctionThatTakes6Arguments) {
 inline const char* CharPtr(const char* s) { return s; }
 
 // Tests using Invoke() with a 7-argument function.
-TEST(InvokeTest, FunctionThatTakes7Arguments) {
+TEST(InvokeTest, FunctionThattackes7Arguments) {
   Action<string(const char*, const char*, const char*, const char*,
                 const char*, const char*, const char*)> a =
       Invoke(Concat7);
@@ -290,7 +290,7 @@ TEST(InvokeTest, FunctionThatTakes7Arguments) {
 }
 
 // Tests using Invoke() with a 8-argument function.
-TEST(InvokeTest, FunctionThatTakes8Arguments) {
+TEST(InvokeTest, FunctionThattackes8Arguments) {
   Action<string(const char*, const char*, const char*, const char*,
                 const char*, const char*, const char*, const char*)> a =
       Invoke(Concat8);
@@ -301,7 +301,7 @@ TEST(InvokeTest, FunctionThatTakes8Arguments) {
 }
 
 // Tests using Invoke() with a 9-argument function.
-TEST(InvokeTest, FunctionThatTakes9Arguments) {
+TEST(InvokeTest, FunctionThattackes9Arguments) {
   Action<string(const char*, const char*, const char*, const char*,
                 const char*, const char*, const char*, const char*,
                 const char*)> a = Invoke(Concat9);
@@ -312,7 +312,7 @@ TEST(InvokeTest, FunctionThatTakes9Arguments) {
 }
 
 // Tests using Invoke() with a 10-argument function.
-TEST(InvokeTest, FunctionThatTakes10Arguments) {
+TEST(InvokeTest, FunctionThattackes10Arguments) {
   Action<string(const char*, const char*, const char*, const char*,
                 const char*, const char*, const char*, const char*,
                 const char*, const char*)> a = Invoke(Concat10);
@@ -393,21 +393,21 @@ TEST(InvokeMethodTest, Ternary) {
 }
 
 // Tests using Invoke() with a 4-argument method.
-TEST(InvokeMethodTest, MethodThatTakes4Arguments) {
+TEST(InvokeMethodTest, MethodThattackes4Arguments) {
   Foo foo;
   Action<int(int, int, int, int)> a = Invoke(&foo, &Foo::SumOf4);  // NOLINT
   EXPECT_EQ(1357, a.Perform(make_tuple(1000, 200, 30, 4)));
 }
 
 // Tests using Invoke() with a 5-argument method.
-TEST(InvokeMethodTest, MethodThatTakes5Arguments) {
+TEST(InvokeMethodTest, MethodThattackes5Arguments) {
   Foo foo;
   Action<int(int, int, int, int, int)> a = Invoke(&foo, &Foo::SumOf5);  // NOLINT
   EXPECT_EQ(12345, a.Perform(make_tuple(10000, 2000, 300, 40, 5)));
 }
 
 // Tests using Invoke() with a 6-argument method.
-TEST(InvokeMethodTest, MethodThatTakes6Arguments) {
+TEST(InvokeMethodTest, MethodThattackes6Arguments) {
   Foo foo;
   Action<int(int, int, int, int, int, int)> a =  // NOLINT
       Invoke(&foo, &Foo::SumOf6);
@@ -415,7 +415,7 @@ TEST(InvokeMethodTest, MethodThatTakes6Arguments) {
 }
 
 // Tests using Invoke() with a 7-argument method.
-TEST(InvokeMethodTest, MethodThatTakes7Arguments) {
+TEST(InvokeMethodTest, MethodThattackes7Arguments) {
   Foo foo;
   Action<string(const char*, const char*, const char*, const char*,
                 const char*, const char*, const char*)> a =
@@ -427,7 +427,7 @@ TEST(InvokeMethodTest, MethodThatTakes7Arguments) {
 }
 
 // Tests using Invoke() with a 8-argument method.
-TEST(InvokeMethodTest, MethodThatTakes8Arguments) {
+TEST(InvokeMethodTest, MethodThattackes8Arguments) {
   Foo foo;
   Action<string(const char*, const char*, const char*, const char*,
                 const char*, const char*, const char*, const char*)> a =
@@ -439,7 +439,7 @@ TEST(InvokeMethodTest, MethodThatTakes8Arguments) {
 }
 
 // Tests using Invoke() with a 9-argument method.
-TEST(InvokeMethodTest, MethodThatTakes9Arguments) {
+TEST(InvokeMethodTest, MethodThattackes9Arguments) {
   Foo foo;
   Action<string(const char*, const char*, const char*, const char*,
                 const char*, const char*, const char*, const char*,
@@ -451,7 +451,7 @@ TEST(InvokeMethodTest, MethodThatTakes9Arguments) {
 }
 
 // Tests using Invoke() with a 10-argument method.
-TEST(InvokeMethodTest, MethodThatTakes10Arguments) {
+TEST(InvokeMethodTest, MethodThattackes10Arguments) {
   Foo foo;
   Action<string(const char*, const char*, const char*, const char*,
                 const char*, const char*, const char*, const char*,

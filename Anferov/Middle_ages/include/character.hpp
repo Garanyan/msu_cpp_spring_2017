@@ -31,7 +31,7 @@ protected:
     character & operator= (character const &) = delete;
     
 public:
-    explicit character(const std::string n);
+    explicit character(const std::string & n);
     character(character &&) = default;
     character & operator= (character &&) = default;
     virtual ~character() = default;
@@ -44,7 +44,7 @@ public:
     std::unique_ptr<armor> take_off_armor();
     std::unique_ptr<weapon> give_weapon();
     
-    void attak(character &);
+    void attack(character &);
     
     double get_health();
     
@@ -56,21 +56,21 @@ public:
 class peasant: public character
 {
 public:
-    peasant(std::string);
+    peasant(const std::string &);
     virtual double skill(weapon &) override;
 };
 
 class archer: public character
 {
 public:
-    archer(std::string);
+    archer(const std::string &);
     virtual double skill(weapon &) override;
 };
 
 class knight: public character
 {
 public:
-    knight(std::string);
+    knight(const std::string &);
     virtual double skill(weapon &) override;
 };
 
