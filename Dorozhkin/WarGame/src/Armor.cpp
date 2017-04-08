@@ -5,51 +5,55 @@
 //Armor
 Armor::~Armor()
 {
-    
 }
 
-Armor::Armor(int speedpenalty)
+Armor::Armor(int speedPenalty)
+    : speedPenalty_(speedPenalty) //- Лучше в списке инициализации
 {
-    this->speedpenalty = speedpenalty;
 }
 
-int Armor::countbonus(std::unique_ptr<Weapon>& weapon) 
+int Armor::countBonus(const Weapon& weapon) const
 {
-    return this->speedpenalty - weapon->radius - weapon->speed; 
+    return this->getPower() - weapon.getPower(); 
+}
+
+int Armor::getPower() const 
+{
+    return speedPenalty_;
 }
 
 //Torso
 //default values for Torso
-Torso::Torso(int torsospeedpenalty) : 
-    Armor(torsospeedpenalty)
+Torso::Torso(int torsoSpeedPenalty) : 
+    Armor(torsoSpeedPenalty)
 {
 }
 
-ArmorName Torso::getname() const 
+ArmorName Torso::getName() const 
 {
     return ArmorName::Torso;
 }
 
 //Chain
 //default values for Chain
-Chain::Chain(int chainspeedpenalty) :
-    Armor(chainspeedpenalty)
+Chain::Chain(int chainSpeedPenalty) :
+    Armor(chainSpeedPenalty)
 {
 }
 
-ArmorName Chain::getname() const
+ArmorName Chain::getName() const
 {
     return ArmorName::Chain;
 }
 
 //Corslet
 //default values for Corslet
-Corslet::Corslet(int corsletspeedpenalty) :
-    Armor(corsletspeedpenalty)
+Corslet::Corslet(int corsletSpeedPenalty) :
+    Armor(corsletSpeedPenalty)
 {
 }
 
-ArmorName Corslet::getname() const
+ArmorName Corslet::getName() const
 {
     return ArmorName::Corslet;
 }

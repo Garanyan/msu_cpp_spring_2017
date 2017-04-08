@@ -9,72 +9,76 @@ Weapon::~Weapon()
 }
 
 Weapon::Weapon(int radius, int speed)
+    : radius_(radius), speed_(speed)
 {
-    this->radius = radius;
-    this->speed = speed;
 }
 
-int Weapon::countbonus(std::unique_ptr<Armor>& armor) 
+int Weapon::countBonus(const Armor& armor) const
 {
-    return this->radius + this->speed - armor->speedpenalty; 
+    return this->getPower() - armor.getPower(); 
+}
+
+int Weapon::getPower() const 
+{
+    return radius_ + speed_;
 }
 
 //Nothing
 //default values for Nothing
-Nothing::Nothing(int nothingradius, int nothingspeed) :
-    Weapon(nothingradius, nothingspeed)
+Nothing::Nothing(int nothingRadius, int nothingSpeed) :
+    Weapon(nothingRadius, nothingSpeed)
 {
 }
 
-WeaponName Nothing::getname() const 
+WeaponName Nothing::getName() const 
 {
     return WeaponName::Nothing;
 }
 
 //Sword
 //default values for Sword
-Sword::Sword(int swordradius, int swordspeed) :
-    Weapon(swordradius, swordspeed)
+Sword::Sword(int swordRadius, int swordSpeed) :
+    Weapon(swordRadius, swordSpeed)
 {
 }
 
-WeaponName Sword::getname() const 
+WeaponName Sword::getName() const 
 {
     return WeaponName::Sword;
 }
 
 //Shovel
 //default values for Shovel
-Shovel::Shovel(int shovelradius, int shovelspeed) :
-    Weapon(shovelradius, shovelspeed)
+Shovel::Shovel(int shovelRadius, int shovelSpeed) :
+    Weapon(shovelRadius, shovelSpeed)
 {
 }
 
-WeaponName Shovel::getname() const
+WeaponName Shovel::getName() const
 {
     return WeaponName::Shovel;
 }
 
 //Bow
 //default values for Bow
-Bow::Bow(int bowradius, int bowspeed) :
-    Weapon(bowradius, bowspeed)
+Bow::Bow(int bowRadius, int bowSpeed) :
+    Weapon(bowRadius, bowSpeed)
 {
 }
 
-WeaponName Bow::getname() const 
+WeaponName Bow::getName() const 
 {
     return WeaponName::Bow;
 }
 
 //Hammer
 //default values for Hammer
-Hammer::Hammer(int hammerradius, int hammerspeed) :
-    Weapon(hammerradius, hammerspeed)
+Hammer::Hammer(int hammerRadius, int hammerSpeed) :
+    Weapon(hammerRadius, hammerSpeed)
 {
 }
 
-WeaponName Hammer::getname() const 
+WeaponName Hammer::getName() const 
 {
     return WeaponName::Hammer;
 }

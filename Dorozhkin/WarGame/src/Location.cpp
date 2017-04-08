@@ -2,15 +2,15 @@
 #include "../include/Location.h"
 
 //Location
-void Location::enter(std::unique_ptr<Human> human)
+void Location::enter(std::unique_ptr<Human>&& human)
 {
-    std::string name = human->name;
+    std::string name = human->name_;
     people[name].swap(human);
 }
 
-std::unique_ptr<Human> Location::leave(std::string name)
+std::unique_ptr<Human> Location::leave(const std::string& name)
 {
-    Human * freehuman = people[name].release();
+    Human* freehuman = people[name].release();
     people.erase(name);
     return std::move(std::unique_ptr<Human>(freehuman));
 }
@@ -20,19 +20,19 @@ Location::~Location()
     
 }
 
-bool Location::Isinside(std::string human_name)
+bool Location::isInside(const std::string& humanName) const
 {
-    if (people.find(human_name) != people.end()) {
+    if (people.find(humanName) != people.end()) {
         return true;
     } else {
         return false;
     }
 }
 
-void Location::heal(std::string name)
+void Location::heal(const std::string& name)
 {
-    if (this->Isinside(name)) {
-        people[name]->life = 100;
+    if (this->isInside(name)) {
+        people[name]->life_ = people[name]->getDefaultLife();
     } else {
         throw std::logic_error{"No human in Location"};
     }
@@ -41,31 +41,31 @@ void Location::heal(std::string name)
 //Barrack
 
 //Arsenal
-void Arsenal::addarmor(ArmorName armorname)
+void Arsenal::addArmor(const ArmorName& armorName)
 {
-    armors[armorname]++;
+    armors[armorName]++;
 }
 
-void Arsenal::addweapon(WeaponName weaponname)
+void Arsenal::addWeapon(const WeaponName& weaponName)
 {
-    weapons[weaponname]++;
+    weapons[weaponName]++;
 }
 
-void Arsenal::putarmor(std::string human_name)
+void Arsenal::putArmor(const std::string& humanName)
 {
-    if (this->Isinside(human_name)) {
-        armors[people[human_name]->armor->getname()]++;
-        people[human_name]->armor.reset(new class Torso());
+    if (this->isInside(humanName)) {
+        armors[people[humanName]->armor_->getName()]++;
+        people[humanName]->armor_.reset(new class Torso());
     } else {
         throw std::logic_error{"No human in Arsenal"};
     }
 }
 
-void Arsenal::putweapon(std::string human_name)
+void Arsenal::putWeapon(const std::string& humanName)
 {
-    if (this->Isinside(human_name)) {
-        weapons[people[human_name]->weapon->getname()]++;
-        people[human_name]->weapon.reset(new class Nothing());
+    if (this->isInside(humanName)) {
+        weapons[people[humanName]->weapon_->getName()]++;
+        people[humanName]->weapon_.reset(new class Nothing());
     } else {
         throw std::logic_error{"No human in Arsenal"};
     }
@@ -74,20 +74,20 @@ void Arsenal::putweapon(std::string human_name)
 
 
 //Stadium
-std::string Stadium::battle(std::string human_name, std::string opponent_name)
+const std::string& Stadium::battle(const std::string& humanName, const std::string& opponentName)
 {
-    if (this->Isinside(human_name) && this->Isinside(opponent_name)) {
-        while (people[human_name]->life >= 0 && people[opponent_name]->life >= 0)
+    if (this->isInside(humanName) && this->isInside(opponentName)) {
+        while (people[humanName]->life_ >= 0 && people[opponentName]->life_ >= 0)
         {
             
-            auto human_damage = people[human_name]->takedamage(people[opponent_name]);
-            auto opponent_damage = people[opponent_name]->takedamage(people[human_name]);
-            std::cout << human_damage << std::endl;
-            std::cout << opponent_damage << std::endl;
-            people[human_name]->life -= human_damage > 0 ? human_damage : 0;
-            people[opponent_name]->life -= opponent_damage > 0 ? opponent_damage : 0;
+            auto humanDamage = people[humanName]->takeDamage(*people[opponentName]);
+            auto opponentDamage = people[opponentName]->takeDamage(*people[humanName]);
+            std::cout << humanDamage << std::endl;
+            std::cout << opponentDamage << std::endl;
+            people[humanName]->life_ -= humanDamage > 0 ? humanDamage : 0;
+            people[opponentName]->life_ -= opponentDamage > 0 ? opponentDamage : 0;
         }
-        return people[human_name]->life > 0 ? human_name : opponent_name;
+        return people[humanName]->life_ > 0 ? humanName : opponentName;
     } else {
         throw std::logic_error{"No human in Stadium"};
     }
