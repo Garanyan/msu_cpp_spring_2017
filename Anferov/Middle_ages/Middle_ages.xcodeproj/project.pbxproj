@@ -1,0 +1,381 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		78C2CC081E98CAD600529B7C /* weapon.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 78D2C7C71E98C70500AB52C4 /* weapon.cpp */; };
+		78C2CC091E98CAD800529B7C /* storage.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 78D2C7C51E98C70000AB52C4 /* storage.cpp */; };
+		78C2CC0A1E98CADF00529B7C /* character.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 78D2C7C11E98C6F700AB52C4 /* character.cpp */; };
+		78C2CC0B1E98CAE900529B7C /* arsenal.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 78D2C7BF1E98C6F300AB52C4 /* arsenal.cpp */; };
+		78C2CC0C1E98CAEC00529B7C /* armor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 78D2C7BD1E98C6EC00AB52C4 /* armor.cpp */; };
+		78C2CC0E1E98CB0100529B7C /* gtest-all.cc in Sources */ = {isa = PBXBuildFile; fileRef = 78C2CC0D1E98CB0100529B7C /* gtest-all.cc */; };
+		78C2CC101E98CB3300529B7C /* test_main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 78C2CC0F1E98CB3300529B7C /* test_main.cpp */; };
+		78C2CC121E98D17000529B7C /* tests.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 78C2CC111E98D17000529B7C /* tests.cpp */; };
+		78C2CC141E98D2AD00529B7C /* GameTests.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 78C2CC131E98D2AD00529B7C /* GameTests.cpp */; };
+		78D2C7BE1E98C6EC00AB52C4 /* armor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 78D2C7BD1E98C6EC00AB52C4 /* armor.cpp */; };
+		78D2C7C01E98C6F300AB52C4 /* arsenal.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 78D2C7BF1E98C6F300AB52C4 /* arsenal.cpp */; };
+		78D2C7C21E98C6F700AB52C4 /* character.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 78D2C7C11E98C6F700AB52C4 /* character.cpp */; };
+		78D2C7C41E98C6FC00AB52C4 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 78D2C7C31E98C6FC00AB52C4 /* main.cpp */; };
+		78D2C7C61E98C70000AB52C4 /* storage.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 78D2C7C51E98C70000AB52C4 /* storage.cpp */; };
+		78D2C7C81E98C70500AB52C4 /* weapon.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 78D2C7C71E98C70500AB52C4 /* weapon.cpp */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		78C2CBFD1E98CA9A00529B7C /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+		78D2C7AF1E98C62200AB52C4 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		78C2CBFA1E98CA3C00529B7C /* tests */ = {isa = PBXFileReference; lastKnownFileType = folder; path = tests; sourceTree = "<group>"; };
+		78C2CBFF1E98CA9A00529B7C /* Middle_ages_unit_tests */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Middle_ages_unit_tests; sourceTree = BUILT_PRODUCTS_DIR; };
+		78C2CC0D1E98CB0100529B7C /* gtest-all.cc */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = "gtest-all.cc"; path = "tests/googletest-master/googletest/src/gtest-all.cc"; sourceTree = "<group>"; };
+		78C2CC0F1E98CB3300529B7C /* test_main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = test_main.cpp; path = tests/test_main.cpp; sourceTree = "<group>"; };
+		78C2CC111E98D17000529B7C /* tests.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = tests.cpp; path = tests/tests.cpp; sourceTree = "<group>"; };
+		78C2CC131E98D2AD00529B7C /* GameTests.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = GameTests.cpp; path = tests/GameTests.cpp; sourceTree = "<group>"; };
+		78D2C7B11E98C62200AB52C4 /* Middle_ages */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Middle_ages; sourceTree = BUILT_PRODUCTS_DIR; };
+		78D2C7BB1E98C6C600AB52C4 /* include */ = {isa = PBXFileReference; lastKnownFileType = folder; path = include; sourceTree = "<group>"; };
+		78D2C7BC1E98C6C600AB52C4 /* src */ = {isa = PBXFileReference; lastKnownFileType = folder; path = src; sourceTree = "<group>"; };
+		78D2C7BD1E98C6EC00AB52C4 /* armor.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = armor.cpp; path = src/armor.cpp; sourceTree = "<group>"; };
+		78D2C7BF1E98C6F300AB52C4 /* arsenal.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = arsenal.cpp; path = src/arsenal.cpp; sourceTree = "<group>"; };
+		78D2C7C11E98C6F700AB52C4 /* character.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = character.cpp; path = src/character.cpp; sourceTree = "<group>"; };
+		78D2C7C31E98C6FC00AB52C4 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = main.cpp; path = src/main.cpp; sourceTree = "<group>"; };
+		78D2C7C51E98C70000AB52C4 /* storage.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = storage.cpp; path = src/storage.cpp; sourceTree = "<group>"; };
+		78D2C7C71E98C70500AB52C4 /* weapon.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = weapon.cpp; path = src/weapon.cpp; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		78C2CBFC1E98CA9A00529B7C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		78D2C7AE1E98C62200AB52C4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		78D2C7A81E98C62200AB52C4 = {
+			isa = PBXGroup;
+			children = (
+				78C2CC131E98D2AD00529B7C /* GameTests.cpp */,
+				78C2CC111E98D17000529B7C /* tests.cpp */,
+				78C2CC0F1E98CB3300529B7C /* test_main.cpp */,
+				78C2CC0D1E98CB0100529B7C /* gtest-all.cc */,
+				78D2C7C71E98C70500AB52C4 /* weapon.cpp */,
+				78D2C7C51E98C70000AB52C4 /* storage.cpp */,
+				78D2C7C31E98C6FC00AB52C4 /* main.cpp */,
+				78D2C7C11E98C6F700AB52C4 /* character.cpp */,
+				78D2C7BF1E98C6F300AB52C4 /* arsenal.cpp */,
+				78D2C7BD1E98C6EC00AB52C4 /* armor.cpp */,
+				78D2C7BB1E98C6C600AB52C4 /* include */,
+				78D2C7BC1E98C6C600AB52C4 /* src */,
+				78C2CBFA1E98CA3C00529B7C /* tests */,
+				78D2C7B21E98C62200AB52C4 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		78D2C7B21E98C62200AB52C4 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				78D2C7B11E98C62200AB52C4 /* Middle_ages */,
+				78C2CBFF1E98CA9A00529B7C /* Middle_ages_unit_tests */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		78C2CBFE1E98CA9A00529B7C /* Middle_ages_unit_tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 78C2CC031E98CA9A00529B7C /* Build configuration list for PBXNativeTarget "Middle_ages_unit_tests" */;
+			buildPhases = (
+				78C2CBFB1E98CA9A00529B7C /* Sources */,
+				78C2CBFC1E98CA9A00529B7C /* Frameworks */,
+				78C2CBFD1E98CA9A00529B7C /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Middle_ages_unit_tests;
+			productName = Middle_ages_unit_tests;
+			productReference = 78C2CBFF1E98CA9A00529B7C /* Middle_ages_unit_tests */;
+			productType = "com.apple.product-type.tool";
+		};
+		78D2C7B01E98C62200AB52C4 /* Middle_ages */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 78D2C7B81E98C62200AB52C4 /* Build configuration list for PBXNativeTarget "Middle_ages" */;
+			buildPhases = (
+				78D2C7AD1E98C62200AB52C4 /* Sources */,
+				78D2C7AE1E98C62200AB52C4 /* Frameworks */,
+				78D2C7AF1E98C62200AB52C4 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Middle_ages;
+			productName = Middle_ages;
+			productReference = 78D2C7B11E98C62200AB52C4 /* Middle_ages */;
+			productType = "com.apple.product-type.tool";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		78D2C7A91E98C62200AB52C4 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0830;
+				ORGANIZATIONNAME = "Игорь Анфёров";
+				TargetAttributes = {
+					78C2CBFE1E98CA9A00529B7C = {
+						CreatedOnToolsVersion = 8.3;
+						ProvisioningStyle = Automatic;
+					};
+					78D2C7B01E98C62200AB52C4 = {
+						CreatedOnToolsVersion = 8.3;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 78D2C7AC1E98C62200AB52C4 /* Build configuration list for PBXProject "Middle_ages" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 78D2C7A81E98C62200AB52C4;
+			productRefGroup = 78D2C7B21E98C62200AB52C4 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				78D2C7B01E98C62200AB52C4 /* Middle_ages */,
+				78C2CBFE1E98CA9A00529B7C /* Middle_ages_unit_tests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		78C2CBFB1E98CA9A00529B7C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				78C2CC0C1E98CAEC00529B7C /* armor.cpp in Sources */,
+				78C2CC081E98CAD600529B7C /* weapon.cpp in Sources */,
+				78C2CC091E98CAD800529B7C /* storage.cpp in Sources */,
+				78C2CC0A1E98CADF00529B7C /* character.cpp in Sources */,
+				78C2CC0B1E98CAE900529B7C /* arsenal.cpp in Sources */,
+				78C2CC0E1E98CB0100529B7C /* gtest-all.cc in Sources */,
+				78C2CC101E98CB3300529B7C /* test_main.cpp in Sources */,
+				78C2CC121E98D17000529B7C /* tests.cpp in Sources */,
+				78C2CC141E98D2AD00529B7C /* GameTests.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		78D2C7AD1E98C62200AB52C4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				78D2C7C61E98C70000AB52C4 /* storage.cpp in Sources */,
+				78D2C7C41E98C6FC00AB52C4 /* main.cpp in Sources */,
+				78D2C7BE1E98C6EC00AB52C4 /* armor.cpp in Sources */,
+				78D2C7C01E98C6F300AB52C4 /* arsenal.cpp in Sources */,
+				78D2C7C21E98C6F700AB52C4 /* character.cpp in Sources */,
+				78D2C7C81E98C70500AB52C4 /* weapon.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		78C2CC041E98CA9A00529B7C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				HEADER_SEARCH_PATHS = (
+					"\"$(SRCROOT)/include\"",
+					"\"$(SRCROOT)/tests/googletest-master/googletest/include\"",
+					"\"$(SRCROOT)/tests/googletest-master/googletest\"",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		78C2CC051E98CA9A00529B7C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				HEADER_SEARCH_PATHS = (
+					"\"$(SRCROOT)/include\"",
+					"\"$(SRCROOT)/tests/googletest-master/googletest/include\"",
+					"\"$(SRCROOT)/tests/googletest-master/googletest\"",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		78D2C7B61E98C62200AB52C4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		78D2C7B71E98C62200AB52C4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		78D2C7B91E98C62200AB52C4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				HEADER_SEARCH_PATHS = "\"$(SRCROOT)/include\"";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		78D2C7BA1E98C62200AB52C4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				HEADER_SEARCH_PATHS = "\"$(SRCROOT)/include\"";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		78C2CC031E98CA9A00529B7C /* Build configuration list for PBXNativeTarget "Middle_ages_unit_tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				78C2CC041E98CA9A00529B7C /* Debug */,
+				78C2CC051E98CA9A00529B7C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		78D2C7AC1E98C62200AB52C4 /* Build configuration list for PBXProject "Middle_ages" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				78D2C7B61E98C62200AB52C4 /* Debug */,
+				78D2C7B71E98C62200AB52C4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		78D2C7B81E98C62200AB52C4 /* Build configuration list for PBXNativeTarget "Middle_ages" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				78D2C7B91E98C62200AB52C4 /* Debug */,
+				78D2C7BA1E98C62200AB52C4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 78D2C7A91E98C62200AB52C4 /* Project object */;
+}
