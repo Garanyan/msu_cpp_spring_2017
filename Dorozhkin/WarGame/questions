@@ -2,3 +2,6 @@
 2) убрать шаблонизацию из putweapon, leave (как избежать срезок)
 3) Нужно ли столько std::move?
 4) Виртуальные деструкторы
+
+
+Precompiled headers HUMAN

@@ -3,7 +3,8 @@
 #include "../include/Weapon.h"
 #include "../include/Location.h"
 #include "../include/Human.h"
-#include "../include/include.h"
+// #include "../include/include.h"
+#include "stdafx.h"
 
 int main(int argc, char const*argv[]) {
     try {

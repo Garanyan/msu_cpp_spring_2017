@@ -1,5 +1,6 @@
 #pragma once
 #include "../include/Location.h"
+#include "stdafx.h"
 
 //Location
 void Location::enter(std::unique_ptr<Human>&& human)

@@ -1,22 +1,14 @@
 #pragma once
-#include "include.h"
-// precompiled headers - по другому работает
 
 class Weapon;
 
 enum class ArmorName { Torso, Chain, Corslet, Armor };
 
-// инкапсуляция, БОЛЬШЕ КОНСТАНТ
-// camel case QT style
 class Armor 
 {
-    // int speedpenalty;
     const int speedPenalty_;
 public:
-//    using healthPoints = int;
-    // int countBonus(const std::unique_ptr<Weapon>& weapon) const; //const&, const method
-    int countBonus(const Weapon& weapon) const; //const&
-    // healthPoints countbonus(const Weapon& weapon) const; //const&
+    int countBonus(const Weapon& weapon) const;
     Armor(int speedPenalty = 0);
     Armor(const Armor& copied) = delete;
     Armor& operator= (const Armor& copied) = delete;
@@ -32,7 +24,7 @@ public:
     Torso(int torsoSpeedPenalty = 0);
     Torso(const Torso& copied) = delete;
     Torso& operator= (const Torso& copied) = delete;
-    ArmorName getName() const override; // override
+    ArmorName getName() const override;
     static constexpr ArmorName name = ArmorName::Torso;
 };
 

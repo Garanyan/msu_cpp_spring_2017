@@ -9,3 +9,4 @@ CMakeFiles
 Testing/
 *~
 Dorozhkin/WarGame/include/*.gch
+Dorozhkin/WarGame/build/*

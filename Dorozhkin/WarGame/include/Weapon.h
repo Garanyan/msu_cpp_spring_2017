@@ -1,5 +1,5 @@
 #pragma once
-#include "include.h"
+// #include "include.h"
 
 class Armor;
 
@@ -12,7 +12,6 @@ public:
     Weapon(int radius = 0, int speed = 0);
     Weapon(const Weapon& copied) = delete;
     Weapon& operator= (const Weapon& copied) = delete;
-    // virtual int countbonus(std::unique_ptr<Armor>& armor);
     int countBonus(const Armor& armor) const;
     virtual ~Weapon();
     virtual WeaponName getName() const = 0;

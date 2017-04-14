@@ -2,7 +2,7 @@
 #include "../include/Human.h"
 #include "../include/Weapon.h"
 #include "../include/Armor.h"
-
+#include "stdafx.h"
 
 //Human
 Human::~Human()
@@ -26,7 +26,7 @@ int Human::dealDamage(const Human& enemy) const
 {
     return this->getOffensePower() - enemy.getDefensePower() + this->weapon_->countBonus(*enemy.armor_) - enemy.armor_->countBonus(*this->weapon_);
 }
-
+ 
 std::string Human::generateName() const
 {
     return std::to_string(rand() + rand());

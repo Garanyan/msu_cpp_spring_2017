@@ -1,6 +1,7 @@
 #pragma once
 #include "../include/Armor.h"
 #include "../include/Weapon.h"
+#include "stdafx.h"
 
 //Armor
 Armor::~Armor()
@@ -8,7 +9,7 @@ Armor::~Armor()
 }
 
 Armor::Armor(int speedPenalty)
-    : speedPenalty_(speedPenalty) //- Лучше в списке инициализации
+    : speedPenalty_(speedPenalty) 
 {
 }
 

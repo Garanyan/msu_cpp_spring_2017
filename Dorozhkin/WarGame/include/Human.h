@@ -1,7 +1,7 @@
 #pragma once
 #include "Armor.h"
 #include "Weapon.h"
-#include "include.h"
+#include "stdafx.h"
 
 enum class HumanProfession { Peasant, Archer, Knight }; 
 
@@ -17,16 +17,11 @@ public:
     std::unique_ptr<Weapon> weapon_;
     std::unique_ptr<Armor> armor_;
     std::string generateName() const;
-    int takeDamage(const Human& enemy) const; // const Human& human
-    //std::unique_ptr<Human> human;  takedamage(*human);
+    int takeDamage(const Human& enemy) const;
     int dealDamage(const Human& human) const;
     int getOffensePower() const;
     int getDefensePower() const;
-    // string по&; const string&
     Human(const std::string& name = "default", int forse = 0, int speed = 0, int skill = 0, int endurance = 0, int life = 100); 
-    // new Human("John", 1,2,3,4,5);
-    // 3 параметра в функцию!!!
-    // virtual getForse() const = 0;
     Human(const Human& copied) = delete;
     Human& operator= (const Human& copied) = delete;
     virtual ~Human();  

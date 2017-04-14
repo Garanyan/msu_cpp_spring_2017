@@ -1,5 +1,5 @@
 #pragma once
-#include "include.h"
+// #include "include.h"
 #include "Human.h"
 
 class Weapon;
@@ -11,9 +11,7 @@ public:
     std::map<std::string, std::unique_ptr<Human>> people;
     Location() = default;
     void enter(std::unique_ptr<Human>&& human);
-    // void enter(std::unique_ptr<Human>&& human);
     std::unique_ptr<Human> leave(const std::string& name);
-    // std::unique_ptr<Human> leave(const std::string& name);
     bool isInside(const std::string& humanName) const;
     void heal(const std::string& name);
     Location(const Location& copied) = delete;
@@ -28,7 +26,6 @@ public:
     template <class profession>
     std::string birth(const std::string& birthName = "default")
     {
-        // profession* human = new profession(birthName);
         auto human = std::unique_ptr<Human>(new profession(birthName));
         std::string name = human->name_;
         people[name].swap(human);
@@ -52,7 +49,6 @@ public:
         auto at = armorType::name;
         auto armor_it = armors.find(at);
         if (armor_it != armors.end()&& armor_it->second > 0) {
-            // Armor* armor(new armorType);
             auto armor = std::unique_ptr<Armor>(new armorType);
             if (this->isInside(humanName)) {
                 people[humanName]->armor_.swap(armor);
@@ -69,7 +65,6 @@ public:
         auto wt = weaponType::name;
         auto weapon_it = weapons.find(wt);
         if (weapon_it != weapons.end()&& weapon_it->second > 0) {
-            // Weapon* weapon(new weaponType);
             auto weapon = std::unique_ptr<Weapon>(new weaponType);
             if (this->isInside(humanName)) {
                 people[humanName]->weapon_.swap(weapon);
