@@ -1,8 +1,6 @@
 #pragma once
-#include <string>
-#include <memory>
 //#include "..//MCS_MGame2//Armor.cpp"
-#include <iostream>
+#include "..//Medieval_Game/Headers/Units.h"
 
 
 
