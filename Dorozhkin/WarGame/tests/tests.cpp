@@ -22,112 +22,139 @@ TEST(SetupUniverse, Armor) {
     EXPECT_TRUE(corslet->getPower() > 0);
 }
 
-
-// static constexpr ArmorName name = ArmorName::Armor;
-// int getPower() const; 
-
-TEST(WordTestGroup, ComplexTests) {
+TEST(SetupUniverse, Weapon) {
+    std::unique_ptr<Sword> sword(new class Sword());
+    std::unique_ptr<Hammer> hammer(new class Hammer());
+    std::unique_ptr<Bow> bow(new class Bow());
+    std::unique_ptr<Nothing> nothing(new class Nothing());
+    std::unique_ptr<Shovel> shovel(new class Shovel());
+    EXPECT_EQ(WeaponName::Sword, sword->getName());
+    EXPECT_EQ(WeaponName::Hammer, hammer->getName());
+    EXPECT_EQ(WeaponName::Bow, bow->getName());
+    EXPECT_EQ(WeaponName::Nothing, nothing->getName());
+    EXPECT_EQ(WeaponName::Shovel, shovel->getName());
+    
+    std::unique_ptr<Armor> torso(new class Torso());
+    EXPECT_TRUE(sword->countBonus(*torso) > 0);
+    EXPECT_TRUE(hammer->countBonus(*torso) > 0);
+    EXPECT_TRUE(bow->countBonus(*torso) > 0);
+    EXPECT_TRUE(nothing->countBonus(*torso) > 0);
+    EXPECT_TRUE(shovel->countBonus(*torso) > 0);
+    
+    EXPECT_TRUE(sword->getPower() > 0);
+    EXPECT_TRUE(hammer->getPower() > 0);
+    EXPECT_TRUE(bow->getPower() > 0);
+    EXPECT_TRUE(nothing->getPower() > 0);
+    EXPECT_TRUE(shovel->getPower() > 0);
 }
 
-// 
-// std::unique_ptr<Barrack> barrack(new class Barrack());
-// std::unique_ptr<Stadium> stadium(new class Stadium());
-// std::unique_ptr<Arsenal> arsenal(new class Arsenal());
-// std::string peasant_name = barrack->birth<Peasant>("Cowboy");
-// std::string archer_name = barrack->birth<Archer>("Legolas");
-// std::string knight_name = barrack->birth<Knight>("Uter");
-// std::cout << "Peasant: " << peasant_name << std::endl;
-// std::cout << "Archer: " << archer_name << std::endl;
-// std::cout << "Knight: " << knight_name << std::endl;
-// 
-// std::cout << "Adding weapons and armors to arsenal" << std::endl;
-// arsenal->addArmor(ArmorName::Chain);
-// arsenal->addArmor(ArmorName::Chain);
-// arsenal->addArmor(ArmorName::Corslet);
-// arsenal->addWeapon(WeaponName::Bow);
-// arsenal->addWeapon(WeaponName::Shovel);
-// arsenal->addWeapon(WeaponName::Hammer);
-// arsenal->addWeapon(WeaponName::Sword);
-// 
-// std::cout << "Leave people from barrack" << std::endl;
-// std::unique_ptr<Human> peasant = barrack->leave(peasant_name);
-// std::unique_ptr<Human> archer = barrack->leave(archer_name);
-// std::unique_ptr<Human> knight = barrack->leave(knight_name);
-// 
-// std::cout << "Enter people to arsenal" << std::endl;
-// arsenal->enter(std::move(peasant));
-// arsenal->enter(std::move(archer));
-// arsenal->enter(std::move(knight));
-// 
-// std::cout << "Weapon take" << std::endl;
-// arsenal->takeWeapon<Shovel>(peasant_name);
-// arsenal->takeWeapon<Bow>(archer_name);
-// arsenal->takeWeapon<Hammer>(knight_name);
-// 
-// std::cout << "Armor take" << std::endl;
-// arsenal->takeArmor<Chain>(peasant_name);
-// arsenal->takeArmor<Chain>(archer_name);
-// arsenal->takeArmor<Corslet>(knight_name);
-// 
-// std::cout << "Leave people from arsenal" << std::endl;
-// peasant = arsenal->leave(peasant_name);
-// archer = arsenal->leave(archer_name);
-// knight = arsenal->leave(knight_name);
-// 
-// std::cout << "Enter people to stadium" << std::endl;
-// stadium->enter(std::move(peasant));
-// stadium->enter(std::move(archer));
-// stadium->enter(std::move(knight));
-// 
-// std::cout << "Battle 1" << std::endl;
-// std::string winner = stadium->battle(peasant_name, archer_name);
-// std::cout << "Winner: " << winner << std::endl;
-// stadium->heal(peasant_name);
-// stadium->heal(archer_name);
-// 
-// std::cout << "Battle 2" << std::endl;
-// winner = stadium->battle(archer_name, knight_name);
-// std::cout << "Winner: " << winner << std::endl;
-// stadium->heal(knight_name);
-// stadium->heal(archer_name);
-// 
-// std::cout << "Battle 3" << std::endl;
-// winner = stadium->battle(peasant_name, archer_name);
-// std::cout << "Winner: " << winner << std::endl;
-// stadium->heal(peasant_name);
-// stadium->heal(archer_name);
-// 
-// std::cout << "Leave people from stadium" << std::endl;
-// peasant = stadium->leave(peasant_name);
-// archer = stadium->leave(archer_name);
-// knight = stadium->leave(knight_name);
-// 
-// std::cout << "Enter people to arsenal" << std::endl;
-// arsenal->enter(std::move(peasant));
-// arsenal->enter(std::move(archer));
-// arsenal->enter(std::move(knight));
-// 
-// std::cout << "Put weapons back to arsenal" << std::endl;
-// arsenal->putWeapon(peasant_name);
-// arsenal->putWeapon(archer_name);
-// arsenal->putWeapon(knight_name);
-// 
-// std::cout << "Weapon take" << std::endl;
-// arsenal->takeWeapon<Shovel>(peasant_name);
-// arsenal->takeWeapon<Bow>(archer_name);
-// arsenal->takeWeapon<Hammer>(knight_name);
-// 
-// std::cout << "Put weapons back to arsenal" << std::endl;
-// arsenal->putWeapon(peasant_name);
-// arsenal->putWeapon(archer_name);
-// arsenal->putWeapon(knight_name);
-// 
-// std::cout << "Leave people from stadium" << std::endl;
-// peasant = arsenal->leave(peasant_name);
-// archer = arsenal->leave(archer_name);
-// knight = arsenal->leave(knight_name);
-// 
-// std::cout << "Enter people to arsenal" << std::endl;
-// barrack->enter(std::move(peasant));
-// barrack->enter(std::move(archer));
-// barrack->enter(std::move(knight));
+TEST(SetupUniverse, Human) {
+    std::unique_ptr<Peasant> peasant(new class Peasant("Peasant"));
+    std::unique_ptr<Knight> knight(new class Knight("Knight"));
+    std::unique_ptr<Archer> archer(new class Archer("Archer"));
+    std::unique_ptr<Archer> archerRandomName(new class Archer()); 
+    std::unique_ptr<Archer> archerRandomName2(new class Archer()); 
+    
+    EXPECT_EQ(HumanProfession::Peasant, peasant->getProfession());
+    EXPECT_EQ(HumanProfession::Archer, archer->getProfession());
+    EXPECT_EQ(HumanProfession::Archer, archerRandomName->getProfession());
+    EXPECT_EQ(HumanProfession::Archer, archerRandomName2->getProfession());
+    EXPECT_EQ(HumanProfession::Knight, knight->getProfession());
+    
+    EXPECT_TRUE(peasant->getOffensePower() > 0);
+    EXPECT_TRUE(archer->getOffensePower() > 0);
+    EXPECT_TRUE(knight->getOffensePower() > 0);
+    EXPECT_TRUE(archerRandomName->getOffensePower() > 0);
+    EXPECT_TRUE(archerRandomName2->getOffensePower() > 0);
+    
+    EXPECT_TRUE(peasant->getDefensePower() > 0);
+    EXPECT_TRUE(archer->getDefensePower() > 0);
+    EXPECT_TRUE(knight->getDefensePower() > 0);
+    EXPECT_TRUE(archerRandomName->getDefensePower() > 0);
+    EXPECT_TRUE(archerRandomName2->getDefensePower() > 0);
+    
+    EXPECT_TRUE(peasant->life_ == peasant->getDefaultLife());
+    EXPECT_TRUE(archer->life_ == archer->getDefaultLife());
+    EXPECT_TRUE(knight->life_ == knight->getDefaultLife());
+    EXPECT_TRUE(archerRandomName->life_ == archerRandomName->getDefaultLife());
+    EXPECT_TRUE(archerRandomName2->life_ == archerRandomName2->getDefaultLife());
+    
+    EXPECT_TRUE(peasant->name_ == "Peasant");
+    EXPECT_TRUE(archer->name_ == "Archer");
+    EXPECT_TRUE(knight->name_ == "Knight");
+    EXPECT_TRUE(archerRandomName->name_ != archerRandomName2->name_);
+    
+    EXPECT_TRUE(peasant->takeDamage(*archer) == 0);
+    EXPECT_TRUE(peasant->takeDamage(*knight) > 0);
+    EXPECT_TRUE(peasant->dealDamage(*knight) > 0);
+    EXPECT_TRUE(peasant->dealDamage(*archer) > 0);
+}
+
+TEST(SetupUniverse, Location) {
+    std::unique_ptr<Barrack> barrack(new class Barrack());
+    std::unique_ptr<Stadium> stadium(new class Stadium());
+    std::unique_ptr<Arsenal> arsenal(new class Arsenal());
+    
+    std::unique_ptr<Peasant> peasant(new class Peasant("Peasant"));
+    std::unique_ptr<Knight> knight(new class Knight("Knight"));
+    std::unique_ptr<Archer> archer(new class Archer("Archer"));
+    
+    EXPECT_FALSE(barrack->isInside("Peasant"));
+    EXPECT_FALSE(barrack->isInside("Archer"));
+    peasant->life_ = 1;
+    EXPECT_TRUE(peasant->life_ == 1);
+    barrack->enter(std::move(peasant));
+    barrack->heal("Peasant");
+    EXPECT_TRUE(barrack->isInside("Peasant"));
+    EXPECT_FALSE(barrack->isInside("Archer"));
+    auto newPeasant = barrack->leave("Peasant");
+    EXPECT_TRUE(newPeasant->name_ == "Peasant");
+    EXPECT_TRUE(newPeasant->life_ == newPeasant->getDefaultLife());
+    EXPECT_FALSE(barrack->isInside("Peasant"));
+    EXPECT_FALSE(barrack->isInside("Archer"));
+    
+    auto birthNamePeasant = barrack->birth<Peasant>("Peasant 2");
+    auto birthNameArcher = barrack->birth<Archer>("Archer 2");
+    auto birthNameKnight = barrack->birth<Knight>();
+    EXPECT_TRUE(birthNamePeasant == "Peasant 2");
+    EXPECT_TRUE(birthNameArcher == "Archer 2");
+    newPeasant = barrack->leave(birthNamePeasant);
+    auto newArcher = barrack->leave(birthNameArcher);
+    auto newKnight = barrack->leave(birthNameKnight);
+    EXPECT_TRUE(newPeasant->getProfession() == HumanProfession::Peasant);
+    EXPECT_TRUE(newArcher->getProfession() == HumanProfession::Archer);
+    
+    arsenal->addArmor(ArmorName::Corslet);
+    arsenal->addArmor(ArmorName::Chain);
+    arsenal->addWeapon(WeaponName::Hammer);
+    arsenal->addWeapon(WeaponName::Bow);
+    arsenal->enter(std::move(newArcher));
+    arsenal->enter(std::move(newKnight));
+    arsenal->takeArmor<Chain>(birthNameArcher);
+    arsenal->takeArmor<Corslet>(birthNameKnight);
+    arsenal->takeWeapon<Bow>(birthNameArcher);
+    arsenal->takeWeapon<Hammer>(birthNameKnight);
+    newArcher = arsenal->leave(birthNameArcher);
+    newKnight = arsenal->leave(birthNameKnight);
+    EXPECT_TRUE(newArcher->weapon_->getName() == WeaponName::Bow);
+    EXPECT_TRUE(newKnight->weapon_->getName() == WeaponName::Hammer);
+    EXPECT_TRUE(newArcher->armor_->getName() == ArmorName::Chain);
+    EXPECT_TRUE(newKnight->armor_->getName() == ArmorName::Corslet);
+    
+    arsenal->enter(std::move(newArcher));
+    arsenal->enter(std::move(newKnight));
+    arsenal->putArmor(birthNameArcher);
+    arsenal->putArmor(birthNameKnight);
+    arsenal->putWeapon(birthNameArcher);
+    arsenal->putWeapon(birthNameKnight);
+    newArcher = arsenal->leave(birthNameArcher);
+    newKnight = arsenal->leave(birthNameKnight);
+    EXPECT_TRUE(newArcher->weapon_->getName() == WeaponName::Nothing);
+    EXPECT_TRUE(newKnight->weapon_->getName() == WeaponName::Nothing);
+    EXPECT_TRUE(newArcher->armor_->getName() == ArmorName::Torso);
+    EXPECT_TRUE(newKnight->armor_->getName() == ArmorName::Torso);
+    
+    stadium->enter(std::move(newArcher));
+    stadium->enter(std::move(newKnight));
+    EXPECT_TRUE(stadium->battle(birthNameKnight, birthNameArcher) == birthNameKnight);
+}

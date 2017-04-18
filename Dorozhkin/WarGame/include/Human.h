@@ -33,7 +33,7 @@ class Peasant : public Human
 {
 public:
     // getForse const override { return 100; }
-    Peasant(const std::string& name = "default", int peasantForse = 50, int peasantSpeed = 20, int peasantSkill = 10, int peasantEndurance = 20, int peasantLife = 100); 
+    Peasant(const std::string& name = "default", int peasantForse = 50, int peasantSpeed = 20, int peasantSkill = 10, int peasantEndurance = 20); 
     Peasant(const Peasant& copied) = delete;
     Peasant& operator= (const Peasant& copied) = delete;
     HumanProfession getProfession() const override;
@@ -43,7 +43,7 @@ public:
 class Archer : public Human
 {
 public:
-    Archer(const std::string& name = "default", int archerForse = 30, int archerSpeed = 40, int archerSkill = 30, int archerEndurance = 20, int archerLife = 100); 
+    Archer(const std::string& name = "default", int archerForse = 30, int archerSpeed = 40, int archerSkill = 30, int archerEndurance = 20); 
     Archer(const Archer& copied) = delete;
     Archer& operator= (const Archer& copied) = delete;
     HumanProfession getProfession() const override;
@@ -53,7 +53,7 @@ public:
 class Knight : public Human
 {
 public:
-    Knight(const std::string& name = "default", int knightForse = 70, int knightSpeed = 10, int knightSkill = 40, int knightEndurance = 50, int knightLife = 140); 
+    Knight(const std::string& name = "default", int knightForse = 70, int knightSpeed = 10, int knightSkill = 40, int knightEndurance = 50); 
     Knight(const Knight& copied) = delete;
     Knight& operator= (const Knight& copied) = delete;
     HumanProfession getProfession() const override;

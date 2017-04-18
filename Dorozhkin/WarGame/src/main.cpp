@@ -11,9 +11,9 @@ int main(int argc, char const*argv[]) {
         std::unique_ptr<Barrack> barrack(new class Barrack());
         std::unique_ptr<Stadium> stadium(new class Stadium());
         std::unique_ptr<Arsenal> arsenal(new class Arsenal());
-        std::string peasant_name = barrack->birth<Peasant>("Cowboy");
-        std::string archer_name = barrack->birth<Archer>("Legolas");
-        std::string knight_name = barrack->birth<Knight>("Uter");
+        auto peasant_name = barrack->birth<Peasant>("Cowboy");
+        auto archer_name = barrack->birth<Archer>("Legolas");
+        auto knight_name = barrack->birth<Knight>("Uter");
         std::cout << "Peasant: " << peasant_name << std::endl;
         std::cout << "Archer: " << archer_name << std::endl;
         std::cout << "Knight: " << knight_name << std::endl;

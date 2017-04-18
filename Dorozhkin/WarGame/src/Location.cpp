@@ -3,10 +3,11 @@
 #include "stdafx.h"
 
 //Location
-void Location::enter(std::unique_ptr<Human>&& human)
+const std::string& Location::enter(std::unique_ptr<Human>&& human)
 {
     std::string name = human->name_;
     people[name].swap(human);
+    return people[name]->name_;
 }
 
 std::unique_ptr<Human> Location::leave(const std::string& name)
@@ -83,8 +84,6 @@ const std::string& Stadium::battle(const std::string& humanName, const std::stri
             
             auto humanDamage = people[humanName]->takeDamage(*people[opponentName]);
             auto opponentDamage = people[opponentName]->takeDamage(*people[humanName]);
-            std::cout << humanDamage << std::endl;
-            std::cout << opponentDamage << std::endl;
             people[humanName]->life_ -= humanDamage > 0 ? humanDamage : 0;
             people[opponentName]->life_ -= opponentDamage > 0 ? opponentDamage : 0;
         }

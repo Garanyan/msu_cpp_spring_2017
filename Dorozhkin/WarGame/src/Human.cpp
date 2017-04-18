@@ -19,12 +19,14 @@ Human::Human(const std::string& name, int forse, int speed, int skill, int endur
 
 int Human::takeDamage(const Human& enemy) const 
 {
-    return enemy.getOffensePower() - this->getDefensePower() + this->armor_->countBonus(*enemy.weapon_) - enemy.weapon_->countBonus(*this->armor_);
+    int damage = enemy.getOffensePower() - this->getDefensePower() + this->armor_->countBonus(*enemy.weapon_) - enemy.weapon_->countBonus(*this->armor_);
+    return damage > 0 ? damage : 0;
 }
 
 int Human::dealDamage(const Human& enemy) const 
 {
-    return this->getOffensePower() - enemy.getDefensePower() + this->weapon_->countBonus(*enemy.armor_) - enemy.armor_->countBonus(*this->weapon_);
+    int damage = this->getOffensePower() - enemy.getDefensePower() + this->weapon_->countBonus(*enemy.armor_) - enemy.armor_->countBonus(*this->weapon_);
+    return  damage > 0 ? damage : 0;
 }
  
 std::string Human::generateName() const
@@ -44,8 +46,8 @@ int Human::getDefensePower() const
 
 //Peasant
 //default values for Peasant
-Peasant::Peasant(const std::string& name, int peasantForse, int peasantSpeed, int peasantSkill, int peasantEndurance, int peasantLife) :
-    Human(name, peasantForse, peasantSpeed, peasantSkill, peasantEndurance, peasantLife > 0 ? peasantLife : getDefaultLife())
+Peasant::Peasant(const std::string& name, int peasantForse, int peasantSpeed, int peasantSkill, int peasantEndurance) :
+    Human(name, peasantForse, peasantSpeed, peasantSkill, peasantEndurance, getDefaultLife())
 {
 }
 
@@ -61,8 +63,8 @@ int Peasant::getDefaultLife() const
 
 //Archer
 // default values for Archer
-Archer::Archer(const std::string& name, int archerForse, int archerSpeed, int archerSkill, int archerEndurance, int archerLife) :
-    Human(name, archerForse, archerSpeed, archerSkill, archerEndurance, archerLife > 0 ? archerLife : getDefaultLife())
+Archer::Archer(const std::string& name, int archerForse, int archerSpeed, int archerSkill, int archerEndurance) :
+    Human(name, archerForse, archerSpeed, archerSkill, archerEndurance, getDefaultLife())
 {    
 }
 
@@ -78,8 +80,8 @@ int Archer::getDefaultLife() const
 
 //Knight
 // default values for Knight
-Knight::Knight(const std::string& name, int knightForse, int knightSpeed, int knightSkill, int knightEndurance, int knightLife) :
-    Human(name, knightForse, knightSpeed, knightSkill, knightEndurance, knightLife > 0 ? knightLife : getDefaultLife())
+Knight::Knight(const std::string& name, int knightForse, int knightSpeed, int knightSkill, int knightEndurance) :
+    Human(name, knightForse, knightSpeed, knightSkill, knightEndurance, getDefaultLife())
 {    
 }
 

@@ -10,7 +10,7 @@ class Location
 public:
     std::map<std::string, std::unique_ptr<Human>> people;
     Location() = default;
-    void enter(std::unique_ptr<Human>&& human);
+    const std::string& enter(std::unique_ptr<Human>&& human);
     std::unique_ptr<Human> leave(const std::string& name);
     bool isInside(const std::string& humanName) const;
     void heal(const std::string& name);

@@ -5,3 +5,7 @@
 
 
 Precompiled headers HUMAN
+
+takeArmor проверка на уже armor;
+проверка на torso и nothing в арсенале
+тесты на исключения 
