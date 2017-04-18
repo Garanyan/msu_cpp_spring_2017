@@ -4,45 +4,63 @@
  */
 #ifndef PERSON_H_INCLUDED
 #define PERSON_H_INCLUDED
-
-class person
+using Points = int;
+class Person
 {
     public:
-    /**
-     * @brief
-     * @param
-     * @return
-     * @throw
-     * @throw
-     */
+    virtual ~Person();
+	Person(const std::string & name, DamageType weapon, ArmorType armor);
 
-     int healthPoints;
-     int strength;
-     int speed;
-     int weaponMastery;
-     int agility;
-     int luck;
+    Person(const Person& copied) = delete;
+	Person& operator=(const Person& copied) = delete;
 
-     void setWeapon(weapon*);
-	 void setArmor(armor*);
+	Person(person&& movied) {
+		charArmor.reset(movied.charArmor.release());
+		charWeapon.reset(movied.charWeapon.release());
+		return *this;
+	}
+
+	Person& operator=(Person&& movied)
+	{
+		charArmor.reset(movied.charArmor.release());
+		charWeapon.reset(movied.charWeapon.release());
+		return *this;
+	}
+
+    void attacked(person&);
+     void setWeapon(Weapon&& weapon){
+		 charWeapon = std::move(weapon);
+	 }
+	 void setArmor(Armor&& armor){
+		 charArmor = std::move(armor);
+	 }
     private:
-        weapon* charWeapon;
-		armor* charArmor;
+        std::unique_ptr <weapon> charWeapon;
+		std::unique_ptr <armor> charArmor;
         std::string name;
+		Points healthPoints;
+		Points strength;
+		Points speed;
+		Points agility;
+		Points luck;
 };
 
-class knight final: public person
+class Knight final: public Person
 {
-
+	public:
+		Knight(const std::string& name)
 };
 
-class peasant final: public person
+class Peasant final: public Person
 {
+public:
+    Peasant(const std::string& name)
 
 };
-class sharp final: public person
+class Sharp final: public Person
 {
-
+public:
+    Sharp(const std::string& name)
 };
 
 #endif // PERSON_H_INCLUDED

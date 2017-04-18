@@ -5,23 +5,23 @@
 
 #ifndef WEAPON_H_INCLUDED
 #define WEAPON_H_INCLUDED
-
-class weapon
+using Points = int;
+enum class DamageType
+{   SWORD,
+    BOW,
+    HUMMER
+};
+class Weapon
 {
     public:
-    /**
-     * @brief
-     * @param
-     * @return
-     * @throw
-     * @throw
-     */
 
-     int penetration;
-     int speed;
-     int range;
+    Weapon();
+    virtual ~Weapon();
+     Weapon(const std::string& name, int Range, int Speed, int Penetration);
 
-     weapon(const std::string& name, int Range, int Speed, int Penetration);
+     Weapon(const Weapon& copied) = delete;
+	 Weapon& operator=(const Weapon& copied) = delete;
+
 
      void setRange(int);
      void setSpeed(int);
@@ -30,23 +30,47 @@ class weapon
      int getRange(void);
      int getSpeed(void);
      int getPenetration(void);
+
+     virtual DamageType getDamageType() const = 0;
+     virtual Points getDamage(armor &enemyArmor) const = 0;
     private:
-        std::string name;
+        DamageType type;
+		Points penetration;
+		Points speed;
+		Points range;
+		Points damage;
 };
 
-class sword final: public weapon
+struct BowTraits
 {
+    using Type = PiercingDamage;
+    static constexpr Point damage = 20;
+};
+
+
+template <class WeaponTraits, class ArmorTraits>
+Point getDamage(const WeaponImpl<WeaponTraits>&, const ArmorImpl<ArmorTraist>&)
+{
+    const auto protection = ArmorTraits::protection(typename WeaponTraits::Type());
+    const auto damage = WeaponTraits::damage();
+    return protection-damage;
+}
+
+class Sword final: public Weapon
+{
+    Sword();
+
 
 };
 
-class hammer final: public weapon
+class Hammer final: public Weapon
 {
-
+    Hammer();
 };
 
-class bow final: public weapon
+class Bow final: public Weapon
 {
-
+    Bow();
 };
 
 class shovel final: public weapon

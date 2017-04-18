@@ -4,40 +4,67 @@
  */
 #ifndef ARMOR_H_INCLUDED
 #define ARMOR_H_INCLUDED
+using Points = int;
+enum class ArmorType
+{
+    Unarmored,
+    Chains,
+    Plates
+};
 
-
-class armor
+class Armor
 {
     public:
-    /**
-     * @brief
-     * @param
-     * @return
-     * @throw
-     * @throw
-     */
-     int resistance;
-     int exhaust;
-
-     armor(const std::string& name, int resistance, int exhaust);
+    Armor(){};
+    virtual ~Armor();
+     Armor(const std::string& name, int resistance, int exhaust);
+	Armor&
+     Armor(const Armor& /*copied*/) = delete;
+	 Armor& operator=(const Armor& /*copied*/) = delete;
+	 virtual ArmorType getType() const = 0;
+    virtual Points getProtection(DamageType damage) const = 0;
 
      void setExhaust(int);
      void setResistance(int);
 
      int getExhaust(void);
-     int getResistance(void);
+     Points getResistance(void);
 
     private:
-        std:string name;
+		ArmorType type;
+		Points resistance;
+		int exhaust;
 };
 
-class fullPlateArmour final: public armor
+class FullPlateArmour final: public Armor
 {
-
+public:
+    FullPlateArmour();
+    ArmorType getType() const override
+    {
+        return ArmorType::type;
+    }
+    Points getProtection(DamageType damage) const override;
 };
 
-class lightSuit final: public armor
+class LightSuit final: public Armor
 {
+public:
+    LightSuit();
+    ArmorType getType() const override
+    {
+        return ArmorType::type;
+    }
+    Points getProtection(DamageType damage) const override;
+};
 
+class Naked final: public Armor{
+public:
+    Naked();
+    ArmorType getType() const override
+    {
+        return ArmorType::type;
+    }
+    Points getProtection(DamageType damage) const override;
 };
 #endif // ARMOR_H_INCLUDED
