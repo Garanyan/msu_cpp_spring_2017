@@ -9,7 +9,8 @@ using Points = int;
 enum class DamageType
 {   SWORD,
     BOW,
-    HUMMER
+    HUMMER,
+    FIST
 };
 class Weapon
 {
@@ -32,7 +33,7 @@ class Weapon
      int getPenetration(void);
 
      virtual DamageType getDamageType() const = 0;
-     virtual Points getDamage(armor &enemyArmor) const = 0;
+     virtual Points getDamage(Armor &enemyArmor) const = 0;
     private:
         DamageType type;
 		Points penetration;
@@ -40,21 +41,6 @@ class Weapon
 		Points range;
 		Points damage;
 };
-
-struct BowTraits
-{
-    using Type = PiercingDamage;
-    static constexpr Point damage = 20;
-};
-
-
-template <class WeaponTraits, class ArmorTraits>
-Point getDamage(const WeaponImpl<WeaponTraits>&, const ArmorImpl<ArmorTraist>&)
-{
-    const auto protection = ArmorTraits::protection(typename WeaponTraits::Type());
-    const auto damage = WeaponTraits::damage();
-    return protection-damage;
-}
 
 class Sword final: public Weapon
 {
@@ -73,8 +59,8 @@ class Bow final: public Weapon
     Bow();
 };
 
-class shovel final: public weapon
+class Fist final: public Weapon
 {
-
+    Fist();
 };
 #endif // WEAPON_H_INCLUDED

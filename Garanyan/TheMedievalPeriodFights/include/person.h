@@ -9,7 +9,7 @@ class Person
 {
     public:
     virtual ~Person();
-	Person(const std::string & name, DamageType weapon, ArmorType armor);
+	Person(const std::string & name);
 
     Person(const Person& copied) = delete;
 	Person& operator=(const Person& copied) = delete;
@@ -28,15 +28,14 @@ class Person
 	}
 
     void attacked(person&);
-     void setWeapon(Weapon&& weapon){
-		 charWeapon = std::move(weapon);
-	 }
-	 void setArmor(Armor&& armor){
-		 charArmor = std::move(armor);
-	 }
+     void setWeapon(Weapon&& weapon);
+	 void setArmor(Armor&& armor);
+
+	 std::unique_ptr<Armor> takeOffArmor();
+    std::unique_ptr<Weapon> takeOffWeapon();
     private:
-        std::unique_ptr <weapon> charWeapon;
-		std::unique_ptr <armor> charArmor;
+        std::unique_ptr <Weapon> charWeapon;
+		std::unique_ptr <Armor> charArmor;
         std::string name;
 		Points healthPoints;
 		Points strength;
