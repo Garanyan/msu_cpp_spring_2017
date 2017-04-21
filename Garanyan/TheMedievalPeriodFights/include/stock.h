@@ -1,6 +1,11 @@
 #ifndef ARENA_H_INCLUDED
 #define ARENA_H_INCLUDED
 
+#include <map>
+#include "../include/armor.h"
+#include "../include/weapon.h"
+#include <memory>
+
 class Arsenal
 {
     std::multimap<ArmorType, std::unique_ptr<Armor>> armorStack;

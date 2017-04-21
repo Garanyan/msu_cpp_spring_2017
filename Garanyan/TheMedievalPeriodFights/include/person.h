@@ -4,6 +4,10 @@
  */
 #ifndef PERSON_H_INCLUDED
 #define PERSON_H_INCLUDED
+#include "../include/armor.h"
+#include "../include/weapon.h"
+#include <iostream>
+#include <memory>
 using Points = int;
 class Person
 {
@@ -14,10 +18,10 @@ class Person
     Person(const Person& copied) = delete;
 	Person& operator=(const Person& copied) = delete;
 
-	Person(person&& movied) {
+	Person(Person&& movied) {
 		charArmor.reset(movied.charArmor.release());
 		charWeapon.reset(movied.charWeapon.release());
-		return *this;
+		//return *this;
 	}
 
 	Person& operator=(Person&& movied)
@@ -27,13 +31,13 @@ class Person
 		return *this;
 	}
 
-    void attacked(person&);
-     void setWeapon(Weapon&& weapon);
-	 void setArmor(Armor&& armor);
+    void attacked(Person&);
+     void setWeapon(std::unique_ptr<Weapon> weapon);
+	 void setArmor(std::unique_ptr<Armor> armor);
 
 	 std::unique_ptr<Armor> takeOffArmor();
     std::unique_ptr<Weapon> takeOffWeapon();
-    private:
+    protected:
         std::unique_ptr <Weapon> charWeapon;
 		std::unique_ptr <Armor> charArmor;
         std::string name;
@@ -47,19 +51,19 @@ class Person
 class Knight final: public Person
 {
 	public:
-		Knight(const std::string& name)
+		Knight(const std::string& name);
 };
 
 class Peasant final: public Person
 {
 public:
-    Peasant(const std::string& name)
+	Peasant(const std::string& name);
 
 };
 class Sharp final: public Person
 {
 public:
-    Sharp(const std::string& name)
+	Sharp(const std::string& name);
 };
 
 #endif // PERSON_H_INCLUDED

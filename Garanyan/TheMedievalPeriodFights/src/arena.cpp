@@ -1,4 +1,4 @@
-#include "arena.hpp"
+#include "arena.h"
 
 std::unique_ptr<Person> Barrack::getUnit(const std::string & s) {
     std::unique_ptr<Person> tmp(std::move(units.at(s)));

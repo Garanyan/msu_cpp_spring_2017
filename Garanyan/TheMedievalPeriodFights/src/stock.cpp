@@ -1,20 +1,21 @@
-void Arsenal::putArmor(std::unique_ptr<Armor> armor) {
-    if (armor -> getType() == Unarmored) {
+#include "../include/stock.h"
+void Arsenal::setArmor(std::unique_ptr<Armor> armor) {
+    if (armor -> getType() == ArmorType::Unarmored) {
         throw std::logic_error("You can't");
     }
     armorStack.insert(std::pair<ArmorType, std::unique_ptr<Armor>>
-                      (armor->get_type(), std::move(armor)));
+                      (armor->getType(), std::move(armor)));
 }
 
-void Arsenal::putWeapon(std::unique_ptr<Weapon> weapon) {
-    if (weapon -> getWeaponType() == FIST) {
+void Arsenal::setWeapon(std::unique_ptr<Weapon> weapon) {
+    if (weapon -> getDamageType() == DamageType::FIST) {
         throw std::logic_error("You can't put your fists to arsenal");
     }
-    weaponStack.insert(std::pair<WeaponType, std::unique_ptr<Weapon>>
-                      (weapon->get_type(), std::move(weapon)));
+    weaponStack.insert(std::pair<DamageType, std::unique_ptr<Weapon>>
+                      (weapon->getDamageType(), std::move(weapon)));
 }
 
-std::unique_ptr<Armor> Arsenal::setArmor(ArmorType type) {
+std::unique_ptr<Armor> Arsenal::getArmor(ArmorType type) {
     auto it = armorStack.find(type);
     if (it == armorStack.end())
         throw std::logic_error("No such armor in arsenal");
@@ -23,7 +24,7 @@ std::unique_ptr<Armor> Arsenal::setArmor(ArmorType type) {
     return ret;
 }
 
-std::unique_ptr<Weapon> arsenal::setWeapon(WeaponType type) {
+std::unique_ptr<Weapon> Arsenal::getWeapon(DamageType type) {
     auto it = weaponStack.find(type);
     if (it == weaponStack.end())
         throw std::logic_error("No such weapon in arsenal");

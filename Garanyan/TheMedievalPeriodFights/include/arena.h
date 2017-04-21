@@ -1,6 +1,7 @@
 #ifndef ARENA_H_INCLUDED
 #define ARENA_H_INCLUDED
-
+#include <map>
+#include "../include/person.h"
 class Barrack
 {
     std::map<std::string, std::unique_ptr<Person>> units;

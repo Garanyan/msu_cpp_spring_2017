@@ -1,14 +1,16 @@
 
 #include "armor.h"
+#include <assert.h>
 
-FullPlateArmour::FullPlateArmour() : Armor{
-    type = Plates;
+
+FullPlateArmor::FullPlateArmor() : Armor(){
+	type = ArmorType::Plates;
     resistance = 50;
     exhaust = 20;
 }
 
-Points FullPlateArmor::getProtection(DamageType damage) const override{
-        switch (damage)
+Points FullPlateArmor::getProtection(Weapon& damage) const {
+        switch (damage.getDamageType)
         {
             case DamageType::HUMMER: return resistance - 10;
             case DamageType::SWORD: return resistance - 5;
@@ -18,14 +20,14 @@ Points FullPlateArmor::getProtection(DamageType damage) const override{
         return 0;
 }
 
-LightSuit::LightSuit() : Armor{
-    type = Chains;
+LightSuit::LightSuit() : Armor(){
+    type = ArmorType::Chains;
     resistance = 30;
     exhaust = 10;
 }
 
-Points LightSuit::getProtection(DamageType damage) const override{
-        switch (damage)
+Points LightSuit::getProtection(Weapon& damage) const {
+        switch (damage.getDamageType)
         {
             case DamageType::HUMMER: return resistance ;
             case DamageType::SWORD: return resistance - 10;
@@ -35,14 +37,14 @@ Points LightSuit::getProtection(DamageType damage) const override{
         return 0;
 }
 
-Naked::Naked() : Armor{
-    type = Unarmored;
+Naked::Naked() : Armor(){
+    type = ArmorType::Unarmored;
     resistance = 0;
     exhaust = 0;
 }
 
-Points Naked::getProtection(DamageType damage) const override{
-        switch (damage)
+Points Naked::getProtection(Weapon& dmg) const {
+        switch (dmg.getDamageType)
         {
             case DamageType::HUMMER: return resistance;
             case DamageType::SWORD: return resistance;
