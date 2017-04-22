@@ -1,0 +1,4 @@
+WarGame/include/*.gch
+WarGame/build/*
+ThreadSafeQueue/build/*
+ThreadSafeQueue/build/*
