@@ -28,3 +28,27 @@ void storage::add_unit(std::unique_ptr<character> c) {
 character & storage::operator[](const std::string & s) {
     return *(units.at(s));
 }
+
+void storage::clean_from_deadmen() {
+    for (auto it = units.cbegin(); it != units.cend();) {
+        if (it -> second -> get_health() <= 0) {
+            it = units.erase(it);
+        } else {
+            ++it;
+        }
+    }
+}
+
+size_t storage::get_units_count() {
+    return units.size();
+}
+
+std::vector<std::string> storage::get_unit_names() {
+    std::vector<std::string> res;
+    
+    for (auto & p: units) {
+        res.push_back(p.second -> get_name());
+    }
+    
+    return res;
+}

@@ -9,6 +9,7 @@
 #ifndef armor_hpp
 #define armor_hpp
 
+#include <string>
 #include "weapon_light.hpp"
 #include "armor_enum.h"
 
@@ -29,6 +30,7 @@ public:
     armor(armor &&) = default;
     armor & operator= (armor &&) = default;
     armor_type get_type();
+    std::string get_name();
 };
 
 /************************ CHILDREN ************************/

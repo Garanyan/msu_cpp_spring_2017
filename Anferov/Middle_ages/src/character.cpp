@@ -60,6 +60,14 @@ double character::get_health() {
     return health;
 }
 
+std::string character::get_weapon_name() {
+    return curr_weapon -> get_name();
+}
+
+std::string character::get_armor_name() {
+    return curr_armor -> get_name();
+}
+
 /************************ CHILDREN ************************/
 
 peasant::peasant(const std::string & s): character(s) {

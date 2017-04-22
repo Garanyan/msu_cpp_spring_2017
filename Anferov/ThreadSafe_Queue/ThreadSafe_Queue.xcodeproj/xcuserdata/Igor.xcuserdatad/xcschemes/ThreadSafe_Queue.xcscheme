@@ -14,10 +14,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "78D2C7B01E98C62200AB52C4"
-               BuildableName = "Middle_ages"
-               BlueprintName = "Middle_ages"
-               ReferencedContainer = "container:Middle_ages.xcodeproj">
+               BlueprintIdentifier = "78934A261EAB47AA0028271E"
+               BuildableName = "ThreadSafe_Queue"
+               BlueprintName = "ThreadSafe_Queue"
+               ReferencedContainer = "container:ThreadSafe_Queue.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -32,10 +32,10 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "78D2C7B01E98C62200AB52C4"
-            BuildableName = "Middle_ages"
-            BlueprintName = "Middle_ages"
-            ReferencedContainer = "container:Middle_ages.xcodeproj">
+            BlueprintIdentifier = "78934A261EAB47AA0028271E"
+            BuildableName = "ThreadSafe_Queue"
+            BlueprintName = "ThreadSafe_Queue"
+            ReferencedContainer = "container:ThreadSafe_Queue.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -50,16 +50,15 @@
       ignoresPersistentStateOnLaunch = "NO"
       debugDocumentVersioning = "YES"
       debugServiceExtension = "internal"
-      allowLocationSimulation = "YES"
-      consoleMode = "1">
+      allowLocationSimulation = "YES">
       <BuildableProductRunnable
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "78D2C7B01E98C62200AB52C4"
-            BuildableName = "Middle_ages"
-            BlueprintName = "Middle_ages"
-            ReferencedContainer = "container:Middle_ages.xcodeproj">
+            BlueprintIdentifier = "78934A261EAB47AA0028271E"
+            BuildableName = "ThreadSafe_Queue"
+            BlueprintName = "ThreadSafe_Queue"
+            ReferencedContainer = "container:ThreadSafe_Queue.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -75,10 +74,10 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "78D2C7B01E98C62200AB52C4"
-            BuildableName = "Middle_ages"
-            BlueprintName = "Middle_ages"
-            ReferencedContainer = "container:Middle_ages.xcodeproj">
+            BlueprintIdentifier = "78934A261EAB47AA0028271E"
+            BuildableName = "ThreadSafe_Queue"
+            BlueprintName = "ThreadSafe_Queue"
+            ReferencedContainer = "container:ThreadSafe_Queue.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

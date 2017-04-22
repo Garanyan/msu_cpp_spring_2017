@@ -11,6 +11,7 @@
 
 #include <string>
 #include <memory>
+#include <stdexcept>
 #include "weapon.hpp"
 #include "armor.hpp"
 
@@ -49,6 +50,9 @@ public:
     double get_health();
     
     virtual double skill(weapon &) = 0;
+    
+    std::string get_weapon_name();
+    std::string get_armor_name();
 };
 
 /************************ CHILDREN ************************/

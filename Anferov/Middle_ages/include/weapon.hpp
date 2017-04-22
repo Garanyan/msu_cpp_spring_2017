@@ -9,7 +9,8 @@
 #ifndef weapon_hpp
 #define weapon_hpp
 
-#include <iostream>
+#include <string>
+#include <stdexcept>
 #include "armor.hpp"
 #include "weapon_enum.h"
 
@@ -33,6 +34,7 @@ public:
     
     virtual double punching_ability(armor &) = 0;
     weapon_type get_type();
+    std::string get_name();
 };
 
 /************************ CHILDREN ************************/

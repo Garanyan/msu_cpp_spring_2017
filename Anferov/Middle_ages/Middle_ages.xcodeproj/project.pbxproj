@@ -12,7 +12,6 @@
 		78C2CC0A1E98CADF00529B7C /* character.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 78D2C7C11E98C6F700AB52C4 /* character.cpp */; };
 		78C2CC0B1E98CAE900529B7C /* arsenal.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 78D2C7BF1E98C6F300AB52C4 /* arsenal.cpp */; };
 		78C2CC0C1E98CAEC00529B7C /* armor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 78D2C7BD1E98C6EC00AB52C4 /* armor.cpp */; };
-		78C2CC0E1E98CB0100529B7C /* gtest-all.cc in Sources */ = {isa = PBXBuildFile; fileRef = 78C2CC0D1E98CB0100529B7C /* gtest-all.cc */; };
 		78C2CC101E98CB3300529B7C /* test_main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 78C2CC0F1E98CB3300529B7C /* test_main.cpp */; };
 		78C2CC121E98D17000529B7C /* tests.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 78C2CC111E98D17000529B7C /* tests.cpp */; };
 		78C2CC141E98D2AD00529B7C /* GameTests.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 78C2CC131E98D2AD00529B7C /* GameTests.cpp */; };
@@ -194,7 +193,6 @@
 				78C2CC091E98CAD800529B7C /* storage.cpp in Sources */,
 				78C2CC0A1E98CADF00529B7C /* character.cpp in Sources */,
 				78C2CC0B1E98CAE900529B7C /* arsenal.cpp in Sources */,
-				78C2CC0E1E98CB0100529B7C /* gtest-all.cc in Sources */,
 				78C2CC101E98CB3300529B7C /* test_main.cpp in Sources */,
 				78C2CC121E98D17000529B7C /* tests.cpp in Sources */,
 				78C2CC141E98D2AD00529B7C /* GameTests.cpp in Sources */,
@@ -221,10 +219,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				HEADER_SEARCH_PATHS = (
+					/usr/local/include,
 					"\"$(SRCROOT)/include\"",
-					"\"$(SRCROOT)/tests/googletest-master/googletest/include\"",
-					"\"$(SRCROOT)/tests/googletest-master/googletest\"",
 				);
+				LIBRARY_SEARCH_PATHS = /usr/local/lib;
+				OTHER_LDFLAGS = "-lgtest";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -233,10 +232,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				HEADER_SEARCH_PATHS = (
+					/usr/local/include,
 					"\"$(SRCROOT)/include\"",
-					"\"$(SRCROOT)/tests/googletest-master/googletest/include\"",
-					"\"$(SRCROOT)/tests/googletest-master/googletest\"",
 				);
+				LIBRARY_SEARCH_PATHS = /usr/local/lib;
+				OTHER_LDFLAGS = "-lgtest";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -356,6 +356,7 @@
 				78C2CC051E98CA9A00529B7C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		78D2C7AC1E98C62200AB52C4 /* Build configuration list for PBXProject "Middle_ages" */ = {
 			isa = XCConfigurationList;
