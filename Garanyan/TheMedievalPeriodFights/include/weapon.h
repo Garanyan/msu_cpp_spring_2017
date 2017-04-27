@@ -21,20 +21,20 @@ class Weapon
 {
     public:
 
-    Weapon()=default;
-    virtual ~Weapon()=default;
-     /*Weapon(const std::string& name, int Range, int Speed, int Penetration);
-	 
-     void setRange(int);
-     void setSpeed(int);
-     void setPenetration(int);
+        Weapon()=default;
+        virtual ~Weapon()=default;
+         /*Weapon(const std::string& name, int Range, int Speed, int Penetration);
 
-     int getRange(void);
-     int getSpeed(void);
-     int getPenetration(void);*/
+         void setRange(int);
+         void setSpeed(int);
+         void setPenetration(int);
 
-     virtual DamageType getDamageType() const = 0;
-     //virtual Points getDamage(ArmorType  armor) const = 0;
+         int getRange(void);
+         int getSpeed(void);
+         int getPenetration(void);*/
+
+         virtual DamageType getDamageType() const = 0;
+         //virtual Points getDamage(ArmorType  armor) const = 0;
 
     protected:
         DamageType type;

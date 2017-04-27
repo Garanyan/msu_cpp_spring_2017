@@ -15,8 +15,8 @@ class Arsenal
     Arsenal & operator= (Arsenal const &) = delete;
 
 public:
-    Arsenal()=default ;
-    virtual ~Arsenal() =default;
+    Arsenal()= default ;
+    virtual ~Arsenal() = default;
     void setArmor(std::unique_ptr<Armor>);
     void setWeapon(std::unique_ptr<Weapon>);
     std::unique_ptr<Armor> getArmor(ArmorType);

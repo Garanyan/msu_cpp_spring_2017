@@ -1,7 +1,4 @@
-
 #include"../include/person.h"
-//#include "../include/armor.h"
-//#include "../include/weapon.h"
 
 Person::Person(const std::string& charName): name(charName),
                                             healthPoints(200),
@@ -10,21 +7,18 @@ Person::Person(const std::string& charName): name(charName),
 {}
 
 Sharp::Sharp(const std::string& charName) : Person(charName){
-	
 	strength=90;
 	speed=6;
 	agility = 5;
 }
 
 Peasant::Peasant(const std::string& charName): Person(charName) {
-	//Person(charName);
 	strength = 80;
 	speed = 2;
 	agility = 1;
 }
 
 Knight::Knight(const std::string& charName): Person(charName){
-	//Person(charName);
 	strength = 200;
 	speed = 4;
 	agility = 3;

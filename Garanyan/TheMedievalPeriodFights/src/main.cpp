@@ -1,8 +1,6 @@
 #include "../include/arena.h"
 #include "../include/person.h"
 #include "../include/stock.h"
-//#include "../include/armor.h"
-//#include "../include/weapon.h"
 
 int main(){
 
