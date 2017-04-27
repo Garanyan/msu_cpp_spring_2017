@@ -9,26 +9,26 @@ Person::Person(const std::string& charName): name(charName),
                                             charWeapon(new Fist())
 {}
 
-Sharp::Sharp(const std::string& charName):
-                                            Person(charName),
-                                            strength(90),
-                                            speed(60),
-                                            agility(50)
-{}
+Sharp::Sharp(const std::string& charName) : Person(charName){
+	
+	strength=90;
+	speed=6;
+	agility = 5;
+}
 
-Peasant::Peasant(const std::string& charName):
-                                            Person(charName),
-                                            strength(80),
-                                            speed(6),
-                                            agility(5)
-{}
+Peasant::Peasant(const std::string& charName): Person(charName) {
+	//Person(charName);
+	strength = 80;
+	speed = 2;
+	agility = 1;
+}
 
-Knight::Knight(const std::string& charName):
-                                            Person(charName),
-                                            strength(200),
-                                            speed(40),
-                                            agility(6)
-{}
+Knight::Knight(const std::string& charName): Person(charName){
+	//Person(charName);
+	strength = 200;
+	speed = 4;
+	agility = 3;
+}
 
 void Person::setWeapon(std::unique_ptr<Weapon> weapon){
          if(charWeapon->getDamageType() == DamageType::FIST)
@@ -57,6 +57,26 @@ std::unique_ptr<Weapon> Person::takeOffWeapon() {
     return ret;
 }
 
-void Person::attacked(Person& enemy){
-    healthPoints-=enemy->weapon.getDamage(charArmor)/(agility+speed);
+Points Person::getHP() {
+	return healthPoints;
+}
+
+DamageType Person::getWeaponType()const {
+	return charWeapon->getDamageType();
+}
+
+std::string Person::getName() {
+	return name;
+}
+
+void Knight::attack(Person& enemy){
+    healthPoints-= charArmor->getProtection(enemy.getWeaponType()) /(agility+speed);
+}
+
+void Peasant::attack(Person& enemy) {
+	healthPoints -= charArmor->getProtection(enemy.getWeaponType()) / (agility + speed);
+}
+
+void Sharp::attack(Person& enemy) {
+	healthPoints -= charArmor->getProtection(enemy.getWeaponType()) / (agility + speed);
 }

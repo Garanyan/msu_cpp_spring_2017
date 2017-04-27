@@ -1,20 +1,21 @@
 
 #include "armor.h"
 #include <assert.h>
-
+#include "../include/weapon.h"
 
 FullPlateArmor::FullPlateArmor() : Armor(){
 	type = ArmorType::Plates;
-    resistance = 50;
-    exhaust = 20;
+    resistance = 5;
+    exhaust = 2;
 }
 
-Points FullPlateArmor::getProtection(Weapon& damage) const {
-        switch (damage.getDamageType)
+Points FullPlateArmor::getProtection(DamageType damage) const {
+        switch (damage)
         {
-            case DamageType::HUMMER: return resistance - 10;
-            case DamageType::SWORD: return resistance - 5;
-            case DamageType::BOW: return resistance;
+            case DamageType::HUMMER: return 100/resistance - 10;
+            case DamageType::SWORD: return 200/resistance - 5;
+            case DamageType::BOW: return 50/resistance;
+			case DamageType::FIST: return 0;
         }
         assert(!"Invalid damage type");
         return 0;
@@ -22,16 +23,17 @@ Points FullPlateArmor::getProtection(Weapon& damage) const {
 
 LightSuit::LightSuit() : Armor(){
     type = ArmorType::Chains;
-    resistance = 30;
+    resistance = 3;
     exhaust = 10;
 }
 
-Points LightSuit::getProtection(Weapon& damage) const {
-        switch (damage.getDamageType)
+Points LightSuit::getProtection(DamageType damage) const {
+        switch (damage)
         {
-            case DamageType::HUMMER: return resistance ;
-            case DamageType::SWORD: return resistance - 10;
-            case DamageType::BOW: return 10;
+            case DamageType::HUMMER: return 100/resistance ;
+            case DamageType::SWORD: return 100/resistance - 10;
+            case DamageType::BOW: return 20;
+			case DamageType::FIST: return 5;
         }
         assert(!"Invalid damage type");
         return 0;
@@ -43,12 +45,13 @@ Naked::Naked() : Armor(){
     exhaust = 0;
 }
 
-Points Naked::getProtection(Weapon& dmg) const {
-        switch (dmg.getDamageType)
+Points Naked::getProtection(DamageType dmg) const {
+        switch (dmg)
         {
-            case DamageType::HUMMER: return resistance;
-            case DamageType::SWORD: return resistance;
-            case DamageType::BOW: return resistance;
+            case DamageType::HUMMER: return 70;
+            case DamageType::SWORD: return 50;
+            case DamageType::BOW: return 40;
+			case DamageType::FIST: return 20;
         }
         assert(!"Invalid damage type");
         return 0;
