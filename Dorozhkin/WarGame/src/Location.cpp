@@ -5,16 +5,42 @@
 //Location
 const std::string& Location::enter(std::unique_ptr<Human>&& human)
 {
+    std::unique_lock<std::mutex> lock(peopleMutex);
     std::string name = human->name_;
     people[name].swap(human);
+    peopleCV.notify_one();
     return people[name]->name_;
 }
 
 std::unique_ptr<Human> Location::leave(const std::string& name)
 {
+    std::unique_lock<std::mutex> lock(peopleMutex);
     Human* freehuman = people[name].release();
     people.erase(name);
     return std::move(std::unique_ptr<Human>(freehuman));
+}
+
+const std::string& Location::getRandomName(const std::string& withOut)
+{
+    std::unique_lock<std::mutex> lock(peopleMutex, std::adopt_lock);
+    std::vector<std::string> names;
+    for (auto p = people.begin(); p != people.end(); p++) {
+        if (p->first != withOut) 
+        names.push_back(p->first);
+    }
+    if (names.empty()) {
+        peopleCV.wait(lock);
+        // throw std::logic_error{"No humans on this location to get name"};
+        return people.begin()->first;
+    } else {
+        return names[floor(static_cast<int>(rand() / static_cast<float>(RAND_MAX) * people.size()))]; 
+    }
+}
+
+const std::string& Location::getRandomNameParallel()
+{
+    std::unique_lock<std::mutex> lock(peopleMutex);
+    return this->getRandomName();
 }
 
 Location::~Location()
@@ -33,31 +59,63 @@ bool Location::isInside(const std::string& humanName) const
 
 void Location::heal(const std::string& name)
 {
+    // peopleMutex.try_lock();
     if (this->isInside(name)) {
         people[name]->life_ = people[name]->getDefaultLife();
     } else {
-        throw std::logic_error{"No human in Location"};
+        throw std::logic_error{"No human in Location to heal"};
     }
+    // peopleMutex.unlock();
 }
 
 //Barrack
+std::string Barrack::birthRandom(const std::string& birthName)
+{
+    std::unique_lock<std::mutex> lock(peopleMutex);
+    int randomProfession = rand() % static_cast<int>(HumanProfession::Human);
+    auto humanProfession = static_cast<HumanProfession>(randomProfession);
+    if (humanProfession == HumanProfession::Peasant) {
+        return this->birth<Peasant>(birthName);
+    } else if (humanProfession == HumanProfession::Archer) {
+        return this->birth<Archer>(birthName);
+    } else {
+        return this->birth<Knight>(birthName);
+    }
+}
 
 //Arsenal
 void Arsenal::addArmor(const ArmorName& armorName)
 {
-    armors[armorName]++;
+    // armorMutex.try_lock();
+    if (armorName != ArmorName::Torso) {
+        armors[armorName]++;
+        armorCV.notify_one();
+    }
+    // armorMutex.unlock();
 }
 
 void Arsenal::addWeapon(const WeaponName& weaponName)
 {
-    weapons[weaponName]++;
+    // weaponMutex.try_lock();
+    if (weaponName != WeaponName::Nothing) {
+        weapons[weaponName]++;
+        weaponCV.notify_one();
+    }
+    // weaponMutex.unlock();
 }
 
 void Arsenal::putArmor(const std::string& humanName)
 {
+    // std::unique_lock<std::mutex> lock1(armorMutex, std::defer_lock);
+    // std::unique_lock<std::mutex> lock2(peopleMutex, std::defer_lock);
+    // std::lock(lock1, lock2);
+    
     if (this->isInside(humanName)) {
-        armors[people[humanName]->armor_->getName()]++;
-        people[humanName]->armor_.reset(new class Torso());
+        if (people[humanName]->armor_->getName() != ArmorName::Torso) {
+            armors[people[humanName]->armor_->getName()]++;
+            armorCV.notify_one();
+            people[humanName]->armor_.reset(new class Torso());
+        }
     } else {
         throw std::logic_error{"No human in Arsenal"};
     }
@@ -65,20 +123,113 @@ void Arsenal::putArmor(const std::string& humanName)
 
 void Arsenal::putWeapon(const std::string& humanName)
 {
+    // std::unique_lock<std::mutex> lock1(weaponMutex, std::defer_lock);
+    // std::unique_lock<std::mutex> lock2(peopleMutex, std::defer_lock);
+    // std::lock(lock1, lock2);
+    
     if (this->isInside(humanName)) {
-        weapons[people[humanName]->weapon_->getName()]++;
-        people[humanName]->weapon_.reset(new class Nothing());
+        if (people[humanName]->weapon_->getName() != WeaponName::Nothing) {
+            weapons[people[humanName]->weapon_->getName()]++;
+            weaponCV.notify_one();
+            people[humanName]->weapon_.reset(new class Nothing());
+        }
     } else {
         throw std::logic_error{"No human in Arsenal"};
     }
 }
 
+void Arsenal::takeRandomArmor(const std::string& humanName)
+{
+    std::unique_lock<std::mutex> lock1(armorMutex, std::defer_lock);
+    std::unique_lock<std::mutex> lock2(peopleMutex, std::defer_lock);
+    std::lock(lock1, lock2);
+    
+    std::vector<ArmorName> names;
+    for (auto w = armors.begin(); w != armors.end(); w++) {
+        if (w->second) {
+            names.push_back(w->first);
+        }
+    }
+    ArmorName armorName;
+    if (names.empty()) {
+        armorCV.wait(lock1);
+        armorName = armors.begin()->first;
+    } else {
+        int randomArmor = rand() % names.size();
+        armorName = names[randomArmor];
+    }
+    if (armorName == ArmorName::Corslet) {
+        this->takeArmor<Corslet>(humanName);
+    } else if (armorName == ArmorName::Chain) {
+        this->takeArmor<Chain>(humanName);
+    }
+}
 
+void Arsenal::takeRandomWeapon(const std::string& humanName)
+{
+    std::unique_lock<std::mutex> lock1(weaponMutex, std::defer_lock);
+    std::unique_lock<std::mutex> lock2(peopleMutex, std::defer_lock);
+    std::lock(lock1, lock2);
+    
+    std::vector<WeaponName> names;
+    for (auto w = weapons.begin(); w != weapons.end(); w++) {
+        if (w->second) {
+            names.push_back(w->first);
+        }
+    }
+    WeaponName weaponName;
+    if (names.empty()) {
+        weaponCV.wait(lock1);
+        weaponName = weapons.begin()->first;
+    } else {
+        int randomWeapon = rand() % names.size();
+        weaponName = names[randomWeapon];
+    }
+    if (weaponName == WeaponName::Sword) {
+        this->takeWeapon<Sword>(humanName);
+    } else if (weaponName == WeaponName::Hammer) {
+        this->takeWeapon<Hammer>(humanName);
+    } else if (weaponName == WeaponName::Bow) {
+        this->takeWeapon<Bow>(humanName);
+    } else if (weaponName == WeaponName::Shovel) {
+        this->takeWeapon<Shovel>(humanName);
+    }
+}
+
+void Arsenal::addRandomWeapon()
+{
+    weaponMutex.try_lock();
+    int randomWeapon = rand() % static_cast<int>(WeaponName::Weapon);
+    auto weaponName = static_cast<WeaponName>(randomWeapon);
+    if (weaponName == WeaponName::Nothing) {
+        this->addRandomWeapon();
+    } else {
+        this->addWeapon(weaponName);
+    }
+    weaponMutex.unlock();
+}
+
+void Arsenal::addRandomArmor()
+{
+    armorMutex.try_lock();
+    int randomArmor = rand() % static_cast<int>(ArmorName::Armor);
+    auto armorName = static_cast<ArmorName>(randomArmor);
+    if (armorName == ArmorName::Torso) {
+        this->addRandomArmor();
+    } else {
+        this->addArmor(armorName);
+    }
+    armorMutex.unlock();
+}
 
 //Stadium
 const std::string& Stadium::battle(const std::string& humanName, const std::string& opponentName)
 {
+    // peopleMutex.try_lock();
+    std::unique_lock<std::mutex> lock(peopleMutex, std::adopt_lock);
     if (this->isInside(humanName) && this->isInside(opponentName)) {
+        this->heal(humanName);
+        this->heal(opponentName);
         while (people[humanName]->life_ >= 0 && people[opponentName]->life_ >= 0)
         {
             
@@ -89,6 +240,15 @@ const std::string& Stadium::battle(const std::string& humanName, const std::stri
         }
         return people[humanName]->life_ > 0 ? humanName : opponentName;
     } else {
-        throw std::logic_error{"No human in Stadium"};
+        // throw std::logic_error{"No human in Stadium"};
+        peopleCV.wait(lock);
     }
+    // peopleMutex.unlock();
+}
+
+const std::string& Stadium::battleRandomEnemy(const std::string& humanName)
+{
+    std::unique_lock<std::mutex> lock(peopleMutex); 
+    auto opponentName = this->getRandomName(humanName);
+    return this->battle(humanName, opponentName);
 }
