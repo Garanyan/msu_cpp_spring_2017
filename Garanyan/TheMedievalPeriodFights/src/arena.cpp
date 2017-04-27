@@ -8,10 +8,10 @@ std::unique_ptr<Person> Barrack::getUnit(const std::string & s) {
 
 void Barrack::addUnit(std::unique_ptr<Person> c) {
     try {
-        units.at(c->get_name());
+        units.at(c->getName());
     } catch (std::out_of_range) {
         units.insert(std::pair<std::string, std::unique_ptr<Person>>
-                     (c->get_name(), std::move(c)));
+                     (c->getName(), std::move(c)));
         return;
     }
     throw std::logic_error("Name duplicating occured!");
@@ -19,4 +19,19 @@ void Barrack::addUnit(std::unique_ptr<Person> c) {
 
 Person & Barrack::operator[](const std::string & s) {
     return *(units.at(s));
+}
+
+void Barrack::battleToDeath(Person& firstFighter, Person& secondFighter) {
+	while (firstFighter.areAlive() && secondFighter.areAlive())
+	{
+		firstFighter.attack(secondFighter);
+		secondFighter.attack(firstFighter);
+	}
+	/*if (firstFighter.areAlive()) {
+		return firstFighter;
+	}
+	else
+	{
+		return secondFighter;
+	}*/
 }

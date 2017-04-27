@@ -1,5 +1,5 @@
-#ifndef ARENA_H_INCLUDED
-#define ARENA_H_INCLUDED
+#ifndef STOCK_H_INCLUDED
+#define STOCK_H_INCLUDED
 
 #include <map>
 #include "../include/armor.h"
@@ -15,12 +15,12 @@ class Arsenal
     Arsenal & operator= (Arsenal const &) = delete;
 
 public:
-    Arsenal();
-    virtual ~Arsenal();
+    Arsenal()= default ;
+    virtual ~Arsenal() = default;
     void setArmor(std::unique_ptr<Armor>);
     void setWeapon(std::unique_ptr<Weapon>);
     std::unique_ptr<Armor> getArmor(ArmorType);
     std::unique_ptr<Weapon> getWeapon(DamageType);
 };
 
-#endif // ARENA_H_INCLUDED
+#endif // STOCK_H_INCLUDED

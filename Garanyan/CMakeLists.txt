@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.4)
 
-project(Garanyan_Game)
+project(Garanyan)
 
 set(SRC_ROOT "${PROJECT_SOURCE_DIR}/TheMedievalPeriodFights/src")
 
@@ -39,9 +39,9 @@ target_compile_features(${PROJECT_NAME} PRIVATE cxx_range_for)
 #cotire(${PROJECT_NAME})
 
 #-------------- tests --------------
-set(TEST_PROJECT test_${PROJECT_NAME})
-add_test(NAME ${TEST_PROJECT} COMMAND ${TEST_PROJECT})
+#set(TEST_PROJECT test_${PROJECT_NAME})
+#add_test(NAME ${TEST_PROJECT} COMMAND ${TEST_PROJECT})
 
-add_subdirectory(tests)
+#add_subdirectory(tests)
 
-enable_testing()
+#enable_testing()

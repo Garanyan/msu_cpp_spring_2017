@@ -14,6 +14,7 @@ public:
     virtual ~Barrack() = default;
     std::unique_ptr<Person> getUnit(const std::string &);
     void addUnit(std::unique_ptr<Person>);
+	void battleToDeath(Person&, Person&);
     Person & operator[] (const std::string &);
 };
 
