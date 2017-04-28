@@ -5,8 +5,9 @@
 
 #ifndef WEAPON_H_INCLUDED
 #define WEAPON_H_INCLUDED
-#include "../include/armor.h"
 #include <string>
+#include <memory>
+//#include "../include/armor.h"
 
 using Points = int;
 enum class DamageType
@@ -20,20 +21,20 @@ class Weapon
 {
     public:
 
-    Weapon();
-    virtual ~Weapon();
-     Weapon(const std::string& name, int Range, int Speed, int Penetration);
+        Weapon()=default;
+        virtual ~Weapon()=default;
+         /*Weapon(const std::string& name, int Range, int Speed, int Penetration);
 
-     void setRange(int);
-     void setSpeed(int);
-     void setPenetration(int);
+         void setRange(int);
+         void setSpeed(int);
+         void setPenetration(int);
 
-     int getRange(void);
-     int getSpeed(void);
-     int getPenetration(void);
+         int getRange(void);
+         int getSpeed(void);
+         int getPenetration(void);*/
 
-     virtual DamageType getDamageType() const = 0;
-     virtual Points getDamage(Armor& armor) const = 0;
+         virtual DamageType getDamageType() const = 0;
+         //virtual Points getDamage(ArmorType  armor) const = 0;
 
     protected:
         DamageType type;
@@ -51,7 +52,7 @@ public:
 	DamageType getDamageType()const override {
 		return type;
 	}
-	Points getDamage(Armor& armor) const override;
+	//Points getDamage(ArmorType   armor) const override;
 };
 
 class Hammer final: public Weapon{
@@ -60,7 +61,7 @@ public:
 	DamageType getDamageType()const override{
 		return type;
 	}
-	Points getDamage(Armor& armor) const override;
+	//Points getDamage(ArmorType   armor) const override;
 };
 
 class Bow final: public Weapon{
@@ -69,7 +70,7 @@ public:
 	DamageType getDamageType()const override {
 		return type;
 	}
-	Points getDamage(Armor& armor) const override;
+	//Points getDamage(ArmorType   armor) const override;
 };
 
 class Fist final: public Weapon{
@@ -78,6 +79,6 @@ public:
 	DamageType getDamageType()const override {
 		return type;
 	}
-	Points getDamage(Armor& armor) const override;
+	//Points getDamage(ArmorType   armor) const override;
 };
 #endif // WEAPON_H_INCLUDED

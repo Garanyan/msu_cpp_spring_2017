@@ -33,7 +33,9 @@ endif()
 include_directories(include)
 
 set(SOURCES
-${SRC_ROOT}/main.cpp)
+# ${SRC_ROOT}/main.cpp
+${SRC_ROOT}/parallel_main.cpp
+)
 
 set(SHARED_SOURCES
 ${SRC_ROOT}/Armor.cpp ${SRC_ROOT}/Human.cpp ${SRC_ROOT}/Location.cpp ${SRC_ROOT}/Weapon.cpp)

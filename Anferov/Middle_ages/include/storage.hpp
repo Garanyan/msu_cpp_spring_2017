@@ -12,6 +12,8 @@
 #include <string>
 #include <memory>
 #include <map>
+#include <vector>
+#include <stdexcept>
 #include "character.hpp"
 
 /************************* PARENT *************************/
@@ -29,6 +31,9 @@ public:
     std::unique_ptr<character> get_unit(const std::string &);
     void add_unit(std::unique_ptr<character>);
     character & operator[] (const std::string &);
+    void clean_from_deadmen();
+    size_t get_units_count();
+    std::vector<std::string> get_unit_names();
 };
 
 /************************ CHILDREN ************************/
@@ -38,6 +43,10 @@ class barracks: public storage
 };
 
 class stadium: public storage
+{
+};
+
+class stage: public storage
 {
 };
 

@@ -11,6 +11,7 @@
 
 #include <map>
 #include <memory>
+#include <stdexcept>
 #include "weapon.hpp"
 #include "armor.hpp"
 #include "weapon_enum.h"

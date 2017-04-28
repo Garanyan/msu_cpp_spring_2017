@@ -9,7 +9,7 @@ void Arsenal::setArmor(std::unique_ptr<Armor> armor) {
 
 void Arsenal::setWeapon(std::unique_ptr<Weapon> weapon) {
     if (weapon -> getDamageType() == DamageType::FIST) {
-        throw std::logic_error("You can't put your fists to arsenal");
+        throw std::logic_error("You can't ");
     }
     weaponStack.insert(std::pair<DamageType, std::unique_ptr<Weapon>>
                       (weapon->getDamageType(), std::move(weapon)));

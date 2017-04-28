@@ -3,10 +3,10 @@
 #include "../include/Weapon.h"
 #include "../include/Location.h"
 #include "../include/Human.h"
-// #include "../include/include.h"
 #include "stdafx.h"
 
-int main(int argc, char const*argv[]) {
+int main(int argc, char const*argv[]) 
+{
     try {
         std::unique_ptr<Barrack> barrack(new class Barrack());
         std::unique_ptr<Stadium> stadium(new class Stadium());

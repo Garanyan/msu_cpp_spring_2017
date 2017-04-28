@@ -35,9 +35,9 @@ Fist::Fist() : Weapon() {
 
 
 
-
-Points Hammer::getDamage(Armor& armor)const{
-    switch(armor.getType){
+/*
+Points Hammer::getDamage(ArmorType  armor)const {
+	switch (armor) {
     case ArmorType::Unarmored: return damage*2;
     case ArmorType::Chains: return damage + penetration /2;
     case ArmorType::Plates: return damage + penetration;
@@ -46,8 +46,8 @@ Points Hammer::getDamage(Armor& armor)const{
         return 0;
 }
 
-Points Sword::getDamage(Armor& armor)const{
-    switch(armor.getType){
+Points Sword::getDamage(ArmorType  armor)const {
+	switch (armor) {
     case ArmorType::Unarmored: return damage;
     case ArmorType::Chains: return damage + penetration;
     case ArmorType::Plates: return damage + penetration/3;
@@ -56,8 +56,8 @@ Points Sword::getDamage(Armor& armor)const{
         return 0;
 }
 
-Points Bow::getDamage(Armor& armor)const{
-    switch(armor.getType){
+Points Bow::getDamage(ArmorType  armor)const {
+	switch (armor) {
     case ArmorType::Unarmored: return damage;
     case ArmorType::Chains: return damage + penetration /2;
     case ArmorType::Plates: return damage + penetration;
@@ -66,8 +66,8 @@ Points Bow::getDamage(Armor& armor)const{
         return 0;
 }
 
-Points Fist::getDamage (Armor& armor)const{
-    switch(armor.getType){
+Points Fist::getDamage (ArmorType  armor)const{
+    switch(armor){
     case ArmorType::Unarmored: return damage;
     case ArmorType::Chains: return 0;
     case ArmorType::Plates: return 0 ;
@@ -75,3 +75,4 @@ Points Fist::getDamage (Armor& armor)const{
     assert(!"Invalid armor type");
         return 0;
 }
+*/

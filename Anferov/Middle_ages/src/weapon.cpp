@@ -14,6 +14,21 @@ weapon_type weapon::get_type() {
     return type;
 }
 
+std::string weapon::get_name() {
+    switch (type) {
+        case FIST:
+            return "fist";
+        case SHOVEL:
+            return "shovel";
+        case SWORD:
+            return "sword";
+        case HAMMER:
+            return "hammer";
+        case BOW:
+            return "bow";
+    }
+}
+
 /************************ CHILDREN ************************/
 
 fist::fist(): weapon() {

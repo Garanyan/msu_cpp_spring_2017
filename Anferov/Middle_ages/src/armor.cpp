@@ -14,6 +14,17 @@ armor_type armor::get_type() {
     return type;
 }
 
+std::string armor::get_name() {
+    switch (type) {
+        case HAND:
+            return "hand";
+        case CHAIN_ARMOUR:
+            return "chain armour";
+        case LAT:
+            return "lat";
+    }
+}
+
 /************************ CHILDREN ************************/
 
 hand::hand(): armor() {

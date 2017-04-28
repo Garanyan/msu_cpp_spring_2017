@@ -3,7 +3,7 @@
 #include "Weapon.h"
 #include "stdafx.h"
 
-enum class HumanProfession { Peasant, Archer, Knight }; 
+enum class HumanProfession { Peasant, Archer, Knight, Human }; 
 
 class Human
 {
