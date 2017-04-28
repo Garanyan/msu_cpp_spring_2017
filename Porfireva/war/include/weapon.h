@@ -1,9 +1,10 @@
 #pragma once
 #include<cassert>
-using Points = int;
+#include"armor.h"
+using Points = double;
 using kg = double;
 
-class Armor;
+
 
 enum class WeaponType
 {
@@ -22,9 +23,9 @@ protected:
 public:
     Weapon ()= default;
     virtual ~Weapon() = 0;
-    virtual Points getArmorMaxDamage(const Armor&) const = 0;
-    virtual kg getWeaponWeigth() const = 0;
-    virtual WeaponType getWeaponType() const = 0;
+    virtual Points getArmorMaxDamage(ArmorType) const = 0;
+    kg getWeaponWeigth() const;
+    WeaponType getWeaponType() const;
     Weapon(Weapon const&) = delete;
     Weapon& operator= (Weapon const&) = delete;
     
@@ -35,9 +36,9 @@ class Fists
 {
 public:
     Fists();
-    Points getArmorMaxDamage(const Armor&) const override;
-    kg getWeaponWeigth() const override;
-    WeaponType getWeaponType() const override;
+    Points getArmorMaxDamage(ArmorType) const override;
+ //   kg getWeaponWeigth() const override;
+//    WeaponType getWeaponType() const override;
 };
 
 class Bow
@@ -45,18 +46,18 @@ class Bow
 {
 public:
     Bow();
-    Points getArmorMaxDamage(const Armor&) const override;
-    kg getWeaponWeigth() const override;
-    WeaponType getWeaponType() const override;
+    Points getArmorMaxDamage(ArmorType) const override;
+ //   kg getWeaponWeigth() const override;
+ //   WeaponType getWeaponType() const override;
 };
 
 class Sword
 : public Weapon
 {
 public:Sword();
-    Points getArmorMaxDamage(const Armor&) const override;
-    kg getWeaponWeigth() const override;
-    WeaponType getWeaponType() const override;
+    Points getArmorMaxDamage(ArmorType) const override;
+ //   kg getWeaponWeigth() const override;
+ //   WeaponType getWeaponType() const override;
 };
 
 class Shovel
@@ -64,8 +65,8 @@ class Shovel
 {
 public:
     Shovel();
-    Points getArmorMaxDamage(const Armor&) const override;
-    kg getWeaponWeigth() const override;
-    WeaponType getWeaponType() const override;
+    Points getArmorMaxDamage(ArmorType) const override;
+ //   kg getWeaponWeigth() const override;
+ //   WeaponType getWeaponType() const override;
 };
 

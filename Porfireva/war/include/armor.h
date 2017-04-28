@@ -1,10 +1,11 @@
 #pragma once
-using Points = int;
+using Points = double;
 using kg = double;
 
 enum class ArmorType{
     Corslet,
     Lats,
+    WithoutArmor,
 };
 
 class Armor
@@ -14,10 +15,10 @@ protected:
     ArmorType Type;
     
 public:
-    Armor()= default;
-    ~Armor() = default;
-    virtual kg getArmorWeigth() const = 0;
-    virtual ArmorType getArmorType() const = 0;
+    Armor()=default;
+    virtual ~Armor() = 0;
+    kg getArmorWeigth() const;
+    ArmorType getArmorType() const ;
     Armor(Armor const&) = delete;
     Armor& operator= (Armor const&) = delete;
 };
@@ -27,8 +28,8 @@ class Corslet
 {
 public:
     Corslet();
-    kg getArmorWeigth() const override;
-    ArmorType getArmorType()const override;
+    //kg getArmorWeigth() const override;
+   // ArmorType getArmorType()const override;
 };
 
 class Lats
@@ -36,6 +37,14 @@ class Lats
 {
 public:
     Lats();
-    kg getArmorWeigth() const override;
-    ArmorType getArmorType()const override;
+    //kg getArmorWeigth() const override;
+    //ArmorType getArmorType()const override;
+};
+class WithoutArmor
+:public Armor
+{
+public:
+    WithoutArmor();
+    //kg getArmorWeigth() const override;
+    // ArmorType getArmorType()const override;
 };

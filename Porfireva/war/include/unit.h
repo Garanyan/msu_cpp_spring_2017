@@ -1,6 +1,8 @@
 #pragma once
 #include<string>
-using Points = int;
+#include"armor.h"
+using Points = double;
+using kg = double;
 class Arsenal;
 class Armor;
 class Weapon;
@@ -9,38 +11,47 @@ class Unit{
 protected:
     const std::string UnitName;
     Points Force;
+    Points CurrentWeaponSkill;
     std::unique_ptr <Armor> UnitArmor;
+    std::unique_ptr <Weapon> UnitWeapon;
+    virtual void WearArmor(Arsenal&) = 0;
+    virtual void TakeWeapon(Arsenal&) = 0;
+    const kg getEquipmentWeigth() const;
   public:
     Unit(const std::string&, Points);
     virtual ~Unit();
     const std::string getName() const;
-    virtual void WearArmor(Arsenal&) = 0;
-    //virtual void TakeWeapon(Arsenal&);
-    void Attack(Unit& other);
-    virtual ArmorType favoriteArmor();
+    const Points getForce() const;
+    int Attack(Unit&);
+    void LowForce(Points);
 
 };
 
-/*class Plowman final
+class Plowman final
 :public Unit{
-public:
-    explicit Plowman(std::string&);
+protected:
     void WearArmor(Arsenal&) override;
     void TakeWeapon(Arsenal&) override;
-};*/
-
-class Archer
-:public Unit{
 public:
-    explicit Archer(std::string&) : Unit("", 0) {}
+    explicit Plowman(const std::string&, Arsenal&);
+    };
+
+
+class Archer final
+:public Unit{
+protected:
     void WearArmor(Arsenal&) override;
-    //void TakeWeapon(Arsenal&) override;
+    void TakeWeapon(Arsenal&) override;
+public:
+    explicit Archer(const std::string&, Arsenal&);
 };
 
-/*class Knight final
+class Knight final
 :public Unit{
-public:
-    explicit Knight(std::string&);
+protected:
     void WearArmor(Arsenal&) override;
     void TakeWeapon(Arsenal&) override;
-};*/
+public:
+    explicit Knight(const std::string&, Arsenal&);
+};
+

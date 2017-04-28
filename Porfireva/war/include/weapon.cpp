@@ -15,45 +15,50 @@ kg Weapon::getWeaponWeigth() const
     return WeaponWeigth;
 }
 
-Points Fists::getArmorMaxDamage(const Armor& t) const
+Points Fists::getArmorMaxDamage(ArmorType t) const
 {
-    switch( t.getArmorType())
+    switch (t)
     {
         case ArmorType::Lats: return 3;
         case ArmorType::Corslet:return 1;
+        case ArmorType::WithoutArmor:return 5;
     }
     assert(!"invalid armor type");
     return 0;
 }
 
-Points Bow::getArmorMaxDamage(const Armor& t) const
+Points Bow::getArmorMaxDamage(ArmorType t) const
 {
-    switch( t.getArmorType())
+    switch (t)
     {
         case ArmorType::Lats: return 15;
         case ArmorType::Corslet:return 10;
+            case ArmorType::WithoutArmor:return 35;
     }
     assert(!"invalid armor type");
     return 0;
 }
 
-Points Sword::getArmorMaxDamage(const Armor& t) const
+Points Sword::getArmorMaxDamage(ArmorType t) const
 {
-    switch( t.getArmorType())
+    switch (t)
     {
         case ArmorType::Lats: return 10;
         case ArmorType::Corslet:return 10;
+            case ArmorType::WithoutArmor:return 20;
     }
     assert(!"invalid armor type");
     return 0;
 }
 
-Points Shovel::getArmorMaxDamage(const Armor& t) const
+Points Shovel::getArmorMaxDamage(ArmorType t) const
 {
-    switch( t.getArmorType())
+    switch (t)
     {
         case ArmorType::Lats: return 5;
         case ArmorType::Corslet:return 3;
+        case ArmorType::WithoutArmor:return 10;
+
     }
     assert(!"invalid armor type");
     return 0;
