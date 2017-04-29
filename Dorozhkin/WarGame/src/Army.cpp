@@ -5,30 +5,21 @@
 #include "Human.h"
 #include "stdafx.h"
 
-// class Army 
-// {
-// public:
-//     std::vector<Archer> archers_;
-//     std::vector<Knight> knights_;
-//     std::vector<Peasant> peasants_;
-//     void dumpArmy() const;
-// };
-
-void Army::dumpArmy() const
+void Army::save(std::ostream& out) const
 {
-    std::cout << "LEADER" << std::endl;
-    std::cout << leader_->name_ << std::endl;
-    std::cout << "ARCHERS" << std::endl;
+    out << "LEADER" << std::endl;
+    out << leader_->name_ << std::endl;
+    out << "ARCHERS" << std::endl;
     for (auto& aa : archers_) {
-        std::cout << aa->name_ << std::endl;
+        out << aa->name_ << std::endl;
     }
-    std::cout << "KNIGHTS" << std::endl;
+    out << "KNIGHTS" << std::endl;
     for (auto& kk : knights_) {
-        std::cout << kk->name_ << std::endl;
+        out << kk->name_ << std::endl;
     }
-    std::cout << "PEASANTS" << std::endl;
+    out << "PEASANTS" << std::endl;
     for (auto& pp : peasants_) {
-        std::cout << pp->name_ << std::endl;
+        out << pp->name_ << std::endl;
     }
 }
 
@@ -47,18 +38,22 @@ void RomanArmyBuilder::buildArmy()
     army_ = std::unique_ptr<Army>(new Army());
 }
 
-void RomanArmyBuilder::buildArcher()
+void RomanArmyBuilder::buildArchers()
 {
-    army_->archers_.push_back(std::move(std::unique_ptr<Archer>(new RomanArcher())));
+    for (int i = 0; i < 5; i++) {
+        army_->archers_.push_back(std::move(std::unique_ptr<Archer>(new RomanArcher())));
+    }
 }
 
-void RomanArmyBuilder::buildPeasant()
+void RomanArmyBuilder::buildPeasants()
 {
 }
 
-void RomanArmyBuilder::buildKnight()
+void RomanArmyBuilder::buildKnights()
 {
-    army_->knights_.push_back(std::move(std::unique_ptr<Knight>(new RomanKnight())));
+    for (int i = 0; i < 3; i++) {
+        army_->knights_.push_back(std::move(std::unique_ptr<Knight>(new RomanKnight())));
+    }
 }
 
 void RomanArmyBuilder::buildLeader()
@@ -71,18 +66,22 @@ void BarbarianArmyBuilder::buildArmy()
     army_ = std::unique_ptr<Army>(new Army());
 }
 
-void BarbarianArmyBuilder::buildArcher()
+void BarbarianArmyBuilder::buildArchers()
 {
 }
 
-void BarbarianArmyBuilder::buildPeasant()
+void BarbarianArmyBuilder::buildPeasants()
 {
-    army_->peasants_.push_back(std::move(std::unique_ptr<Peasant>(new BarbarianPeasant())));
+    for (int i = 0; i < 2; i++) {
+        army_->peasants_.push_back(std::move(std::unique_ptr<Peasant>(new BarbarianPeasant())));
+    }
 }
 
-void BarbarianArmyBuilder::buildKnight()
+void BarbarianArmyBuilder::buildKnights()
 {
-    army_->knights_.push_back(std::move(std::unique_ptr<Knight>(new BarbarianKnight())));
+    for (int i = 0; i < 6; i++) {
+        army_->knights_.push_back(std::move(std::unique_ptr<Knight>(new BarbarianKnight())));
+    }
 }
 
 void BarbarianArmyBuilder::buildLeader()
@@ -94,16 +93,9 @@ void BarbarianArmyBuilder::buildLeader()
 std::unique_ptr<Army> ArmyDirector::createArmy(std::unique_ptr<ArmyBuilder> armyBuilder)
 {
     armyBuilder->buildArmy();
-    for (int i = 0; i < 100; i++) {
-        armyBuilder->buildArcher();
-    }
-    for (int i = 0; i < 100; i++) {
-        armyBuilder->buildKnight();
-    }
-    for (int i = 0; i < 100; i++) {
-        armyBuilder->buildPeasant();
-    }
-    
+    armyBuilder->buildArchers();
+    armyBuilder->buildKnights();
+    armyBuilder->buildPeasants();
     armyBuilder->buildLeader();
     return armyBuilder->getArmy();
 }

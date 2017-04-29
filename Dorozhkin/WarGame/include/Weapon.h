@@ -1,6 +1,4 @@
 #pragma once
-// #include "include.h"
-
 class Armor;
 
 enum class WeaponName { Sword, Hammer, Bow, Nothing, Shovel, Weapon };

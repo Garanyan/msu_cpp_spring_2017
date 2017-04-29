@@ -1,4 +1,3 @@
-#pragma once
 #include "../include/Human.h"
 #include "../include/Weapon.h"
 #include "../include/Armor.h"

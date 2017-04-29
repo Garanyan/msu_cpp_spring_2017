@@ -1,5 +1,4 @@
 #pragma once
-// #include "include.h"
 #include "Human.h"
 
 class Weapon;

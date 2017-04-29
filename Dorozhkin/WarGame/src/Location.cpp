@@ -1,4 +1,3 @@
-#pragma once
 #include "../include/Location.h"
 #include "stdafx.h"
 
