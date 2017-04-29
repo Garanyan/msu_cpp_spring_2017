@@ -58,16 +58,16 @@ void play(int i)
     human = stadium.leave(humanName);
     std::cout << std::to_string(i) +  " STADIUM END\n" << std::flush;
     
-    std::cout << std::to_string(i) + " RETURN ARSENAL START\n" << std::flush;
-    arsenal.enter(std::move(human));
-    arsenal.putWeapon(humanName);
-    arsenal.putArmor(humanName);
-    human = arsenal.leave(humanName);
-    std::cout << std::to_string(i) + " RETURN ARSENAL END\n"  << std::flush;
-    
-    std::cout << std::to_string(i) + " RETURN BARRACK START\n" << std::flush;
-    barrack.enter(std::move(human));
-    std::cout << std::to_string(i) + " RETURN BARRACK END\n" << std::flush;
+    // std::cout << std::to_string(i) + " RETURN ARSENAL START\n" << std::flush;
+    // arsenal.enter(std::move(human));
+    // arsenal.putWeapon(humanName);
+    // arsenal.putArmor(humanName);
+    // human = arsenal.leave(humanName);
+    // std::cout << std::to_string(i) + " RETURN ARSENAL END\n"  << std::flush;
+    // 
+    // std::cout << std::to_string(i) + " RETURN BARRACK START\n" << std::flush;
+    // barrack.enter(std::move(human));
+    // std::cout << std::to_string(i) + " RETURN BARRACK END\n" << std::flush;
 }
 
 int main(int argc, char const*argv[]) 

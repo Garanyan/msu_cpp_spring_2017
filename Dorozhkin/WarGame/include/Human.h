@@ -40,6 +40,11 @@ public:
     int getDefaultLife() const override;
 };
 
+class BarbarianPeasant : public Peasant 
+{
+    
+};
+
 class Archer : public Human
 {
 public:
@@ -50,6 +55,11 @@ public:
     int getDefaultLife() const override;
 };
 
+class RomanArcher : public Archer
+{
+    
+};
+
 class Knight : public Human
 {
 public:
@@ -58,4 +68,14 @@ public:
     Knight& operator= (const Knight& copied) = delete;
     HumanProfession getProfession() const override;
     int getDefaultLife() const override;
+};
+
+class RomanKnight : public Knight 
+{
+    
+};
+
+class BarbarianKnight : public Knight
+{
+    
 };

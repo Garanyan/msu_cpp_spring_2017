@@ -240,8 +240,8 @@ const std::string& Stadium::battle(const std::string& humanName, const std::stri
         }
         return people[humanName]->life_ > 0 ? humanName : opponentName;
     } else {
-        // throw std::logic_error{"No human in Stadium"};
-        peopleCV.wait(lock);
+        throw std::logic_error{"No human in Stadium"};
+        // peopleCV.wait(lock);
     }
     // peopleMutex.unlock();
 }
@@ -250,5 +250,6 @@ const std::string& Stadium::battleRandomEnemy(const std::string& humanName)
 {
     std::unique_lock<std::mutex> lock(peopleMutex); 
     auto opponentName = this->getRandomName(humanName);
+    peopleMutex.try_lock();
     return this->battle(humanName, opponentName);
 }

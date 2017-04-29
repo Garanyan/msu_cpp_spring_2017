@@ -38,10 +38,20 @@ ${SRC_ROOT}/parallel_main.cpp
 )
 
 set(SHARED_SOURCES
-${SRC_ROOT}/Armor.cpp ${SRC_ROOT}/Human.cpp ${SRC_ROOT}/Location.cpp ${SRC_ROOT}/Weapon.cpp)
+${SRC_ROOT}/Armor.cpp 
+${SRC_ROOT}/Human.cpp 
+${SRC_ROOT}/Location.cpp 
+${SRC_ROOT}/Weapon.cpp
+${SRC_ROOT}/Army.cpp
+)
 
 set(HEADERS
-${HEADER_ROOT}/Armor.h ${HEADER_ROOT}/Human.h ${HEADER_ROOT}/Location.h ${HEADER_ROOT}/Weapon.h)
+${HEADER_ROOT}/Armor.h 
+${HEADER_ROOT}/Human.h 
+${HEADER_ROOT}/Location.h 
+${HEADER_ROOT}/Weapon.h
+${HEADER_ROOT}/Army.h
+)
 
 add_executable(${PROJECT_NAME} ${HEADERS} ${SOURCES} ${SHARED_SOURCES})
 
