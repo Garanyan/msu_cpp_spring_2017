@@ -31,3 +31,5 @@ add_test(NAME ${TEST_PROJECT} COMMAND ${TEST_PROJECT})
 add_subdirectory(tests)
 
 enable_testing()
+
+add_subdirectory(war)

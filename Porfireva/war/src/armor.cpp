@@ -1,4 +1,9 @@
-#include "armor.h"
+#include "../include/armor.h"
+
+Armor::~Armor()
+{
+    
+}
 
 kg Armor::getArmorWeigth() const{
     return ArmorWeigth;
@@ -10,7 +15,7 @@ ArmorType Armor::getArmorType()const{
 
 Corslet::Corslet()
 {
-    ArmorWeigth = 4;
+    ArmorWeigth = 5;
     Type = ArmorType::Corslet;
 }
 
@@ -18,4 +23,9 @@ Lats::Lats()
 {
     ArmorWeigth = 5;
     Type = ArmorType::Lats;
+}
+WithoutArmor::WithoutArmor()
+{
+    ArmorWeigth = 0;
+    Type = ArmorType::WithoutArmor;
 }
