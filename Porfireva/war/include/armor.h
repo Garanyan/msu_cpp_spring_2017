@@ -28,6 +28,7 @@ class Corslet
 {
 public:
     Corslet();
+    int getTestValue() { return 5; }
     //kg getArmorWeigth() const override;
    // ArmorType getArmorType()const override;
 };

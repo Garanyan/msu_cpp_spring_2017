@@ -1,7 +1,7 @@
 #include <iostream>
-#include "unit.h"
-#include "arsenal.h"
-#include "armor.h"
+#include "../include/unit.h"
+#include "../include/arsenal.h"
+#include "../include/armor.h"
 
 Unit::Unit(const std::string& name, Points force):UnitName(name),Force(force)
 {

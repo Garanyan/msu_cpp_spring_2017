@@ -1,4 +1,4 @@
-#include "armor.h"
+#include "../include/armor.h"
 
 Armor::~Armor()
 {

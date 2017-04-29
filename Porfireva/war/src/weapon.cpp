@@ -1,5 +1,5 @@
-#include "weapon.h"
-#include "armor.h"
+#include "../include/weapon.h"
+#include "../include/armor.h"
 
 Weapon::~Weapon()
 {

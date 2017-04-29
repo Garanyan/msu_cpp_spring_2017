@@ -1,8 +1,8 @@
 #include <iostream>
-#include "armor.h"
-#include "arsenal.h"
-#include "weapon.h"
-#include "unit.h"
+#include "../include/armor.h"
+#include "../include/arsenal.h"
+#include "../include/weapon.h"
+#include "../include/unit.h"
 void fight(Unit& one, Unit& two)
 {
     int flag = 0;
