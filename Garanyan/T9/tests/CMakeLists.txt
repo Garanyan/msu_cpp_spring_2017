@@ -3,14 +3,8 @@ cmake_minimum_required(VERSION 3.4)
 project(${TEST_PROJECT})
 
 set(TEST_SOURCES
-    ${PROJECT_SOURCE_DIR}/main.cpp
-    ${PROJECT_SOURCE_DIR}/game.cpp)
-
-
-include_directories(
-    ${INCLUDE_ROOT}
-    ${PROJECT_SOURCE_DIR}
-)
+    main.cpp
+	t9SpellTest.cpp)
 
 add_executable(${PROJECT_NAME} ${TEST_SOURCES} ${SHARED_SOURCES})
 

@@ -1,29 +1,40 @@
 #include "../include/arena.h"
 #include "../include/person.h"
 #include "../include/stock.h"
+#include <string>
 
 int main(){
 
 	Arsenal arsenal;
 
+    for(int i=0; i<5; i++){
+        arsenal.setWeapon(std::unique_ptr<Weapon>(new Bow));
+        arsenal.setWeapon(std::unique_ptr<Weapon>(new Sword));
+        arsenal.setWeapon(std::unique_ptr<Weapon>(new Hammer));
+    }
+
     arsenal.setArmor(std::unique_ptr<Armor>(new FullPlateArmor));
-    arsenal.setArmor(std::unique_ptr<Armor>(new LightSuit));
-    arsenal.setWeapon(std::unique_ptr<Weapon>(new Bow));
-    arsenal.setWeapon(std::unique_ptr<Weapon>(new Sword));
-
+    for(int i=0; i<7; i++){
+        arsenal.setArmor(std::unique_ptr<Armor>(new FullPlateArmor));
+        arsenal.setArmor(std::unique_ptr<Armor>(new LightSuit));
+    }
     Barrack barrack;
-    barrack.addUnit(std::unique_ptr<Person>(new Knight("John")));
-    barrack.addUnit(std::unique_ptr<Person>(new Peasant("Mike")));
+    for(int i=0; i<20; i++){
+        barrack.addUnit(std::unique_ptr<Person>(new Knight(std::to_string(i))));
+    }
 
-	barrack["Mike"].setArmor(arsenal.getArmor(ArmorType::Plates));
-	barrack["John"].setArmor(arsenal.getArmor(ArmorType::Chains));
-	barrack["Mike"].setWeapon(arsenal.getWeapon(DamageType::BOW));
-	barrack["John"].setWeapon(arsenal.getWeapon(DamageType::SWORD));
 
-    std::cout <<"Mike["<< barrack["Mike"].getHP()<<"] attack John["<< barrack["John"].getHP()<<"]\n";
-    barrack["John"].attack(barrack["Mike"]);
-	std::cout << "John[" << barrack["John"].getHP() << "] fights with Mike[" << barrack["Mike"].getHP() << "]\n";
-	barrack.battleToDeath(barrack["John"], barrack["Mike"]);
-	std::cout << "John[" << barrack["John"].getHP() << "] and Mike[" << barrack["Mike"].getHP() << "]\n";
+
+
+	barrack["0"].setArmor(arsenal.getArmor(ArmorType::Plates));
+	barrack["1"].setArmor(arsenal.getArmor(ArmorType::Chains));
+	barrack["0"].setWeapon(arsenal.getWeapon(DamageType::BOW));
+	barrack["1"].setWeapon(arsenal.getWeapon(DamageType::SWORD));
+
+    std::cout <<"0["<< barrack["0"].getHP()<<"] attack 1["<< barrack["1"].getHP()<<"]\n";
+    barrack["1"].attack(barrack["0"]);
+	std::cout << "1[" << barrack["1"].getHP() << "] fights with 0[" << barrack["0"].getHP() << "]\n";
+	barrack.battleToDeath(barrack["1"], barrack["0"]);
+	std::cout << "1[" << barrack["1"].getHP() << "] and 0[" << barrack["0"].getHP() << "]\n";
 
 }
