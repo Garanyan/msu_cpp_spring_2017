@@ -35,11 +35,20 @@ void fillBarracks()
     std::cout << "filling barracks END\n" << std::flush;
 }
 
+void battle() 
+{
+    for (int i = 0; i < 40; i++) {
+        std::cout << "battle " << i << " START\n" << std::flush;
+        auto winner = stadium.battleRandomEnemies();
+        std::cout << "battle " << i << " WINNER " << winner << "\n" << std::flush;
+    }
+}
+
 void play(int i) 
 {
     std::cout << std::to_string(i) +  " PLAY START\n" << std::flush;
     std::cout << std::to_string(i) +  " BARRACK START\n" << std::flush;
-    auto humanName = barrack.getRandomNameParallel();
+    auto humanName = barrack.getRandomName();
     auto human = barrack.leave(humanName);
     std::cout << std::to_string(i) +  " BARRACK END\n" << std::flush;
     std::cout << std::to_string(i) + " ARSENAL START\n" << std::flush;
@@ -51,12 +60,10 @@ void play(int i)
     
     std::cout << std::to_string(i) +  " STADIUM START\n" << std::flush;
     stadium.enter(std::move(human));
-    stadium.battleRandomEnemy(humanName);
-    stadium.battleRandomEnemy(humanName);
-    stadium.battleRandomEnemy(humanName);
-    human = stadium.leave(humanName);
-    std::cout << std::to_string(i) +  " STADIUM END\n" << std::flush;
     
+    // human = stadium.leave(humanName);
+    // std::cout << std::to_string(i) +  " STADIUM END\n" << std::flush;
+    // 
     // std::cout << std::to_string(i) + " RETURN ARSENAL START\n" << std::flush;
     // arsenal.enter(std::move(human));
     // arsenal.putWeapon(humanName);
@@ -78,6 +85,7 @@ int main(int argc, char const*argv[])
         arsenalFillArmorThread.join();
         arsenalFillWeaponThread.join();
         barrackFillPeopleThread.join();
+        std::thread battleThread(battle);
         
         for (auto i = 0; i < 1; i++) {
             std::thread player1(play, 4 * i);
@@ -89,7 +97,7 @@ int main(int argc, char const*argv[])
             player3.join();
             player4.join();
         }
-        
+        battleThread.join();
     } catch(std::logic_error&s) {
         std::cerr << s.what() << std::endl;
     } catch(...) {

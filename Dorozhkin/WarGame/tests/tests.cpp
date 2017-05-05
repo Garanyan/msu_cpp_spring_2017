@@ -209,7 +209,7 @@ TEST(SetupUniverse, Random) {
     
     stadium->enter(std::move(human1));
     stadium->enter(std::move(human2));
-    stadium->battleRandomEnemy(name1);
-    stadium->battleRandomEnemy(name2);
+    stadium->battleRandomEnemies();
+    stadium->battleRandomEnemies();
 
 }

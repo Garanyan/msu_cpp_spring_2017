@@ -9,8 +9,8 @@ include_directories(include)
 
 set(SOURCES
 # ${SRC_ROOT}/main.cpp
-# ${SRC_ROOT}/parallel_main.cpp
-${SRC_ROOT}/army_main.cpp
+${SRC_ROOT}/parallel_main.cpp
+# ${SRC_ROOT}/army_main.cpp
 )
 
 set(SHARED_SOURCES

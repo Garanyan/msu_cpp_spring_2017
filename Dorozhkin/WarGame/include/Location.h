@@ -119,5 +119,5 @@ class Stadium : public Location
 public:
     Stadium() = default;
     const std::string& battle(const std::string& humanName, const std::string& opponentName);
-    const std::string& battleRandomEnemy(const std::string& humanName);
+    const std::string& battleRandomEnemies();
 };
