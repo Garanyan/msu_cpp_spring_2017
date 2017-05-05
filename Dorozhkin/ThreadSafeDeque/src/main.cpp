@@ -1,15 +1,15 @@
-#include "threadSafeQueue.h"
+#include "ThreadSafeDeque.h"
 
 int main(int argc, char const *argv[]) {
-    threadsafe_queue<int> a;
+    threadsafe_deque<int> a;
+    int x = 0, y = 0;
     a.push(1);
     a.push(2);
-    int x, y;
     a.try_pop(x);
     std::cout << x << std::endl;
 
     a.emplace(3);
-    a.try_pop(x);
+    a.wait_and_pop(x);
     std::cout << x << std::endl;
 
     return 0;

@@ -1,19 +1,49 @@
 #include "stdafx.h"
+#include "../include/ThreadSafeDeque.h"
 
-TEST(SetupUniverse, Armor) {
-    // std::unique_ptr<Torso> torso(new class Torso());
-    // std::unique_ptr<Chain> chain(new class Chain());
-    // std::unique_ptr<Corslet> corslet(new class Corslet());
-    // EXPECT_EQ(ArmorName::Torso, torso->getName());
-    // EXPECT_EQ(ArmorName::Chain, chain->getName());
-    // EXPECT_EQ(ArmorName::Corslet, corslet->getName());
-    //
-    // std::unique_ptr<Weapon> hammer(new class Hammer());
-    // EXPECT_TRUE(torso->countBonus(*hammer) < 0);
-    // EXPECT_TRUE(chain->countBonus(*hammer) < 0);
-    // EXPECT_TRUE(corslet->countBonus(*hammer) == 0);
-    //
-    // EXPECT_TRUE(torso->getPower() == 0);
-    // EXPECT_TRUE(chain->getPower() > 0);
-    // EXPECT_TRUE(corslet->getPower() > 0);
+threadsafe_deque<int> deque;
+
+void get()
+{
+    int x;
+    for (auto i = 0; i < 100; i++) {
+        deque.wait_and_pop(x);
+    }
+}
+
+void insert()
+{
+    std::this_thread::sleep_for(std::chrono::milliseconds(50));
+    for (auto i = 0; i < 100; i++) {
+        if (i % 2) {
+            deque.push(i);
+        } else {
+            auto tmp = i;
+            deque.emplace(std::move(tmp));
+        }
+    }
+}
+
+TEST(SafeDequeTesting, OneThread) {
+    threadsafe_deque<int> a;
+    int x = 0;
+    a.push(1);
+    a.push(2);
+    a.try_pop(x);
+    EXPECT_EQ(x, 2);
+
+    a.emplace(3);
+    a.wait_and_pop(x);
+    EXPECT_EQ(x, 3);
+    a.wait_and_pop(x);
+    EXPECT_EQ(x, 1);
+    EXPECT_FALSE(a.try_pop(x));
+}
+
+TEST(SafeDequeTesting, MultiThread) {
+    std::thread insertTread(insert);
+    std::thread getTread(get);
+
+    insertTread.join();
+    getTread.join();
 }
