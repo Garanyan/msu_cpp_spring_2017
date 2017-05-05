@@ -82,9 +82,6 @@ int main(int argc, char const*argv[])
         std::thread arsenalFillWeaponThread(fillArsenalWeapons);
         std::thread arsenalFillArmorThread(fillArsenalArmors);
         std::thread barrackFillPeopleThread(fillBarracks);
-        arsenalFillArmorThread.join();
-        arsenalFillWeaponThread.join();
-        barrackFillPeopleThread.join();
         std::thread battleThread(battle);
         
         for (auto i = 0; i < 1; i++) {
@@ -97,7 +94,11 @@ int main(int argc, char const*argv[])
             player3.join();
             player4.join();
         }
+        arsenalFillArmorThread.join();
+        arsenalFillWeaponThread.join();
+        barrackFillPeopleThread.join();
         battleThread.join();
+        std::cout << "END ALL\n" << std::flush;
     } catch(std::logic_error&s) {
         std::cerr << s.what() << std::endl;
     } catch(...) {
