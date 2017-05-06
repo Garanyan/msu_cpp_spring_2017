@@ -29,7 +29,7 @@ TEST(SafeDequeTesting, OneThread) {
     int x = 0;
     a.push(1);
     a.push(2);
-    a.try_pop(x);
+    EXPECT_TRUE(a.try_pop(x));
     EXPECT_EQ(x, 2);
 
     a.emplace(3);
@@ -46,4 +46,21 @@ TEST(SafeDequeTesting, MultiThread) {
 
     insertTread.join();
     getTread.join();
+}
+
+
+TEST(SafeDequeTesting, Vector) {
+    threadsafe_deque<int, std::vector<int>> a;
+    int x = 0;
+    a.push(1);
+    a.push(2);
+    EXPECT_TRUE(a.try_pop(x));
+    EXPECT_EQ(x, 2);
+
+    a.emplace(3);
+    a.wait_and_pop(x);
+    EXPECT_EQ(x, 3);
+    a.wait_and_pop(x);
+    EXPECT_EQ(x, 1);
+    EXPECT_FALSE(a.try_pop(x));
 }
