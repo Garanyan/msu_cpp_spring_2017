@@ -78,4 +78,11 @@ public:
     virtual double skill(weapon &) override;
 };
 
+class horseman: public character
+{
+public:
+    horseman(const std::string &);
+    virtual double skill(weapon &) override;
+};
+
 #endif /* character_hpp */

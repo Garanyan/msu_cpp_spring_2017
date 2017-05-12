@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		786C56211EC60B8800CE41FF /* armor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 786C561A1EC60B8800CE41FF /* armor.cpp */; };
+		786C56221EC60B8800CE41FF /* army_factory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 786C561B1EC60B8800CE41FF /* army_factory.cpp */; };
+		786C56231EC60B8800CE41FF /* character.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 786C561C1EC60B8800CE41FF /* character.cpp */; };
+		786C56241EC60B8800CE41FF /* pattern_army_main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 786C561D1EC60B8800CE41FF /* pattern_army_main.cpp */; };
+		786C56251EC60B8800CE41FF /* storage.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 786C561E1EC60B8800CE41FF /* storage.cpp */; };
+		786C56261EC60B8800CE41FF /* unit_factory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 786C561F1EC60B8800CE41FF /* unit_factory.cpp */; };
+		786C56271EC60B8800CE41FF /* weapon.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 786C56201EC60B8800CE41FF /* weapon.cpp */; };
 		78C2CC081E98CAD600529B7C /* weapon.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 78D2C7C71E98C70500AB52C4 /* weapon.cpp */; };
 		78C2CC091E98CAD800529B7C /* storage.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 78D2C7C51E98C70000AB52C4 /* storage.cpp */; };
 		78C2CC0A1E98CADF00529B7C /* character.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 78D2C7C11E98C6F700AB52C4 /* character.cpp */; };
@@ -24,6 +31,15 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
+		786C56111EC60AE200CE41FF /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
 		78C2CBFD1E98CA9A00529B7C /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -45,9 +61,20 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		786C56091EC5FDA400CE41FF /* unit_factory.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = unit_factory.cpp; path = src/unit_factory.cpp; sourceTree = "<group>"; };
+		786C560B1EC6032800CE41FF /* army_factory.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = army_factory.cpp; path = src/army_factory.cpp; sourceTree = "<group>"; };
+		786C560D1EC60AB700CE41FF /* pattern_army_main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = pattern_army_main.cpp; path = src/pattern_army_main.cpp; sourceTree = "<group>"; };
+		786C56131EC60AE200CE41FF /* Pattern_army */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Pattern_army; sourceTree = BUILT_PRODUCTS_DIR; };
+		786C561A1EC60B8800CE41FF /* armor.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = armor.cpp; path = src/armor.cpp; sourceTree = "<group>"; };
+		786C561B1EC60B8800CE41FF /* army_factory.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = army_factory.cpp; path = src/army_factory.cpp; sourceTree = "<group>"; };
+		786C561C1EC60B8800CE41FF /* character.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = character.cpp; path = src/character.cpp; sourceTree = "<group>"; };
+		786C561D1EC60B8800CE41FF /* pattern_army_main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = pattern_army_main.cpp; path = src/pattern_army_main.cpp; sourceTree = "<group>"; };
+		786C561E1EC60B8800CE41FF /* storage.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = storage.cpp; path = src/storage.cpp; sourceTree = "<group>"; };
+		786C561F1EC60B8800CE41FF /* unit_factory.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = unit_factory.cpp; path = src/unit_factory.cpp; sourceTree = "<group>"; };
+		786C56201EC60B8800CE41FF /* weapon.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = weapon.cpp; path = src/weapon.cpp; sourceTree = "<group>"; };
+		786C56281EC60FBD00CE41FF /* CMakeLists.txt */ = {isa = PBXFileReference; explicitFileType = sourcecode.make; path = CMakeLists.txt; sourceTree = "<group>"; };
 		78C2CBFA1E98CA3C00529B7C /* tests */ = {isa = PBXFileReference; lastKnownFileType = folder; path = tests; sourceTree = "<group>"; };
 		78C2CBFF1E98CA9A00529B7C /* Middle_ages_unit_tests */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Middle_ages_unit_tests; sourceTree = BUILT_PRODUCTS_DIR; };
-		78C2CC0D1E98CB0100529B7C /* gtest-all.cc */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = "gtest-all.cc"; path = "tests/googletest-master/googletest/src/gtest-all.cc"; sourceTree = "<group>"; };
 		78C2CC0F1E98CB3300529B7C /* test_main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = test_main.cpp; path = tests/test_main.cpp; sourceTree = "<group>"; };
 		78C2CC111E98D17000529B7C /* tests.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = tests.cpp; path = tests/tests.cpp; sourceTree = "<group>"; };
 		78C2CC131E98D2AD00529B7C /* GameTests.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = GameTests.cpp; path = tests/GameTests.cpp; sourceTree = "<group>"; };
@@ -63,6 +90,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		786C56101EC60AE200CE41FF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		78C2CBFC1E98CA9A00529B7C /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -83,10 +117,20 @@
 		78D2C7A81E98C62200AB52C4 = {
 			isa = PBXGroup;
 			children = (
+				786C56281EC60FBD00CE41FF /* CMakeLists.txt */,
+				786C561A1EC60B8800CE41FF /* armor.cpp */,
+				786C561B1EC60B8800CE41FF /* army_factory.cpp */,
+				786C561C1EC60B8800CE41FF /* character.cpp */,
+				786C561D1EC60B8800CE41FF /* pattern_army_main.cpp */,
+				786C561E1EC60B8800CE41FF /* storage.cpp */,
+				786C561F1EC60B8800CE41FF /* unit_factory.cpp */,
+				786C56201EC60B8800CE41FF /* weapon.cpp */,
+				786C560D1EC60AB700CE41FF /* pattern_army_main.cpp */,
+				786C560B1EC6032800CE41FF /* army_factory.cpp */,
+				786C56091EC5FDA400CE41FF /* unit_factory.cpp */,
 				78C2CC131E98D2AD00529B7C /* GameTests.cpp */,
 				78C2CC111E98D17000529B7C /* tests.cpp */,
 				78C2CC0F1E98CB3300529B7C /* test_main.cpp */,
-				78C2CC0D1E98CB0100529B7C /* gtest-all.cc */,
 				78D2C7C71E98C70500AB52C4 /* weapon.cpp */,
 				78D2C7C51E98C70000AB52C4 /* storage.cpp */,
 				78D2C7C31E98C6FC00AB52C4 /* main.cpp */,
@@ -105,6 +149,7 @@
 			children = (
 				78D2C7B11E98C62200AB52C4 /* Middle_ages */,
 				78C2CBFF1E98CA9A00529B7C /* Middle_ages_unit_tests */,
+				786C56131EC60AE200CE41FF /* Pattern_army */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -112,6 +157,23 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		786C56121EC60AE200CE41FF /* Pattern_army */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 786C56171EC60AE200CE41FF /* Build configuration list for PBXNativeTarget "Pattern_army" */;
+			buildPhases = (
+				786C560F1EC60AE200CE41FF /* Sources */,
+				786C56101EC60AE200CE41FF /* Frameworks */,
+				786C56111EC60AE200CE41FF /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Pattern_army;
+			productName = Pattern_army;
+			productReference = 786C56131EC60AE200CE41FF /* Pattern_army */;
+			productType = "com.apple.product-type.tool";
+		};
 		78C2CBFE1E98CA9A00529B7C /* Middle_ages_unit_tests */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 78C2CC031E98CA9A00529B7C /* Build configuration list for PBXNativeTarget "Middle_ages_unit_tests" */;
@@ -155,6 +217,10 @@
 				LastUpgradeCheck = 0830;
 				ORGANIZATIONNAME = "Игорь Анфёров";
 				TargetAttributes = {
+					786C56121EC60AE200CE41FF = {
+						CreatedOnToolsVersion = 8.3.2;
+						ProvisioningStyle = Automatic;
+					};
 					78C2CBFE1E98CA9A00529B7C = {
 						CreatedOnToolsVersion = 8.3;
 						ProvisioningStyle = Automatic;
@@ -179,11 +245,26 @@
 			targets = (
 				78D2C7B01E98C62200AB52C4 /* Middle_ages */,
 				78C2CBFE1E98CA9A00529B7C /* Middle_ages_unit_tests */,
+				786C56121EC60AE200CE41FF /* Pattern_army */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXSourcesBuildPhase section */
+		786C560F1EC60AE200CE41FF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				786C56211EC60B8800CE41FF /* armor.cpp in Sources */,
+				786C56221EC60B8800CE41FF /* army_factory.cpp in Sources */,
+				786C56231EC60B8800CE41FF /* character.cpp in Sources */,
+				786C56241EC60B8800CE41FF /* pattern_army_main.cpp in Sources */,
+				786C56251EC60B8800CE41FF /* storage.cpp in Sources */,
+				786C56261EC60B8800CE41FF /* unit_factory.cpp in Sources */,
+				786C56271EC60B8800CE41FF /* weapon.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		78C2CBFB1E98CA9A00529B7C /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -215,6 +296,22 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
+		786C56181EC60AE200CE41FF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				HEADER_SEARCH_PATHS = "\"$(SRCROOT)/include\"";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		786C56191EC60AE200CE41FF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				HEADER_SEARCH_PATHS = "\"$(SRCROOT)/include\"";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 		78C2CC041E98CA9A00529B7C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -349,6 +446,14 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		786C56171EC60AE200CE41FF /* Build configuration list for PBXNativeTarget "Pattern_army" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				786C56181EC60AE200CE41FF /* Debug */,
+				786C56191EC60AE200CE41FF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
 		78C2CC031E98CA9A00529B7C /* Build configuration list for PBXNativeTarget "Middle_ages_unit_tests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

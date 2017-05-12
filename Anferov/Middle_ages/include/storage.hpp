@@ -33,7 +33,8 @@ public:
     character & operator[] (const std::string &);
     void clean_from_deadmen();
     size_t get_units_count();
-    std::vector<std::string> get_unit_names();
+    std::vector<std::string> get_unit_names() const;
+    void save(std::ostream&) const;
 };
 
 /************************ CHILDREN ************************/
@@ -47,6 +48,10 @@ class stadium: public storage
 };
 
 class stage: public storage
+{
+};
+
+class army: public storage
 {
 };
 

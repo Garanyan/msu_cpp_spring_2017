@@ -6,6 +6,7 @@
 //  Copyright © 2017 Игорь Анфёров. All rights reserved.
 //
 
+#include <iostream>
 #include "storage.hpp"
 
 std::unique_ptr<character> storage::get_unit(const std::string & s) {
@@ -43,7 +44,7 @@ size_t storage::get_units_count() {
     return units.size();
 }
 
-std::vector<std::string> storage::get_unit_names() {
+std::vector<std::string> storage::get_unit_names() const {
     std::vector<std::string> res;
     
     for (auto & p: units) {
@@ -51,4 +52,10 @@ std::vector<std::string> storage::get_unit_names() {
     }
     
     return res;
+}
+
+void storage::save(std::ostream& out) const {
+    for (std::string & s: get_unit_names()) {
+        out << s << std::endl;
+    }
 }

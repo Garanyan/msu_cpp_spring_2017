@@ -73,7 +73,7 @@ std::string character::get_armor_name() {
 peasant::peasant(const std::string & s): character(s) {
     strength = 5;
     endurance = 5;
-    speed = 5;
+    speed = 3;
 }
 
 double peasant::skill(weapon &a) {
@@ -88,7 +88,7 @@ double peasant::skill(weapon &a) {
 archer::archer(const std::string & s): character(s) {
     strength = 7;
     endurance = 8;
-    speed = 8;
+    speed = 5;
 }
 
 double archer::skill(weapon &a) {
@@ -102,8 +102,8 @@ double archer::skill(weapon &a) {
 
 knight::knight(const std::string & s): character(s) {
     strength = 10;
-    endurance = 10;
-    speed = 10;
+    endurance = 8;
+    speed = 6;
 }
 
 double knight::skill(weapon &a) {
@@ -112,5 +112,20 @@ double knight::skill(weapon &a) {
     if (a.get_type() == SWORD ) return 10;
     if (a.get_type() == HAMMER) return 7;
     if (a.get_type() == BOW   ) return 4;
+    throw std::logic_error("Unrecognized weapon type");
+}
+
+horseman::horseman(const std::string & s): character(s) {
+    strength = 10;
+    endurance = 10;
+    speed = 10;
+}
+
+double horseman::skill(weapon &a) {
+    if (a.get_type() == FIST  ) return 8;
+    if (a.get_type() == SHOVEL) return 4;
+    if (a.get_type() == SWORD ) return 10;
+    if (a.get_type() == HAMMER) return 7;
+    if (a.get_type() == BOW   ) return 8;
     throw std::logic_error("Unrecognized weapon type");
 }

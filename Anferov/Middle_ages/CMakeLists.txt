@@ -16,10 +16,8 @@ set(HEADERS
     ${INCLUDE_ROOT}/weapon.hpp
     ${INCLUDE_ROOT}/weapon_enum.h
     ${INCLUDE_ROOT}/weapon_light.hpp
-)
-
-set(SOURCES
-    ${SRC_ROOT}/main.cpp
+    ${INCLUDE_ROOT}/army_factory.hpp
+    ${INCLUDE_ROOT}/unit_factory.hpp
 )
 
 set(SHARED_SOURCES
@@ -28,15 +26,23 @@ set(SHARED_SOURCES
     ${SRC_ROOT}/character.cpp
     ${SRC_ROOT}/storage.cpp
     ${SRC_ROOT}/weapon.cpp
+    ${SRC_ROOT}/army_factory.cpp
+    ${SRC_ROOT}/unit_factory.cpp
 )
 
 include_directories(
     ${INCLUDE_ROOT}
 )
 
-add_executable(${PROJECT_NAME} ${HEADERS} ${SOURCES} ${SHARED_SOURCES})
+add_executable(${PROJECT_NAME}_multithread_game ${HEADERS} ${SRC_ROOT}/main.cpp
+${SHARED_SOURCES})
 
-target_compile_features(${PROJECT_NAME} PRIVATE cxx_range_for)
+target_compile_features(${PROJECT_NAME}_multithread_game PRIVATE cxx_range_for)
+
+add_executable(${PROJECT_NAME}_pattern_army ${HEADERS} ${SRC_ROOT}/pattern_army_main.cpp
+${SHARED_SOURCES})
+
+target_compile_features(${PROJECT_NAME}_pattern_army PRIVATE cxx_range_for)
 
 #----------- precompiled -----------
 #set_target_properties(${PROJECT_NAME} PROPERTIES COTIRE_CXX_PREFIX_HEADER_INIT "${STDAFX_H}")
