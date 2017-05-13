@@ -90,8 +90,10 @@ void battle(std::string name1, std::string name2) {
     fighter1.join();
     fighter2.join();
     
-    std::unique_lock<std::mutex> lock_stage(stage_mutex);
-    std::unique_lock<std::mutex> lock_stadium(stadium_mutex);
+    std::unique_lock<std::mutex> lock_stage(stage_mutex, std::defer_lock);
+    std::unique_lock<std::mutex> lock_stadium(stadium_mutex, std::defer_lock);
+    
+    std::lock(lock_stage, lock_stadium);
 
     try {
         if (st[name1].get_health() > 0) {
@@ -114,37 +116,29 @@ void battle(std::string name1, std::string name2) {
 }
 
 void fighting() {
-    std::vector<std::future<void>> battles;
     while (true) {
         std::unique_lock<std::mutex> lock_stadium(stadium_mutex);
-        if (s.get_units_count() <= 1) {
-            if (battles.empty()) {
-                auto res = enough_units_for_battle.wait_for(lock_stadium, std::chrono::seconds(1));
-                if (res == std::cv_status::timeout && s.get_units_count() <= 1) {
-                    std::unique_lock<std::mutex> lock_cout(cout_mutex);
+        while (s.get_units_count() < 2) {
+            {
+                lock_stadium.unlock();
+                std::unique_lock<std::mutex> lock_barracks(barracks_mutex);
+                std::unique_lock<std::mutex> lock_stage(stage_mutex);
+                lock_stadium.lock();
+                if (b.get_units_count() + st.get_units_count() + s.get_units_count() == 1) {
                     colored_output("☠️  Looks like there is nobody to wait...\n🏆  The winner is " + s.get_unit_names()[0], Yellow, Bold);
-                    break;
-                } else
-                    continue;
-            } else {
-                for (auto it = battles.begin(); it != battles.end();) {
-                    
-                    if (it -> wait_for(std::chrono::seconds(0)) == std::future_status::ready)
-                        it = battles.erase(it);
-                    else
-                        it++;
+                    return;
                 }
-                enough_units_for_battle.wait_for(lock_stadium, std::chrono::seconds(1));
-                continue;
             }
+            enough_units_for_battle.wait(lock_stadium);
         }
-        std::vector<std::string> units = s.get_unit_names();
-        std::unique_lock<std::mutex> lock_stage(stage_mutex);
         
+        std::vector<std::string> units = s.get_unit_names();
+
+        std::unique_lock<std::mutex> lock_stage(stage_mutex);
         st.add_unit(s.get_unit(units[0]));
         st.add_unit(s.get_unit(units[1]));
-        
-        battles.emplace_back(std::async(std::launch::async, battle, units[0], units[1]));
+
+        std::thread(battle, units[0], units[1]).detach();
     }
 }
 
