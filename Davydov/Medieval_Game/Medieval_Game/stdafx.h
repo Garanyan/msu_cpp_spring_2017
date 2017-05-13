@@ -10,6 +10,10 @@
 #include <stdio.h>
 #include <tchar.h>
 
-
+#include <memory>
+#include <string>
+#include <iostream>
 
 // TODO: Установите здесь ссылки на дополнительные заголовки, требующиеся для программы
+
+using Point = double;

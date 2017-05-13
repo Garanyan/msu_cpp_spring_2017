@@ -1,51 +1,16 @@
-#pragma once
-#include "..//MCS_MGame2//Weapons.cpp"
+#include "stdafx.h"
 
+#include "..//Medieval_Game/Headers/Armor.h"
 
-enum class ArmorType
-{
-	Unarmored,
-	Leather,
-	Chain,
-	Plate
-};
-
-class Armor
-{
-private:
-	Armor(const Armor& copied) = delete;
-	Armor& operator=(const Armor& copied) = delete;
-
-public:
-	Armor() {};
-	virtual ~Armor();
-//	std::string ArmorName;
-	virtual Point getProtection(DamageType damage) const = 0;
-	virtual ArmorType getType()  const = 0;
-
-/*	const std::string& getName() const
-	{
-		return ArmorName;
-	}*/
-};
-
-Armor::~Armor() 
-{
-
-};
-
-template<class ArmorTraits>
-
-struct ArmorImpl : public Armor
-{};
-
-/*struct ChainArmorTraits {
+/*
+struct ChainArmorTraits {
 	
 	static constexpr Point getProtection(BluntDamage&) { return 10; };
 	static constexpr Point getProtection(SlashingDamage&) { return 30; };
 	static constexpr Point getProtection(PiercingDamage&) { return 20; };
 
-};*/
+};
+*/
 //enum Armors
 
 struct ChainArmor
@@ -58,6 +23,7 @@ struct ChainArmor
 	~ChainArmor() {};
 
 	Point getProtection(DamageType damage) const override
+	//Point getProtection(DamageType damage) const override
 	{
 		switch (damage)
 		{
