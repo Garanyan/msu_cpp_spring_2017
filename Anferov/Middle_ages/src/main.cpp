@@ -62,7 +62,7 @@ void dressing_and_going_to_stadium(std::string name, weapon_type weap, armor_typ
 
 void hit_sequence(std::string attacker, std::string defender) {
     while (true) {
-        std::this_thread::sleep_for(std::chrono::milliseconds(random() % 1000));
+        std::this_thread::sleep_for(std::chrono::milliseconds(random() % 100));
         std::unique_lock<std::mutex> lock_stage(stage_mutex);
         try {
             if (st[attacker].get_health() > 0 && st[defender].get_health() > 0) {
