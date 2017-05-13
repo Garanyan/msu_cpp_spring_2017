@@ -7,6 +7,7 @@
 #include "character.hpp"
 #include "storage.hpp"
 #include "arsenal.hpp"
+#include "semaphore.hpp"
 
 arsenal a;
 barracks b;
@@ -21,6 +22,7 @@ std::mutex stage_mutex;
 std::mutex cout_mutex;
 
 std::condition_variable enough_units_for_battle;
+Semaphore ready_to_dress(4);
 
 enum Attributes {
     Normal = 0,
@@ -58,6 +60,7 @@ void dressing_and_going_to_stadium(std::string name, weapon_type weap, armor_typ
     std::unique_lock<std::mutex> lock_cout(cout_mutex);
     colored_output( "🏃🏻  " + name + " got " + s[name].get_weapon_name() + " and " + s[name].get_armor_name() + " and went to stadium.", Purple);
     enough_units_for_battle.notify_one();
+    ready_to_dress.up();
 }
 
 void hit_sequence(std::string attacker, std::string defender) {
@@ -163,14 +166,14 @@ int main() {
     std::thread fight_proccess(fighting);
     
     for (int i=0; i<20; i+=4) {
-        std::thread u1(dressing_and_going_to_stadium, "Unit"+std::to_string(i+0), SHOVEL, CHAIN_ARMOUR);
-        std::thread u2(dressing_and_going_to_stadium, "Unit"+std::to_string(i+1), SWORD, LAT);
-        std::thread u3(dressing_and_going_to_stadium, "Unit"+std::to_string(i+2), HAMMER, CHAIN_ARMOUR);
-        std::thread u4(dressing_and_going_to_stadium, "Unit"+std::to_string(i+3), BOW, LAT);
-        u1.join();
-        u2.join();
-        u3.join();
-        u4.join();
+        ready_to_dress.down();
+        std::thread(dressing_and_going_to_stadium, "Unit"+std::to_string(i+0), SHOVEL, CHAIN_ARMOUR).detach();
+        ready_to_dress.down();
+        std::thread(dressing_and_going_to_stadium, "Unit"+std::to_string(i+1), SWORD, LAT).detach();
+        ready_to_dress.down();
+        std::thread(dressing_and_going_to_stadium, "Unit"+std::to_string(i+2), HAMMER, CHAIN_ARMOUR).detach();
+        ready_to_dress.down();
+        std::thread(dressing_and_going_to_stadium, "Unit"+std::to_string(i+3), BOW, LAT).detach();
     }
     
     fight_proccess.join();

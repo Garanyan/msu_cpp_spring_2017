@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		785049691EC742C700571EA8 /* semaphore.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 785049681EC742C700571EA8 /* semaphore.cpp */; };
 		786C56211EC60B8800CE41FF /* armor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 786C561A1EC60B8800CE41FF /* armor.cpp */; };
 		786C56221EC60B8800CE41FF /* army_factory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 786C561B1EC60B8800CE41FF /* army_factory.cpp */; };
 		786C56231EC60B8800CE41FF /* character.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 786C561C1EC60B8800CE41FF /* character.cpp */; };
@@ -61,6 +62,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		785049681EC742C700571EA8 /* semaphore.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = semaphore.cpp; path = src/semaphore.cpp; sourceTree = "<group>"; };
 		786C56091EC5FDA400CE41FF /* unit_factory.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = unit_factory.cpp; path = src/unit_factory.cpp; sourceTree = "<group>"; };
 		786C560B1EC6032800CE41FF /* army_factory.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = army_factory.cpp; path = src/army_factory.cpp; sourceTree = "<group>"; };
 		786C560D1EC60AB700CE41FF /* pattern_army_main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = pattern_army_main.cpp; path = src/pattern_army_main.cpp; sourceTree = "<group>"; };
@@ -117,6 +119,7 @@
 		78D2C7A81E98C62200AB52C4 = {
 			isa = PBXGroup;
 			children = (
+				785049681EC742C700571EA8 /* semaphore.cpp */,
 				786C56281EC60FBD00CE41FF /* CMakeLists.txt */,
 				786C561A1EC60B8800CE41FF /* armor.cpp */,
 				786C561B1EC60B8800CE41FF /* army_factory.cpp */,
@@ -289,6 +292,7 @@
 				78D2C7BE1E98C6EC00AB52C4 /* armor.cpp in Sources */,
 				78D2C7C01E98C6F300AB52C4 /* arsenal.cpp in Sources */,
 				78D2C7C21E98C6F700AB52C4 /* character.cpp in Sources */,
+				785049691EC742C700571EA8 /* semaphore.cpp in Sources */,
 				78D2C7C81E98C70500AB52C4 /* weapon.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -453,6 +457,7 @@
 				786C56191EC60AE200CE41FF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		78C2CC031E98CA9A00529B7C /* Build configuration list for PBXNativeTarget "Middle_ages_unit_tests" */ = {
 			isa = XCConfigurationList;
