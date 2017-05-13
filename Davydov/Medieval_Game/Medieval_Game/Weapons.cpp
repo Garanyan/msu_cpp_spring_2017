@@ -1,49 +1,9 @@
-#pragma once
-#include <string>
+#include "stdafx.h"
+
+#include "..//Medieval_Game/Headers/Weapons.h"
 
 
-using Point = double;
 
-enum class DamageType
-{
-	Blunt,
-	Slashing,
-	Piercing
-};
-enum class WeaponType
-{
-	Martial,
-	Swords,
-	Hummers,
-};
-
-struct BluntDamage {};
-struct SlashingDamage {};
-struct PiercingDamage {};
-
-
-class Weapon
-{
-private:
-	Weapon(const Weapon& copied) = delete;
-	Weapon& operator=(const Weapon& copied) = delete;
-
-public:
-	Weapon() {};
-	virtual ~Weapon() {};
-	//	enum weapon_type { shovel, sword, bow, hammer };
-	//	int penetration[4][2];
-	std::string WeaponName;
-	virtual DamageType getDamageType() const = 0;
-	virtual Point getDamage() const = 0;
-	virtual WeaponType getType() const = 0;
-	
-	const std::string& getName() const
-	{
-		return WeaponName;
-	}
-
-};
 //enum traits 
 template<class WeaponTraits>
 struct WeaponImpl : public Weapon
