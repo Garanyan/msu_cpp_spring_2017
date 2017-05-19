@@ -20,22 +20,21 @@ class Armor
     public:
         Armor(){};
         virtual ~Armor()=default;
-        // Armor(const std::string& name, int resistance, int exhaust);
          Armor(const Armor& /*copied*/) = delete;
          Armor& operator=(const Armor& /*copied*/) = delete;
          virtual ArmorType getType() const = 0;
         virtual Points getProtection(DamageType ) const = 0;
-    /*
-         void setExhaust(int);
-         void setResistance(int);
-
+    
+         void setExhaust(Points);
+         void setResistance(Points);
+/*
          int getExhaust(void);
          Points getResistance(void);
     */
     protected:
-		ArmorType type;
+		
 		Points resistance;
-		int exhaust;
+		Points exhaust;
 };
 
 class FullPlateArmor final: public Armor
@@ -44,7 +43,7 @@ class FullPlateArmor final: public Armor
         FullPlateArmor();
         ArmorType getType() const override
         {
-            return type;
+            return ArmorType::Plates;
         }
         Points getProtection(DamageType) const override;
 };
@@ -55,7 +54,7 @@ class LightSuit final: public Armor
         LightSuit();
         ArmorType getType() const override
         {
-            return type;
+            return ArmorType::Chains;
         }
         Points getProtection(DamageType) const override;
 };
@@ -66,7 +65,7 @@ class Naked final: public Armor
         Naked();
         ArmorType getType() const override
         {
-            return type;
+            return ArmorType::Unarmored;
         }
         Points getProtection(DamageType dmg ) const override;
 };

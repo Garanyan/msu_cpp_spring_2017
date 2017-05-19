@@ -28,8 +28,14 @@ int main(){
 
 	barrack["0"].setArmor(arsenal.getArmor(ArmorType::Plates));
 	barrack["1"].setArmor(arsenal.getArmor(ArmorType::Chains));
+	barrack["3"].setArmor(arsenal.getArmor(ArmorType::Chains));
+	barrack["1"].setArmorResistance(10);
+	
 	barrack["0"].setWeapon(arsenal.getWeapon(DamageType::BOW));
 	barrack["1"].setWeapon(arsenal.getWeapon(DamageType::SWORD));
+	barrack["3"].setWeapon(arsenal.getWeapon(DamageType::HUMMER));
+	barrack["1"].setWeaponDamage(150);
+
 
     std::cout <<"0["<< barrack["0"].getHP()<<"] attack 1["<< barrack["1"].getHP()<<"]\n";
     barrack["1"].attack(barrack["0"]);
@@ -37,4 +43,7 @@ int main(){
 	barrack.battleToDeath(barrack["1"], barrack["0"]);
 	std::cout << "1[" << barrack["1"].getHP() << "] and 0[" << barrack["0"].getHP() << "]\n";
 
+	std::cout << "1[" << barrack["1"].getHP() << "] fights with 3[" << barrack["3"].getHP() << "]\n";
+	barrack.battleToDeath(barrack["1"], barrack["3"]);
+	std::cout << "1[" << barrack["1"].getHP() << "] and 3[" << barrack["3"].getHP() << "]\n";
 }

@@ -1,5 +1,5 @@
 #include "../include/weapon.h"
-//#include "../include/armor.h"
+#include "../include/armor.h"
 #include <assert.h>
 Sword ::Sword() : Weapon() {
         type = DamageType::SWORD;
@@ -35,44 +35,25 @@ Fist::Fist() : Weapon() {
 
 
 
-/*
-Points Hammer::getDamage(ArmorType  armor)const {
-	switch (armor) {
-    case ArmorType::Unarmored: return damage*2;
-    case ArmorType::Chains: return damage + penetration /2;
-    case ArmorType::Plates: return damage + penetration;
-    }
-    assert(!"Invalid armor type");
-        return 0;
+
+Points Hammer::getDamage()const {
+	return damage / 2 + speed / 3;
 }
 
-Points Sword::getDamage(ArmorType  armor)const {
-	switch (armor) {
-    case ArmorType::Unarmored: return damage;
-    case ArmorType::Chains: return damage + penetration;
-    case ArmorType::Plates: return damage + penetration/3;
-    }
-    assert(!"Invalid armor type");
-        return 0;
+Points Sword::getDamage()const {
+    return damage + penetration / 3;
 }
 
-Points Bow::getDamage(ArmorType  armor)const {
-	switch (armor) {
-    case ArmorType::Unarmored: return damage;
-    case ArmorType::Chains: return damage + penetration /2;
-    case ArmorType::Plates: return damage + penetration;
-    }
-    assert(!"Invalid armor type");
-        return 0;
+Points Bow::getDamage()const {
+	
+	return damage + range / 2;
 }
 
-Points Fist::getDamage (ArmorType  armor)const{
-    switch(armor){
-    case ArmorType::Unarmored: return damage;
-    case ArmorType::Chains: return 0;
-    case ArmorType::Plates: return 0 ;
-    }
-    assert(!"Invalid armor type");
-        return 0;
+Points Fist::getDamage()const{
+
+	return 5;
 }
-*/
+
+void Weapon::setDamage(Points x){
+	damage = x;
+}

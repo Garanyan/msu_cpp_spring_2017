@@ -63,14 +63,26 @@ std::string Person::getName() {
 	return name;
 }
 
-void Knight::attack(Person& enemy){
-    healthPoints-= charArmor->getProtection(enemy.getWeaponType()) /(agility+speed);
+void Person::attack(Person& enemy){
+	healthPoints -= charArmor->getProtection(enemy.getWeaponType()) / (agility + speed) + enemy.getWeaponDamage();
 }
 
+void Person::setArmorResistance(Points x) {
+	charArmor->setResistance(x);
+}
+
+void Person::setWeaponDamage(Points x){
+	charWeapon->setDamage(x);
+}
+
+Points Person::getWeaponDamage() {
+	return charWeapon->getDamage();
+}
+/*
 void Peasant::attack(Person& enemy) {
 	healthPoints -= charArmor->getProtection(enemy.getWeaponType()) / (agility + speed);
 }
 
 void Sharp::attack(Person& enemy) {
 	healthPoints -= charArmor->getProtection(enemy.getWeaponType()) / (agility + speed);
-}
+}*/

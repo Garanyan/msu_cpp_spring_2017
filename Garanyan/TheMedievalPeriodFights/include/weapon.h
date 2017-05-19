@@ -32,9 +32,10 @@ class Weapon
          int getRange(void);
          int getSpeed(void);
          int getPenetration(void);*/
+		void setDamage(Points);
 
          virtual DamageType getDamageType() const = 0;
-         //virtual Points getDamage(ArmorType  armor) const = 0;
+         virtual Points getDamage() const = 0;
 
     protected:
         DamageType type;
@@ -52,7 +53,7 @@ public:
 	DamageType getDamageType()const override {
 		return type;
 	}
-	//Points getDamage(ArmorType   armor) const override;
+	Points getDamage() const override;
 };
 
 class Hammer final: public Weapon{
@@ -61,7 +62,7 @@ public:
 	DamageType getDamageType()const override{
 		return type;
 	}
-	//Points getDamage(ArmorType   armor) const override;
+	Points getDamage() const override;
 };
 
 class Bow final: public Weapon{
@@ -70,7 +71,7 @@ public:
 	DamageType getDamageType()const override {
 		return type;
 	}
-	//Points getDamage(ArmorType   armor) const override;
+	Points getDamage() const override;
 };
 
 class Fist final: public Weapon{
@@ -79,6 +80,6 @@ public:
 	DamageType getDamageType()const override {
 		return type;
 	}
-	//Points getDamage(ArmorType   armor) const override;
+	Points getDamage() const override;
 };
 #endif // WEAPON_H_INCLUDED

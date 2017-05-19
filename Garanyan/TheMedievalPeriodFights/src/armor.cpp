@@ -3,8 +3,17 @@
 #include <assert.h>
 #include "../include/weapon.h"
 
+void Armor::setExhaust(Points x) {
+	if(exhaust!=0)
+		exhaust = x;
+}
+
+void Armor::setResistance(Points x) {
+	if(resistance!=0)
+		resistance = x;
+}
+
 FullPlateArmor::FullPlateArmor() : Armor(){
-	type = ArmorType::Plates;
     resistance = 5;
     exhaust = 2;
 }
@@ -22,7 +31,6 @@ Points FullPlateArmor::getProtection(DamageType damage) const {
 }
 
 LightSuit::LightSuit() : Armor(){
-    type = ArmorType::Chains;
     resistance = 3;
     exhaust = 10;
 }
@@ -40,7 +48,6 @@ Points LightSuit::getProtection(DamageType damage) const {
 }
 
 Naked::Naked() : Armor(){
-    type = ArmorType::Unarmored;
     resistance = 0;
     exhaust = 0;
 }
