@@ -1,6 +1,6 @@
 #include "stdafx.h"
 
-#include "../src/t9.h"
+#include "../include/t9.h"
 
 class test
     : public ::testing::Test
@@ -11,7 +11,6 @@ protected:
 
 TEST_F(test, translate_chars)
 {
-    mutko.set();
     EXPECT_STREQ("2", mutko.translate("a").c_str());
     EXPECT_STREQ("22", mutko.translate("b").c_str());
     EXPECT_STREQ("222", mutko.translate("c").c_str());
@@ -49,7 +48,6 @@ TEST_F(test, translate_chars)
 
 TEST_F(test, translate_words)
 {
-    mutko.set();
     EXPECT_STREQ("0 044 444",
         mutko.translate("  hi").c_str());
 
@@ -77,7 +75,6 @@ TEST_F(test, translate_words)
 
 TEST_F(test, errors)
 {
-    mutko.set();
     EXPECT_THROW(mutko.translate(""), std::invalid_argument);
     EXPECT_THROW(mutko.translate("1"), std::invalid_argument);
     EXPECT_THROW(mutko.translate("a1"), std::invalid_argument);

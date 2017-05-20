@@ -17,7 +17,6 @@ int main(int argc, char** argv)
 		return EXIT_FAILURE;
 	}
 	T9 mutko;
-	mutko.set();
 	for (int i = 0; i < n; ++i)
 	{
 		std::string str;

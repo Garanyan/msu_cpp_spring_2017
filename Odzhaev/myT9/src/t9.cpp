@@ -3,7 +3,7 @@
 #include "t9.h"
 
 
-void T9::set()
+T9::T9()
 {
 	t_nine.push_back(Data(' ',"0"));
 	t_nine.push_back(Data('a',"2"));
@@ -40,6 +40,11 @@ std::string T9::translate(const std::string& str)
 	if (str.empty()) {
 	        throw std::invalid_argument("String is empty");
 	}
+/*	sort(t_nine.begin(),t_nine.end(),DataCompare());
+	for(DATAES::iterator i=t_nine.begin();i!=t_nine.end();++i)
+	{std::cout<<(*i).first<<" "<<(*i).second<<std::endl;
+}
+*/
 	std::string res="";
 	std::string tmp="",curr="";
 	for (char symbol : str) 
